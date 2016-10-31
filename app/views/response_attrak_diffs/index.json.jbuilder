@@ -1,0 +1,1 @@
+json.array! @response_attrak_diffs, partial: 'response_attrak_diffs/response_attrak_diff', as: :response_attrak_diff

@@ -1,0 +1,77 @@
+<%= form_for(response_su) do |f| %>
+  <% if response_su.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(response_su.errors.count, "error") %> prohibited this response_su from being saved:</h2>
+
+      <ul>
+      <% response_su.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Q1 %>
+    <%= f.number_field :Q1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q2 %>
+    <%= f.number_field :Q2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q3 %>
+    <%= f.number_field :Q3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q4 %>
+    <%= f.number_field :Q4 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q5 %>
+    <%= f.number_field :Q5 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q6 %>
+    <%= f.number_field :Q6 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q7 %>
+    <%= f.number_field :Q7 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q8 %>
+    <%= f.number_field :Q8 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q9 %>
+    <%= f.number_field :Q9 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Q10 %>
+    <%= f.number_field :Q10 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :respondent_id %>
+    <%= f.text_field :respondent_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :project_id %>
+    <%= f.text_field :project_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

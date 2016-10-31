@@ -1,0 +1,1 @@
+json.partial! "response_attrak_diffs/response_attrak_diff", response_attrak_diff: @response_attrak_diff

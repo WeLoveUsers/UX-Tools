@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  questionnaire_id: MyString
+  questionnaire_language: MyString
+  product_type: MyString
+  product_name: MyString
+  project_code: MyString
+  end_date: 2016-10-31 16:10:22
+  uri_token: MyString
+  user: one
+
+two:
+  questionnaire_id: MyString
+  questionnaire_language: MyString
+  product_type: MyString
+  product_name: MyString
+  project_code: MyString
+  end_date: 2016-10-31 16:10:22
+  uri_token: MyString
+  user: two

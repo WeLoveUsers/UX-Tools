@@ -1,0 +1,204 @@
+<div class="ui container">
+  <div class="ui segment">
+    <h2>Evaluez "<%= @project.product_name %>"</h2>
+    <%= form_for(response, :html => {:class => "ui huge-radio form"}) do |f| %>
+  		<table class="ui selectable very basic large table">
+  		  <tbody>
+          <tr>
+  		      <td>&nbsp;</td>
+  		      <td class="right aligned">Pas du tout d'accord</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>Tout à fait d'accord</td>
+          </tr>
+  		    <tr>
+  		      <td>Je pense que j'aimerais utiliser ce système fréquemment.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="1"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="5"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>J'ai trouvé ce système inutilement complexe.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="5"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="1"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>J'ai trouvé ce système facile à utiliser.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="1"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="5"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>Je pense que j'aurais besoin d'un support technique pour être capable d'utiliser ce système.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="5"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="1"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>J'ai trouvé que les différentes fonctions de ce système étaient bien intégrées.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="1"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="5"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>J'ai trouvé qu'il y avait trop d'incohérence dans ce système.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="5"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="1"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>Je suppose que la plupart des gens apprendraient très rapidement à utiliser ce système.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="1"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="5"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>J'ai trouvé ce système très contraignant à utiliser.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="5"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="1"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>Je me suis senti(e) très confiant(e) en utilisant ce système.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="1"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="5"><label></label></div>
+            </td>
+  		    </tr>
+          <tr>
+  		      <td>J'ai du apprendre beaucoup de choses avant de me sentir familiarisé(e) avec ce système.</td>
+            <td nowrap class="middle aligned right aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="5"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="4"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="3"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned center aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="2"><label></label></div>
+            </td>
+            <td nowrap class="middle aligned left aligned">
+              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="1"><label></label></div>
+            </td>
+  		    </tr>
+        </tbody>
+      </table>
+      <input type="text" name="uri_token" value="<%= @project.uri_token %>">
+
+      <div class="ui right aligned container">
+        <%= f.submit "Envoyer", :class => "ui primary submit button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

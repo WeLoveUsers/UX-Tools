@@ -9,12 +9,58 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+    <div class="ui fixed menu">
+      <div class="ui container">
+        <a href="<%= root_path %>" class="item">Accueil</a>
+        <a href="<%= projects_path %>" class="item">Questionnaires UX</a>
+        <% if user_signed_in? %>
+        <div class="ui simple dropdown right item">
+          <i class="user icon"></i> <%= current_user.email %> <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">
+              <%= link_to 'Modifier mon compte', edit_user_registration_path %>
+            </div>
+            <div class="item">
+              <%= link_to "Déconnexion", destroy_user_session_path, method: :delete  %>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="right menu">
+          <div class="item">
+            <%= link_to "Connexion", new_user_session_path, :class => 'ui button'  %>
+          </div>
+          <div class="item">
+            <%= link_to "Créer un compte", new_user_registration_path, :class => 'ui primary button'  %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="ui container">
+      <% if notice %>
+        <div class="ui success message">
+          <i class="close icon"></i>
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="ui error message">
+          <i class="close icon"></i>
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+    <div class="ui vertical footer segment">
+      <div class="ui center aligned container">
+        <p><img class="logo" src="<%= image_path('we-love-users-logo(50x50).gif')%>"></p>
+        <p>2106 © We Love Users</p>
+      </div>
+    </div>
+
   </body>
 </html>

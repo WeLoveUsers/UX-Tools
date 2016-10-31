@@ -1,4 +1,25 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<h1 class="ui header">
+  Questionnaires UX
+  <div class="sub header">Évaluez vos produits grace aux questionnaires UX.</div>
+</h1>
+
+<a href="<%= new_project_path %>" class="ui primary button">Nouvelle évaluation</a>
+
+<div class="ui celled grid">
+  <% @projects.each do |project| %>
+  <a href="<%= url_for project %>" class="row">
+    <div class="five wide column">
+      <div class="ui header"><%= project.product_name %> - <%= project.project_code %></div>
+    </div>
+    <div class="five wide column">
+      <%= project.questionnaire_id %> (<%= project.questionnaire_language %>)
+    </div>
+    <div class="three wide column">
+      <%= project.product_type %>
+    </div>
+    <div class="three wide column">
+      <%= l project.end_date, format: :short %>
+    </div>
+  </a>
+  <% end %>
+</div>

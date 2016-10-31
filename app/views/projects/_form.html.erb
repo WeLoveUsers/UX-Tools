@@ -1,0 +1,52 @@
+<%= form_for(project) do |f| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :questionnaire_id %>
+    <%= f.select :questionnaire_id, Project.questionnaireTypes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :questionnaire_language %>
+    <%= f.select :questionnaire_language, Project.questionnaireLanguages %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_type %>
+    <%= f.select :product_type, Project.productTypes, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_name %>
+    <%= f.text_field :product_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :project_code %>
+    <%= f.text_field :project_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <div class="ui date calendar">
+      <div class="ui input left icon">
+        <i class="calendar icon"></i>
+        <input type="text" name="project[end_date]" id="project_end_date" placeholder="Date" value="<%= project.end_date %>">
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

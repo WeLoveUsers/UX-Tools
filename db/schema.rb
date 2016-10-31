@@ -10,10 +10,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031105049) do
+ActiveRecord::Schema.define(version: 20161031142145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "questionnaire_id"
+    t.string   "questionnaire_language"
+    t.string   "product_type"
+    t.string   "product_name"
+    t.string   "project_code"
+    t.datetime "end_date"
+    t.string   "uri_token"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["uri_token"], name: "index_projects_on_uri_token", unique: true, using: :btree
+    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
+  end
+
+  create_table "response_attrak_diffs", force: :cascade do |t|
+    t.integer  "ATT1"
+    t.integer  "ATT2"
+    t.integer  "ATT3"
+    t.integer  "ATT4"
+    t.integer  "ATT5"
+    t.integer  "ATT6"
+    t.integer  "ATT7"
+    t.integer  "QP1"
+    t.integer  "QP2"
+    t.integer  "QP3"
+    t.integer  "QP4"
+    t.integer  "QP5"
+    t.integer  "QP6"
+    t.integer  "QP7"
+    t.integer  "QHS1"
+    t.integer  "QHS2"
+    t.integer  "QHS3"
+    t.integer  "QHS4"
+    t.integer  "QHS5"
+    t.integer  "QHS6"
+    t.integer  "QHS7"
+    t.integer  "QHI1"
+    t.integer  "QHI2"
+    t.integer  "QHI3"
+    t.integer  "QHI4"
+    t.integer  "QHI5"
+    t.integer  "QHI6"
+    t.integer  "QHI7"
+    t.string   "respondent_id"
+    t.integer  "project_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["project_id"], name: "index_response_attrak_diffs_on_project_id", using: :btree
+  end
+
+  create_table "response_sus", force: :cascade do |t|
+    t.integer  "Q1"
+    t.integer  "Q2"
+    t.integer  "Q3"
+    t.integer  "Q4"
+    t.integer  "Q5"
+    t.integer  "Q6"
+    t.integer  "Q7"
+    t.integer  "Q8"
+    t.integer  "Q9"
+    t.integer  "Q10"
+    t.string   "respondent_id"
+    t.integer  "project_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["project_id"], name: "index_response_sus_on_project_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +101,7 @@ ActiveRecord::Schema.define(version: 20161031105049) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "projects", "users"
+  add_foreign_key "response_attrak_diffs", "projects"
+  add_foreign_key "response_sus", "projects"
 end

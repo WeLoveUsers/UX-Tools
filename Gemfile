@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 
 # Use Devise for user authentication
 gem 'devise'
+gem 'devise-i18n'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails-i18n'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -47,5 +49,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Semantic UI assets
+gem 'therubyracer'
+gem 'less-rails-semantic_ui', '~> 2.2.4'
+gem 'autoprefixer-rails', '~> 6.5.1'
 
 ruby "2.3.1"

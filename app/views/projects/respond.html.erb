@@ -1,0 +1,9 @@
+<% if @project.end_date >= Date.today %>
+  <% if !@showForm %>
+    <%= render @project.questionnaire_template, project: @project %>
+  <% else %>
+    <%= render @form, project: @project, response: @response %>
+  <% end %>
+<% else %>
+  <p>L'évaluation est terminée (date de fin : <%= @project.end_date %>)</p>
+<% end %>

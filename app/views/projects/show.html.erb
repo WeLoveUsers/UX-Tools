@@ -1,0 +1,52 @@
+<h1 class="ui header">
+  <%= @project.product_name %> - <%= @project.project_code %>
+</h1>
+
+<a href="<%= projects_path %>" class="ui button">Retour</a>
+<a href="<%= edit_project_path(@project) %>" class="ui button">Modifier</a>
+
+<h2 class="ui header">Description</h2>
+
+<table class="ui very basic table">
+  <tbody>
+    <tr>
+      <td width="20%" nowrap>Questionnaire :</td>
+      <td><%= @project.questionnaire_id %> (<%= @project.questionnaire_language %>)</td>
+    </tr>
+    <tr>
+      <td nowrap>Type de produit :</td>
+      <td><div class="ui basic label"><%= @project.product_type %></div></td>
+    </tr>
+    <tr>
+      <td nowrap>Date de fin de l'évaluation :</td>
+      <td><%= l @project.end_date, format: :long %></td>
+    </tr>
+    <tr>
+      <td nowrap>Lien public pour répondre :</td>
+      <td><%= link_to project_public_respond_url(@project.uri_token), project_public_respond_path(@project.uri_token) %> <div class="ui small button">copier</div></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="ui header">Résultats</h2>
+
+<div class="ui segment">
+  <div class="ui statistics">
+    <div class="statistic">
+      <div class="label">
+        Réponses
+      </div>
+      <div class="value">
+        <%= @project.response_sus.count %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        Score SUS
+      </div>
+      <div class="value">
+        78.5/100
+      </div>
+    </div>
+  </div>
+</div>

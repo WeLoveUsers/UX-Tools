@@ -1,0 +1,36 @@
+body, html {
+  font-size: 19px;
+}
+body {
+  margin-top:6em;
+}
+body.response.public {
+  margin-top:2em;
+}
+.ui.menu .item img.logo {
+  margin-right: 1.5em;
+}
+.main.container {
+  margin-top: 7em;
+}
+.wireframe {
+  margin-top: 2em;
+}
+.ui.footer.segment {
+  margin: 5em 0em 0em;
+  padding: 5em 0em;
+}
+.ui.huge-radio.form .ui.radio.checkbox .box:before,
+.ui.huge-radio.form .ui.radio.checkbox label:before,
+.ui.huge-radio.form .ui.radio.checkbox .box:after,
+.ui.huge-radio.form .ui.radio.checkbox label:after,
+.ui.huge-radio.form .ui.checkbox input[type="checkbox"],
+.ui.huge-radio.form .ui.checkbox input[type="radio"] {
+  width: 30px;
+  height: 30px;
+}
+.ui.huge-radio.form .ui.radio.checkbox {
+  line-height: 30px;
+  min-height: 30px;
+  min-width: 30px;
+}

@@ -1,0 +1,1 @@
+json.partial! "response_sus/response_su", response_su: @response_su
