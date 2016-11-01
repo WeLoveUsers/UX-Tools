@@ -2,9 +2,9 @@
   Questionnaires UX
   <div class="sub header">Évaluez vos produits grace aux questionnaires UX.</div>
 </h1>
-
+<div class="ui right aligned container">
 <a href="<%= new_project_path %>" class="ui primary button">Nouvelle évaluation</a>
-
+</div>
 <div class="ui celled grid">
   <% @projects.each do |project| %>
   <a href="<%= url_for project %>" class="row">

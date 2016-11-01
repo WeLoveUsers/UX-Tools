@@ -32,7 +32,13 @@ class ProjectsController < ApplicationController
     if (params.has_key?(:step))
       case @project.questionnaire_id_clean
       when "attrakdiff"
-
+        case params[:step]
+        when "1"
+          @showForm = true
+          @form = @project.questionnaire_template + "_" + "step" + params[:step]
+          @response = ResponseAttrakDiff.new
+        else
+        end
       when "system_usability_scale"
         case params[:step]
         when "1"

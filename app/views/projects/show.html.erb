@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <td nowrap>Type de produit :</td>
-      <td><div class="ui basic label"><%= @project.product_type %></div></td>
+      <td><%= @project.product_type %></td>
     </tr>
     <tr>
       <td nowrap>Date de fin de l'évaluation :</td>
@@ -30,6 +30,7 @@
 
 <h2 class="ui header">Résultats</h2>
 
+<% if @project.questionnaire_id_clean == "system_usability_scale" %>
 <div class="ui segment">
   <div class="ui statistics">
     <div class="statistic">
@@ -42,11 +43,69 @@
     </div>
     <div class="statistic">
       <div class="label">
-        Score SUS
+        Score
       </div>
       <div class="value">
-        78.5/100
+        <%= @project.sus_score %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        Note
+      </div>
+      <div class="value">
+        <%= @project.sus_grade %>
       </div>
     </div>
   </div>
 </div>
+<% end %>
+
+<% if @project.questionnaire_id_clean == "attrakdiff" %>
+<div class="ui segment">
+  <div class="ui statistics">
+    <div class="statistic">
+      <div class="label">
+        Réponses
+      </div>
+      <div class="value">
+        <%= @project.response_attrak_diffs.count %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        MOYENNE QP
+      </div>
+      <div class="value">
+        <%= @project.attrakdiff_average_score[:QP] %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        MOYENNE QHS
+      </div>
+      <div class="value">
+        <%= @project.attrakdiff_average_score[:QHS] %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        MOYENNE QHI
+      </div>
+      <div class="value">
+        <%= @project.attrakdiff_average_score[:QHI] %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        MOYENNE ATT
+      </div>
+      <div class="value">
+        <%= @project.attrakdiff_average_score[:ATT] %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<a href="#" class="ui button">Télécharger les données brutes (.csv)</a>

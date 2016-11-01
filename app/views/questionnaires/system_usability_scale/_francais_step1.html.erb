@@ -194,7 +194,7 @@
   		    </tr>
         </tbody>
       </table>
-      <input type="text" name="uri_token" value="<%= @project.uri_token %>">
+      <input type="hidden" name="uri_token" value="<%= @project.uri_token %>">
 
       <div class="ui right aligned container">
         <%= f.submit "Envoyer", :class => "ui primary submit button" %>

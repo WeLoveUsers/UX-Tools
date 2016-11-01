@@ -1,6 +1,8 @@
 class ResponseAttrakDiffsController < ApplicationController
   before_action :set_response_attrak_diff, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!, except: [:create]
+
   # GET /response_attrak_diffs
   # GET /response_attrak_diffs.json
   def index
@@ -25,6 +27,7 @@ class ResponseAttrakDiffsController < ApplicationController
   # POST /response_attrak_diffs.json
   def create
     @response_attrak_diff = ResponseAttrakDiff.new(response_attrak_diff_params)
+    @response_attrak_diff.project = Project.find_by uri_token: params[:uri_token]
 
     respond_to do |format|
       if @response_attrak_diff.save
