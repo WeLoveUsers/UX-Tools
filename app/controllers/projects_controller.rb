@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
-  before_filter :authenticate_user!, except: [:respond]
+  before_action :authenticate_user!, except: [:respond]
 
   # GET /projects
   # GET /projects.json
@@ -11,7 +11,12 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   # GET /projects/1.json
+  # GET /projects/1.csv
   def show
+    respond_to do |format|
+      format.html
+      format.csv { send_data @project.responses.to_csv, filename: "questionnaire-ux-#{Date.today}.csv" }
+    end
   end
 
   # GET /projects/new
@@ -97,10 +102,15 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+      if current_user != @project.user
+        redirect_to root_path
+        return false
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :end_date, :uri_token, :user_id)
     end
+
 end

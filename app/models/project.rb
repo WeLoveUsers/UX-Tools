@@ -31,6 +31,16 @@ class Project < ApplicationRecord
     return 'questionnaires' + File::SEPARATOR + self.questionnaire_id_clean + File::SEPARATOR + self.questionnaire_language_clean
   end
 
+  def responses
+    if self.questionnaire_id_clean == "attrakdiff"
+      return self.response_attrak_diffs
+    elsif self.questionnaire_id_clean == "system_usability_scale"
+      return self.response_sus
+    else
+      return nil
+    end
+  end
+
 # System Usability Scale
   def sus_score
     score = 0
@@ -66,30 +76,30 @@ class Project < ApplicationRecord
 # Attrak Diff
   def attrakdiff_average_score
     score = {
-      QP: 0,
-      QHS: 0,
-      QHI: 0,
-      ATT: 0
+      QP: 0.00,
+      QHS: 0.00,
+      QHI: 0.00,
+      ATT: 0.00
     }
     count = 0
     sum = {
-      QP: 0,
-      QHS: 0,
-      QHI: 0,
-      ATT: 0
+      QP: 0.00,
+      QHS: 0.00,
+      QHI: 0.00,
+      ATT: 0.00
     }
     self.response_attrak_diffs.each do |response|
       count = count + 1
-      sum[:QP]  = sum[:QP]  + (response.QP1  + response.QP2  + response.QP3  + response.QP4  + response.QP5  + response.QP6  + response.QP7)  / 7
-      sum[:QHS] = sum[:QHS] + (response.QHS1 + response.QHS2 + response.QHS3 + response.QHS4 + response.QHS5 + response.QHS6 + response.QHS7) / 7
-      sum[:QHI] = sum[:QHS] + (response.QHI1 + response.QHI2 + response.QHI3 + response.QHI4 + response.QHI5 + response.QHI6 + response.QHI7) / 7
-      sum[:ATT] = sum[:QHS] + (response.ATT1 + response.ATT2 + response.ATT3 + response.ATT4 + response.ATT5 + response.ATT6 + response.ATT7) / 7
+      sum[:QP]  = sum[:QP]  + (response.QP1  + response.QP2  + response.QP3  + response.QP4  + response.QP5  + response.QP6  + response.QP7)
+      sum[:QHS] = sum[:QHS] + (response.QHS1 + response.QHS2 + response.QHS3 + response.QHS4 + response.QHS5 + response.QHS6 + response.QHS7)
+      sum[:QHI] = sum[:QHS] + (response.QHI1 + response.QHI2 + response.QHI3 + response.QHI4 + response.QHI5 + response.QHI6 + response.QHI7)
+      sum[:ATT] = sum[:QHS] + (response.ATT1 + response.ATT2 + response.ATT3 + response.ATT4 + response.ATT5 + response.ATT6 + response.ATT7)
     end
     if count > 0
-      score[:QP] = (sum[:QP] / count).round(2)
-      score[:QHS] = (sum[:QHS] / count).round(2)
-      score[:QHI] = (sum[:QHI] / count).round(2)
-      score[:ATT] = (sum[:ATT] / count).round(2)
+      score[:QP]  = (sum[:QP]  / (7 * count)).round(2)
+      score[:QHS] = (sum[:QHS] / (7 * count)).round(2)
+      score[:QHI] = (sum[:QHI] / (7 * count)).round(2)
+      score[:ATT] = (sum[:ATT] / (7 * count)).round(2)
     end
     return score
   end

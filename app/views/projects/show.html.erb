@@ -38,7 +38,7 @@
         Réponses
       </div>
       <div class="value">
-        <%= @project.response_sus.count %>
+        <%= @project.responses.count %>
       </div>
     </div>
     <div class="statistic">
@@ -69,7 +69,7 @@
         Réponses
       </div>
       <div class="value">
-        <%= @project.response_attrak_diffs.count %>
+        <%= @project.responses.count %>
       </div>
     </div>
     <div class="statistic">
@@ -108,4 +108,4 @@
 </div>
 <% end %>
 
-<a href="#" class="ui button">Télécharger les données brutes (.csv)</a>
+<a href="<%= url_for project_path(@project, format: "csv") %>" class="ui button">Télécharger les données brutes (.csv)</a>

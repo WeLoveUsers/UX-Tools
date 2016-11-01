@@ -1,7 +1,7 @@
 class ResponseAttrakDiffsController < ApplicationController
   before_action :set_response_attrak_diff, only: [:show, :edit, :update, :destroy]
 
-  before_filter :authenticate_user!, except: [:create]
+  before_action :authenticate_user!, except: [:create]
 
   # GET /response_attrak_diffs
   # GET /response_attrak_diffs.json

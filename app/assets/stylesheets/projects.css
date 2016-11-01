@@ -1,11 +1,14 @@
 body, html {
-  font-size: 19px;
+  font-size: 17px;
 }
 body {
   margin-top:6em;
 }
 body.response.public {
   margin-top:2em;
+}
+.login.column {
+  max-width: 20em;
 }
 .ui.menu .item img.logo {
   margin-right: 1.5em;
