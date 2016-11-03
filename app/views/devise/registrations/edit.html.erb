@@ -1,39 +1,54 @@
-<h2><%= t('.title', resource: resource_class.model_name.human) %></h2>
+<%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="ui middle aligned center aligned grid">
+  <div class="left aligned login column">
+    <h2 class="ui header"><%= t('.title', resource: resource_class.model_name.human) %></h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class => "ui large form"}) do |f| %>
+    <div class="ui stacked segment">
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <input autofocus="autofocus" placeholder="Adresse e-mail" type="email" value="<%= resource.email %>" name="user[email]" id="user_email">
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>
+          <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
+        </p>
+      <% end %>
+
+      <div class="field">
+        <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Mot de passe", data: { content: "6 caractères minimum" }, class: "field-popup" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmation du mot de passe" %>
+        </div>
+      </div>
+      <div class="field">
+        <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i>
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :current_password, autocomplete: "off", placeholder: "Mot de passe actuel" %>
+        </div>
+      </div>
+
+      <%= f.submit t('.update'), :class => "ui fluid large primary submit button" %>
+    </div>
+    <% end %>
+
+    <h3 class="ui header">Zone dangereuse</h3>
+    <div class="ui negative message">
+      <div class="header"><%= t('.cancel_my_account') %></div>
+      <p><%= t('.unhappy') %></p>
+      <p><%= link_to t('.cancel_my_account'), registration_path(resource_name), :class => "ui fluid red button", data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+    </div>
+
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <p>
-      <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
-    </p>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password %>
-  </div>
-
-  <div><%= f.submit t('.update') %></div>
-<% end %>
-
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= t('.unhappy') %> <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
-
-<%= link_to t('devise.shared.links.back'), :back %>
+</div>

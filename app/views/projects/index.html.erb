@@ -1,15 +1,17 @@
-<h1 class="ui header">
-  Questionnaires UX
-  <div class="sub header">Évaluez vos produits grace aux questionnaires UX.</div>
-</h1>
-<div class="ui right aligned container">
-<a href="<%= new_project_path %>" class="ui primary button">Nouvelle évaluation</a>
-</div>
-<div class="ui celled relaxed grid">
+<nav class="bc">
+  <div class="ui large breadcrumb container">
+    <a href="<%= new_project_path %>" class="ui right floated primary button">Nouvelle évaluation</a>
+    <a class="section" href="<%= root_path %>">We Love Tools</a>
+    <i class="right chevron icon divider"></i>
+    <span class="active section">Questionnaires UX</span>
+  </div>
+</nav>
+
+<div class="ui relaxed vertically divided grid container">
   <% @projects.each do |project| %>
   <a href="<%= url_for project %>" class="row">
     <div class="five wide column">
-      <div class="ui header"><%= project.product_name %> - <%= project.project_code %></div>
+      <%= project.product_name %> - <%= project.project_code %>
     </div>
     <div class="five wide column">
       <%= project.questionnaire_id %> (<%= project.questionnaire_language %>)
@@ -18,7 +20,7 @@
       <%= project.product_type %>
     </div>
     <div class="three wide column">
-      <%= l project.end_date, format: :short %>
+      <%= l project.end_date, format: :short unless project.end_date.nil? %>
     </div>
   </a>
   <% end %>

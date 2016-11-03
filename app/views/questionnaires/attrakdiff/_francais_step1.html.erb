@@ -1,10 +1,10 @@
 <div class="ui container">
   <div class="ui segment">
     <h2>Evaluez "<%= @project.product_name %>"</h2>
-    <%= form_for(response, :html => {:class => "ui huge-radio form"}) do |f| %>
+    <%= form_for(response, :html => {:class => "ui huge-radio form attrakdiff"}) do |f| %>
   		<table class="ui selectable very basic large table">
         <tbody>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Humain</td>
   		      <td nowrap class="center middle aligned">
       				    <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QP1]" value="3"><label></label></div>
@@ -18,7 +18,7 @@
   		      <td width="50%">Technique</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">M’isole</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHI1]" value="-3"><label></label></div>
@@ -32,7 +32,7 @@
   		      <td width="50%">Me sociabilise</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Plaisant</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[ATT1]" value="3"><label></label></div>
@@ -46,7 +46,7 @@
   		      <td width="50%">Déplaisant</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Original</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHS1]" value="3"><label></label></div>
@@ -60,7 +60,7 @@
   		      <td width="50%">Conventionnel</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Simple</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QP2]" value="3"><label></label></div>
@@ -74,7 +74,7 @@
   		      <td width="50%">Compliqué</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Professionnel</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHI2]" value="3"><label></label></div>
@@ -88,7 +88,7 @@
   		      <td width="50%">Amateur</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Laid</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[ATT2]" value="-3"><label></label></div>
@@ -102,7 +102,7 @@
   		      <td width="50%">Beau</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Pratique</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QP3]" value="3"><label></label></div>
@@ -116,7 +116,7 @@
   		      <td width="50%">Pas pratique</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Agréable</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[ATT3]" value="3"><label></label></div>
@@ -130,7 +130,7 @@
   		      <td width="50%">Désagréable</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Fastidieux</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QP4]" value="-3"><label></label></div>
@@ -144,7 +144,7 @@
   		      <td width="50%">Efficace</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">De bon goût</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHI3]" value="3"><label></label></div>
@@ -158,7 +158,7 @@
   		      <td width="50%">De mauvais goût</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Prévisible</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QP5]" value="3"><label></label></div>
@@ -172,7 +172,7 @@
   		      <td width="50%">Imprévisible</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Bas de gamme</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHI4]" value="-3"><label></label></div>
@@ -185,7 +185,7 @@
   		      </td>
   		      <td width="50%">Haut de gamme</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">M’exclut</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHI5]" value="-3"><label></label></div>
@@ -198,7 +198,7 @@
   		      </td>
   		      <td width="50%">M’intègre</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Me rapproche des autres</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHI6]" value="3"><label></label></div>
@@ -211,7 +211,7 @@
   		      </td>
   		      <td width="50%">Me sépare des autres</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Non présentable</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHI7]" value="-3"><label></label></div>
@@ -224,7 +224,7 @@
   		      </td>
   		      <td width="50%">Présentable</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Rebutant</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[ATT4]" value="-3"><label></label></div>
@@ -237,7 +237,7 @@
   		      </td>
   		      <td width="50%">Attirant</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Sans imagination</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHS2]" value="-3"><label></label></div>
@@ -250,7 +250,7 @@
   		      </td>
   		      <td width="50%">Créatif</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Bon</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[ATT5]" value="3"><label></label></div>
@@ -264,7 +264,7 @@
   		      <td width="50%">Mauvais</td>
   		    </tr>
 
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Confus</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QP6]" value="-3"><label></label></div>
@@ -277,7 +277,7 @@
   		      </td>
   		      <td width="50%">Clair</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Repoussant</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[ATT6]" value="-3"><label></label></div>
@@ -290,7 +290,7 @@
   		      </td>
   		      <td width="50%">Attrayant</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Audacieux</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHS3]" value="3"><label></label></div>
@@ -303,7 +303,7 @@
   		      </td>
   		      <td width="50%">Prudent</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Novateur</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHS4]" value="3"><label></label></div>
@@ -316,7 +316,7 @@
   		      </td>
   		      <td width="50%">Conservateur</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Ennuyeux</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHS5]" value="-3"><label></label></div>
@@ -329,7 +329,7 @@
   		      </td>
   		      <td width="50%">Captivant</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Peu exigeant</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHS6]" value="-3"><label></label></div>
@@ -342,7 +342,7 @@
   		      </td>
   		      <td width="50%">Challenging</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Motivant</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[ATT7]" value="3"><label></label></div>
@@ -355,7 +355,7 @@
   		      </td>
   		      <td width="50%">Décourageant</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Nouveau</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QHS7]" value="3"><label></label></div>
@@ -368,7 +368,7 @@
   		      </td>
   		      <td width="50%">Commun</td>
   		    </tr>
-  		    <tr>
+  		    <tr class="field">
   		      <td class="right aligned" width="50%">Incontrôlable</td>
   		      <td nowrap class="center middle aligned">
                 <div class="ui fitted radio checkbox"><input type="radio" name="response_attrak_diff[QP7]" value="-3"><label></label></div>
@@ -384,6 +384,7 @@
         </tbody>
       </table>
       <input type="hidden" name="uri_token" value="<%= @project.uri_token %>">
+      <input type="hidden" name="response_attrak_diff[f]" value="">
 
       <div class="ui right aligned container">
         <%= f.submit "Envoyer", :class => "ui primary submit button" %>

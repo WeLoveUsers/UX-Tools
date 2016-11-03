@@ -28,6 +28,8 @@ class ResponseSusController < ApplicationController
   def create
     @response_su = ResponseSu.new(response_su_params)
     @response_su.project = Project.find_by uri_token: params[:uri_token]
+    @response_su.respondent_id = request.remote_ip
+    # Autre possibilité : ajouter un cookie
 
     respond_to do |format|
       if @response_su.save

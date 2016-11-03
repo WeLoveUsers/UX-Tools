@@ -4,6 +4,8 @@ class Project < ApplicationRecord
   has_many :response_attrak_diffs
   has_many :response_sus
 
+  validates_presence_of :questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :end_date
+
   before_create :add_token
 
   def self.questionnaireTypes

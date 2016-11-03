@@ -1,52 +1,80 @@
-<%= form_for(project) do |f| %>
+<div class="ui container">
   <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
+  <div class="ui error message">
+    <i class="close icon"></i>
+    <div class="title"><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</div>
+    <ul>
       <% project.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :questionnaire_id %>
-    <%= f.select :questionnaire_id, Project.questionnaireTypes %>
-  </div>
+<%= form_for(project, :html => {:class => "ui large form"}) do |f| %>
+  <div class="ui stacked segment grid">
+    <div class="row no-padding field">
+      <div class="five wide column"><%= f.label :questionnaire_id, 'Questionnaire :' %></div>
+      <div class="eleven wide column"><%= f.select :questionnaire_id, Project.questionnaireTypes %></div>
+    </div>
 
-  <div class="field">
-    <%= f.label :questionnaire_language %>
-    <%= f.select :questionnaire_language, Project.questionnaireLanguages %>
-  </div>
+    <div class="row no-padding field">
+      <div class="five wide column"><%= f.label :questionnaire_language, 'Langue du questionnaire :' %></div>
+      <div class="eleven wide column"><%= f.select :questionnaire_language, Project.questionnaireLanguages %></div>
+    </div>
 
-  <div class="field">
-    <%= f.label :product_type %>
-    <%= f.select :product_type, Project.productTypes, include_blank: true %>
-  </div>
+    <div class="row no-padding field">
+      <div class="five wide column"><%= f.label :product_type, 'Type de produit :' %></div>
+      <div class="eleven wide column"><%= f.select :product_type, Project.productTypes, include_blank: true %></div>
+    </div>
 
-  <div class="field">
-    <%= f.label :product_name %>
-    <%= f.text_field :product_name %>
-  </div>
+    <div class="row no-padding field">
+      <div class="five wide column"><%= f.label :product_name, 'Nom du produit ou service :' %></div>
+      <div class="eleven wide column"><%= f.text_field :product_name %></div>
+    </div>
 
-  <div class="field">
-    <%= f.label :project_code %>
-    <%= f.text_field :project_code %>
-  </div>
+    <div class="row no-padding field">
+      <div class="five wide column"><%= f.label :project_code, 'Code du projet :' %></div>
+      <div class="eleven wide column"><%= f.text_field :project_code %></div>
+    </div>
 
-  <div class="field">
-    <%= f.label :end_date %>
-    <div class="ui date calendar">
-      <div class="ui input left icon">
-        <i class="calendar icon"></i>
-        <input type="text" name="project[end_date]" id="project_end_date" placeholder="Date" value="<%= project.end_date %>">
+    <div class="row no-padding field">
+      <div class="five wide column"><%= f.label :end_date, "Date de fin de l'évaluation :" %></div>
+      <div class="eleven wide column">
+        <div class="ui date calendar">
+          <div class="ui input left icon">
+            <i class="calendar icon"></i>
+            <input type="text" name="project[end_date]" id="project_end_date" placeholder="Date" value="<%= project.end_date %>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-padding field">
+      <div class="five wide column"></div>
+      <div class="eleven wide column"><%= f.submit :class => "ui large primary submit button" %></div>
+    </div>
+
+  </div>
+<% end %>
+
+  <div class="ui stacked negative message grid">
+    <div class="ui row field">
+      <div class="sixteen wide column">
+        <h2 class="ui header">Zone dangereuse</h2>
+      </div>
+    </div>
+
+    <div class="ui row field">
+      <div class="sixteen wide column">
+        <p>Supprimer ce projet d'évaluation : toutes les données associées seront également supprimées. <br/><i class="icon warning sign"></i>Cette action est <strong>irréversible</strong>.</p>
+      </div>
+    </div>
+
+    <div class="ui row no-padding field">
+      <div class="five wide column"></div>
+      <div class="eleven wide column">
+        <%= link_to "Supprimer ce projet d'évaluation", project, method: :delete, :class => "ui red button", data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

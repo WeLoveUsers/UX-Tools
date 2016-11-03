@@ -28,6 +28,8 @@ class ResponseAttrakDiffsController < ApplicationController
   def create
     @response_attrak_diff = ResponseAttrakDiff.new(response_attrak_diff_params)
     @response_attrak_diff.project = Project.find_by uri_token: params[:uri_token]
+    @response_attrak_diff.respondent_id = request.remote_ip
+    # Autre possibilité : ajouter un cookie
 
     respond_to do |format|
       if @response_attrak_diff.save

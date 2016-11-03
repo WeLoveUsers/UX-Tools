@@ -2,22 +2,41 @@ body, html {
   font-size: 17px;
 }
 body {
-  margin-top:6em;
+  margin-top:3em;
 }
 body.response.public {
   margin-top:2em;
 }
+body .content {
+  margin-top: 6em;
+}
 .login.column {
-  max-width: 20em;
+  max-width: 24em;
 }
-.ui.menu .item img.logo {
-  margin-right: 1.5em;
+.ui.main.menu {
+  border:0;
+  border-bottom: 1px #eee solid;
+  box-shadow: none;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
 }
-.main.container {
-  margin-top: 7em;
+.ui.main.menu .item > img:not(.ui) {
+  width: auto;
 }
-.wireframe {
-  margin-top: 2em;
+nav.bc {
+  height:8rem;
+  margin-top: -3em;
+background: #36f8b0;
+  background: #eee;  
+  margin-bottom: 2em;
+}
+nav.bc .ui.breadcrumb {
+  line-height: 8rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+}
+nav.bc .button {
+  margin-top:2.7rem;
 }
 .ui.footer.segment {
   margin: 5em 0em 0em;

@@ -1,2 +1,24 @@
-<h1 class="ui header">We Love Tools</h1>
-<img class="logo" src="<%= image_path('tools.jpg')%>">
+<nav class="bc">
+  <div class="ui large breadcrumb container">
+    <span class="active section" href="<%= root_path %>">We Love Tools</span>
+  </div>
+</nav>
+
+<div class="ui container">
+  <a class="ui card" href="<%= projects_path %>">
+    <div class="content">
+      <div class="header">Questionnaires UX</div>
+      <div class="meta">
+        <span class="category">Outils de mesure</span>
+      </div>
+      <div class="description">
+        <p>Créez des évaluations UX basées sur des questionnaires standards (ex. SUS, AttrakDiff, DEEP, WAMMI, etc.)</p>
+      </div>
+    </div>
+    <% if user_signed_in? %>
+    <div class="extra content">
+      <i class="icon bar chart"></i> <%= current_user.projects.count %> projet(s) d'évaluation
+    </div>
+    <% end %>
+  </a>
+</div>

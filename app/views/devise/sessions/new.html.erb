@@ -1,7 +1,7 @@
 <div class="ui middle aligned center aligned grid">
   <div class="left aligned login column">
     <h2 class="ui header"><%= t('.sign_in') %></h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "ui large form"}) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "ui large form login"}) do |f| %>
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
@@ -25,8 +25,6 @@
         <% end %>
         <%= f.submit t('.sign_in'), :class => "ui fluid large primary submit button" %>
       </div>
-
-      <div class="ui error message"></div>
     <% end %>
 
     <div class="ui message">

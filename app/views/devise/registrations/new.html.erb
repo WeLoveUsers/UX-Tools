@@ -1,26 +1,35 @@
-<h2><%= t('.sign_up') %></h2>
+<%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="ui middle aligned center aligned grid">
+  <div class="left aligned login column">
+    <h2 class="ui header"><%= t('.sign_up') %></h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "ui large form signup"}) do |f| %>
+    <div class="ui stacked segment">
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <input autofocus="autofocus" placeholder="Adresse e-mail" type="email" value="<%= resource.email %>" name="user[email]" id="user_email">
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Mot de passe", data: { content: "6 caractères minimum" }, class: "field-popup" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmation du mot de passe" %>
+        </div>
+      </div>
+
+      <%= f.submit t('.sign_up'), :class => "ui fluid large primary submit button" %>
+    </div>
+  <% end %>
+
+  <div class="ui message">
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

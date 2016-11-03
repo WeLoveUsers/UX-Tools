@@ -6,3 +6,4 @@
 @pageFont          : 'PT Serif', serif;
 @headerFontWeight  : 300;
 @googleFontFamily  : 'Oswald:400,300|PT+Serif:400,400italic,700,700italic';
+@textColor         : #505050;

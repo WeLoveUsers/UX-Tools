@@ -1,111 +1,122 @@
-<h1 class="ui header">
-  <%= @project.product_name %> - <%= @project.project_code %>
-</h1>
-
-<a href="<%= projects_path %>" class="ui button">Retour</a>
-<a href="<%= edit_project_path(@project) %>" class="ui button">Modifier</a>
-
-<h2 class="ui header">Description</h2>
-
-<table class="ui very basic table">
-  <tbody>
-    <tr>
-      <td width="20%" nowrap>Questionnaire :</td>
-      <td><%= @project.questionnaire_id %> (<%= @project.questionnaire_language %>)</td>
-    </tr>
-    <tr>
-      <td nowrap>Type de produit :</td>
-      <td><%= @project.product_type %></td>
-    </tr>
-    <tr>
-      <td nowrap>Date de fin de l'évaluation :</td>
-      <td><%= l @project.end_date, format: :long %></td>
-    </tr>
-    <tr>
-      <td nowrap>Lien public pour répondre :</td>
-      <td><%= link_to project_public_respond_url(@project.uri_token), project_public_respond_path(@project.uri_token) %> <div class="ui small button">copier</div></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 class="ui header">Résultats</h2>
-
-<% if @project.questionnaire_id_clean == "system_usability_scale" %>
-<div class="ui segment">
-  <div class="ui statistics">
-    <div class="statistic">
-      <div class="label">
-        Réponses
-      </div>
-      <div class="value">
-        <%= @project.responses.count %>
-      </div>
-    </div>
-    <div class="statistic">
-      <div class="label">
-        Score
-      </div>
-      <div class="value">
-        <%= @project.sus_score %>
-      </div>
-    </div>
-    <div class="statistic">
-      <div class="label">
-        Note
-      </div>
-      <div class="value">
-        <%= @project.sus_grade %>
-      </div>
-    </div>
+<nav class="bc">
+  <div class="ui large breadcrumb container">
+    <a href="<%= edit_project_path(@project) %>" class="ui right floated primary button">Modifier</a>
+    <a class="section" href="<%= root_path %>">We Love Tools</a>
+    <i class="right chevron icon divider"></i>
+    <a href="<%= projects_path %>" class="section">Questionnaires UX</a>
+    <i class="right chevron icon divider"></i>
+    <span class="active section"><%= @project.product_name %> - <%= @project.project_code %></span>
   </div>
-</div>
-<% end %>
+</nav>
 
-<% if @project.questionnaire_id_clean == "attrakdiff" %>
-<div class="ui segment">
-  <div class="ui statistics">
-    <div class="statistic">
-      <div class="label">
-        Réponses
-      </div>
-      <div class="value">
-        <%= @project.responses.count %>
-      </div>
-    </div>
-    <div class="statistic">
-      <div class="label">
-        MOYENNE QP
-      </div>
-      <div class="value">
-        <%= @project.attrakdiff_average_score[:QP] %>
-      </div>
-    </div>
-    <div class="statistic">
-      <div class="label">
-        MOYENNE QHS
-      </div>
-      <div class="value">
-        <%= @project.attrakdiff_average_score[:QHS] %>
-      </div>
-    </div>
-    <div class="statistic">
-      <div class="label">
-        MOYENNE QHI
-      </div>
-      <div class="value">
-        <%= @project.attrakdiff_average_score[:QHI] %>
-      </div>
-    </div>
-    <div class="statistic">
-      <div class="label">
-        MOYENNE ATT
-      </div>
-      <div class="value">
-        <%= @project.attrakdiff_average_score[:ATT] %>
-      </div>
-    </div>
+<div class="ui container">
+  <div class="ui pointing secondary menu">
+    <a class="item active" data-tab="description">Description</a>
+    <a class="item" data-tab="results">Résultats</a>
   </div>
-</div>
-<% end %>
+  <div class="ui tab active" data-tab="description">
 
-<a href="<%= url_for project_path(@project, format: "csv") %>" class="ui button">Télécharger les données brutes (.csv)</a>
+    <table class="ui very basic table">
+      <tbody>
+        <tr>
+          <td width="20%" nowrap>Questionnaire :</td>
+          <td><%= @project.questionnaire_id %> (<%= @project.questionnaire_language %>)</td>
+        </tr>
+        <tr>
+          <td nowrap>Type de produit :</td>
+          <td><%= @project.product_type %></td>
+        </tr>
+        <tr>
+          <td nowrap>Date de fin de l'évaluation :</td>
+          <td><%= l @project.end_date, format: :long unless @project.end_date.nil? %></td>
+        </tr>
+        <tr>
+          <td nowrap>Lien public pour répondre :</td>
+          <td><%= link_to project_public_respond_url(@project.uri_token), project_public_respond_path(@project.uri_token) %> <div class="ui small button">copier</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui tab" data-tab="results">
+    <% if @project.questionnaire_id_clean == "system_usability_scale" %>
+    <div class="ui segment">
+      <div class="ui statistics">
+        <div class="statistic">
+          <div class="label">
+            Réponses
+          </div>
+          <div class="value">
+            <%= @project.responses.count %>
+          </div>
+        </div>
+        <div class="statistic">
+          <div class="label">
+            Score
+          </div>
+          <div class="value">
+            <%= @project.sus_score %>
+          </div>
+        </div>
+        <div class="statistic">
+          <div class="label">
+            Note
+          </div>
+          <div class="value">
+            <%= @project.sus_grade %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <% if @project.questionnaire_id_clean == "attrakdiff" %>
+    <div class="ui segment">
+      <div class="ui statistics">
+        <div class="statistic">
+          <div class="label">
+            Réponses
+          </div>
+          <div class="value">
+            <%= @project.responses.count %>
+          </div>
+        </div>
+        <div class="statistic">
+          <div class="label">
+            MOYENNE QP
+          </div>
+          <div class="value">
+            <%= @project.attrakdiff_average_score[:QP] %>
+          </div>
+        </div>
+        <div class="statistic">
+          <div class="label">
+            MOYENNE QHS
+          </div>
+          <div class="value">
+            <%= @project.attrakdiff_average_score[:QHS] %>
+          </div>
+        </div>
+        <div class="statistic">
+          <div class="label">
+            MOYENNE QHI
+          </div>
+          <div class="value">
+            <%= @project.attrakdiff_average_score[:QHI] %>
+          </div>
+        </div>
+        <div class="statistic">
+          <div class="label">
+            MOYENNE ATT
+          </div>
+          <div class="value">
+            <%= @project.attrakdiff_average_score[:ATT] %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <a href="<%= url_for project_path(@project, format: "csv") %>" class="ui button">Télécharger les données brutes (.csv)</a>
+  </div>
+
+</div>
