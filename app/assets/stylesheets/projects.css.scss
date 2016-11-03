@@ -4,12 +4,25 @@ body, html {
 body {
   margin-top:3em;
 }
+body.response {
+  margin-top:6em;
+}
 body.response.public {
   margin-top:2em;
 }
 body .page-content {
   margin-top: 6em;
   text-color: #505050;
+}
+body .ui.message a:not(.button),
+body .footer a {
+  color: #505050;
+  text-decoration: underline;
+}
+body .ui.message a:hover:not(.button),
+body .footer a:hover  {
+  color: #333333;
+  text-decoration: underline;
 }
 .login.column {
   max-width: 24em;
@@ -47,6 +60,8 @@ body .page-content {
 .ui.inverted.button {
   color:#636363;
 }
+
+/* BREADCRUMB */
 nav.bc {
   height:8rem;
   margin-top: -3em;
@@ -76,6 +91,8 @@ nav.bc .ui.breadcrumb h1 {
 nav.bc .button {
   margin-top:2.7rem;
 }
+
+/* PROJECTS LIST */
 .ui.vertically.divided.grid a {
     color:#636363;
     border-left: 3px transparent solid;
@@ -87,6 +104,8 @@ nav.bc .button {
 .ui.grid .sub.header {
   font-size: 0.5em;
 }
+
+/* TABS & INSIDE CONTENT */
 .ui.tab a {
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
@@ -96,11 +115,40 @@ nav.bc .button {
   color: #333333;
   border-bottom: 3px #36f8b0 solid;
 }
+.ui.secondary.pointing.menu {
+  border-color: transparent;
+  border-bottom-width: 3px;
+  margin-bottom: 2em;
+}
+.ui.secondary.pointing.menu .item {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  border-bottom-width: 3px;
+}
+.ui.secondary.pointing.menu .item:hover,
+.ui.secondary.pointing.menu .active.item:hover {
+  border-color: #36f8b0;
+}
+.ui.secondary.pointing.menu .active.item {
+  border-color: #36f8b0;
+  font-weight: 400;
+}
+.ui.statistics .statistic {
+  margin: 0em 1.5em 0em;
+}
+.ui.statistics .statistic .label,
+.ui.statistics .statistic .value {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+}
 
+/* FOOTER */
 .ui.footer.segment {
   margin: 3em 0em 0em;
   padding: 3em 0em;
 }
+
+/* FORM RADIOS */
 .ui.huge-radio.form .ui.radio.checkbox .box:before,
 .ui.huge-radio.form .ui.radio.checkbox label:before,
 .ui.huge-radio.form .ui.radio.checkbox .box:after,

@@ -58,9 +58,9 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.smtp_settings = {
-    :user_name => 'your_sendgrid_username',
-    :password => 'your_sendgrid_password',
-    :domain => 'yourdomain.com',
+    :user_name => 'app58630359@heroku.com',
+    :password => '9ozrql4q0985',
+    :domain => 'tools.weloveusers.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,

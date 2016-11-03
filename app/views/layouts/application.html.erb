@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UxQuestionnaires</title>
+    <title>We Love Tools</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,50 +9,13 @@
   </head>
 
   <body>
-    <div class="ui fixed main menu">
-        <a href="<%= root_path %>" class="item"><img alt="We Love Users" src="<%= image_path('we-love-users-logo(small).png')%>"></a>
-        <% if user_signed_in? %>
-        <div class="ui simple dropdown right item">
-          <i class="user icon"></i> <%= current_user.email %> <i class="dropdown icon"></i>
-          <div class="menu">
-            <% if Devise.mappings[:user].registerable? %>
-            <div class="item">
-              <%= link_to 'Mon compte', edit_user_registration_path %>
-            </div>
-            <% end %>
-            <div class="item">
-              <%= link_to "Déconnexion", destroy_user_session_path, method: :delete  %>
-            </div>
-          </div>
-        </div>
-        <% else %>
-        <div class="right menu">
-          <div class="item">
-            <%= link_to "Connexion", new_user_session_path, :class => 'ui button'  %>
-          </div>
-          <% if Devise.mappings[:user].registerable? %>
-          <div class="item">
-            <%= link_to "Inscription", new_user_registration_path, :class => 'ui primary button'  %>
-          </div>
-          <% else %>
-          <div class="item">
-            <a href="mailto:f.jaouali@weloveusers.com?subject=Tester la beta de We Love Tools" class='ui primary button'>Demander à tester la beta</a>
-          </div>
-          <% end %>
-        </div>
-        <% end %>
-    </div>
+    <%= render "layouts/nav" %>
 
     <div class="page-content">
       <%= yield %>
     </div>
 
-    <div class="ui vertical footer segment">
-      <div class="ui center aligned container">
-        <p><img class="logo" src="<%= image_path('we-love-users-logo(small).png')%>"></p>
-        <p>© 2016 - We Love Users</p>
-      </div>
-    </div>
-
+    <%= render "layouts/footer" %>
+    <%= render "layouts/google_analytics" %>
   </body>
 </html>
