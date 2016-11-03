@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Sending e-mails
+gem 'sendgrid-ruby'
 # Use Devise for user authentication
 gem 'devise'
 gem 'devise-i18n'

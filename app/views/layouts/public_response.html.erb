@@ -15,9 +15,11 @@
         <div class="ui simple dropdown right item">
           <i class="user icon"></i> <%= current_user.email %> <i class="dropdown icon"></i>
           <div class="menu">
+            <% if Devise.mappings[:user].registerable? %>
             <div class="item">
               <%= link_to 'Mon compte', edit_user_registration_path %>
             </div>
+            <% end %>
             <div class="item">
               <%= link_to "Déconnexion", destroy_user_session_path, method: :delete  %>
             </div>
