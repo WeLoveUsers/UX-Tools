@@ -57,6 +57,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "ux-questionnaires_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { host: "tools.weloveusers.com" }
+
   config.action_mailer.smtp_settings = {
     :user_name => 'app58630359@heroku.com',
     :password => '9ozrql4q0985',
