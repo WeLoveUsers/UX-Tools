@@ -1,31 +1,38 @@
-<div class="ui container">
-  <% if project.errors.any? %>
-  <div class="ui error message">
-    <i class="close icon"></i>
-    <div class="title"><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</div>
-    <ul>
-      <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+<%= form_error_messages_for(project) %>
 
+<div class="ui container">
 <%= form_for(project, :html => {:class => "ui large form"}) do |f| %>
   <div class="ui stacked segment grid">
+    <% if params[:action] === 'edit' %>
+    <div class="ui black ribbon label">Modification</div>
+    <div class="row no-padding field"></div>
+    <% end %>
+
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :questionnaire_id, 'Questionnaire :' %></div>
-      <div class="eleven wide column"><%= f.select :questionnaire_id, Project.questionnaireTypes %></div>
+      <div class="eleven wide column">
+        <% if project.has_responses? %>
+        <%= f.select :questionnaire_id, Project.questionnaireTypes, {}, :disabled => true %>
+        <% else %>
+        <%= f.select :questionnaire_id, Project.questionnaireTypes %>
+        <% end %>
+      </div>
     </div>
 
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :questionnaire_language, 'Langue du questionnaire :' %></div>
-      <div class="eleven wide column"><%= f.select :questionnaire_language, Project.questionnaireLanguages %></div>
+      <div class="eleven wide column">
+        <% if project.has_responses? %>
+        <%= f.select :questionnaire_language, Project.questionnaireLanguages, {}, :disabled => true %>
+        <% else %>
+        <%= f.select :questionnaire_language, Project.questionnaireLanguages %>
+        <% end %>
+      </div>
     </div>
 
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :product_type, 'Type de produit :' %></div>
-      <div class="eleven wide column"><%= f.select :product_type, Project.productTypes, include_blank: true %></div>
+      <div class="eleven wide column"><%= f.select :product_type, Project.productTypes %></div>
     </div>
 
     <div class="row no-padding field">
@@ -51,12 +58,12 @@
     </div>
     <div class="row no-padding field">
       <div class="five wide column"></div>
-      <div class="eleven wide column"><%= f.submit :class => "ui large primary submit button" %></div>
+      <div class="eleven wide column"><%= f.submit :class => "ui large submit button" %></div>
     </div>
 
   </div>
 <% end %>
-
+<% if params[:action] != 'new' %>
   <div class="ui stacked negative message grid">
     <div class="ui row field">
       <div class="sixteen wide column">
@@ -77,4 +84,5 @@
       </div>
     </div>
   </div>
+<% end %>
 </div>

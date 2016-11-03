@@ -1,7 +1,19 @@
 $(document).on('turbolinks:load', function() {
 
   $('.ui.calendar.date').calendar({
-    type: 'date'
+    type: 'date',
+    firstDayOfWeek: 1,
+    today: true,
+    minDate: new Date(),
+    text: {
+      days: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
+      months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+      monthsShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jui', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
+      today: "Aujourd'hui",
+      now: 'Maintenant',
+      am: 'AM',
+      pm: 'PM'
+    },
   });
 
   $('.ui.pointing.menu .item').tab();

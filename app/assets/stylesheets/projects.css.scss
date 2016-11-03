@@ -7,8 +7,9 @@ body {
 body.response.public {
   margin-top:2em;
 }
-body .content {
+body .page-content {
   margin-top: 6em;
+  text-color: #505050;
 }
 .login.column {
   max-width: 24em;
@@ -23,11 +24,33 @@ body .content {
 .ui.main.menu .item > img:not(.ui) {
   width: auto;
 }
+.ui.breadcrumb a.ui.button.primary {
+  color: #636363;
+}
+.ui.button.primary {
+  background: #ffffff none;
+  color: #636363;
+  font-weight: 400;
+}
+.ui.breadcrumb a.ui.button.primary:hover,
+.ui.button.primary:hover {
+  background: #ffffff none;
+  color: #000000;
+}
+.ui.button {
+  background: #36f8b0 none;
+  color: #636363;
+}
+.ui.button:hover {
+  background: #35e7a5 none;
+}
+.ui.inverted.button {
+  color:#636363;
+}
 nav.bc {
   height:8rem;
   margin-top: -3em;
-background: #36f8b0;
-  background: #eee;  
+  background: #eee;
   margin-bottom: 2em;
 }
 nav.bc .ui.breadcrumb {
@@ -35,12 +58,48 @@ nav.bc .ui.breadcrumb {
   font-family: 'Oswald', sans-serif;
   font-weight: 300;
 }
+nav.bc .ui.breadcrumb,
+nav.bc .ui.breadcrumb a,
+.ui.main.menu .menu .item a {
+  color: #636363;
+}
+nav.bc .ui.breadcrumb a:hover {
+  color: #333333;
+}
+nav.bc .ui.breadcrumb .active {
+  color: #333333;
+  font-weight: 400;
+}
+nav.bc .ui.breadcrumb h1 {
+  font-size: inherit;
+}
 nav.bc .button {
   margin-top:2.7rem;
 }
+.ui.vertically.divided.grid a {
+    color:#636363;
+    border-left: 3px transparent solid;
+}
+.ui.vertically.divided.grid a:hover {
+  color: #333333;
+  border-left: 3px #36f8b0 solid;
+}
+.ui.grid .sub.header {
+  font-size: 0.5em;
+}
+.ui.tab a {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  color:#636363;
+}
+.ui.tab a:hover:not(.button) {
+  color: #333333;
+  border-bottom: 3px #36f8b0 solid;
+}
+
 .ui.footer.segment {
-  margin: 5em 0em 0em;
-  padding: 5em 0em;
+  margin: 3em 0em 0em;
+  padding: 3em 0em;
 }
 .ui.huge-radio.form .ui.radio.checkbox .box:before,
 .ui.huge-radio.form .ui.radio.checkbox label:before,

@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
-  before_action :authenticate_user!, except: [:respond]
+  before_action :authenticate_user!, except: [:respond, :response_saved]
 
   # GET /projects
   # GET /projects.json
@@ -54,6 +54,12 @@ class ProjectsController < ApplicationController
         end
       end
     end
+    render layout: "public_response"
+  end
+
+  # GET /r/success
+  # GET /r/success.json
+  def response_saved
     render layout: "public_response"
   end
 

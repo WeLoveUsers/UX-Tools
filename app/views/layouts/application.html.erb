@@ -28,31 +28,20 @@
           <div class="item">
             <%= link_to "Connexion", new_user_session_path, :class => 'ui button'  %>
           </div>
+          <% if Devise.mappings[:user].registerable? %>
           <div class="item">
             <%= link_to "Inscription", new_user_registration_path, :class => 'ui primary button'  %>
           </div>
+          <% else %>
+          <div class="item">
+            <a href="mailto:f.jaouali@weloveusers.com?subject=Tester la beta de We Love Tools" class='ui primary button'>Demander à tester la beta</a>
+          </div>
+          <% end %>
         </div>
         <% end %>
     </div>
 
-    <div class="content">
-      <% if notice %>
-
-        <div class="ui success message container">
-          <i class="close icon"></i>
-          <%= notice %>
-        </div>
-
-      <% end %>
-      <% if alert %>
-
-        <div class="ui error message container">
-          <i class="close icon"></i>
-          <%= alert %>
-        </div>
-
-      <% end %>
-
+    <div class="page-content">
       <%= yield %>
     </div>
 

@@ -5,5 +5,10 @@
     <%= render @form, project: @project, response: @response %>
   <% end %>
 <% else %>
-  <p>L'évaluation est terminée (date de fin : <%= @project.end_date %>)</p>
+  <div class="ui text container">
+    <div class="ui segment">
+    	<h2>Fini !</h2>
+      <p>Cette évaluation est terminée (date de fin : <%= @project.end_date %>)</p>
+    </div>
+  </div>  
 <% end %>

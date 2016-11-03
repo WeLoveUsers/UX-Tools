@@ -10,45 +10,30 @@
 
   <body class="response <%= 'public' if not user_signed_in?%>">
     <% if user_signed_in? %>
-    <div class="ui fixed menu">
-      <div class="ui container">
-        <a href="<%= root_path %>" class="item">Accueil</a>
-        <a href="<%= projects_path %>" class="item">Questionnaires UX</a>
+    <div class="ui fixed main menu">
+        <a href="<%= root_path %>" class="item"><img alt="We Love Users" src="<%= image_path('we-love-users-logo(small).png')%>"></a>
         <div class="ui simple dropdown right item">
           <i class="user icon"></i> <%= current_user.email %> <i class="dropdown icon"></i>
           <div class="menu">
             <div class="item">
-              <%= link_to 'Modifier mon compte', edit_user_registration_path %>
+              <%= link_to 'Mon compte', edit_user_registration_path %>
             </div>
             <div class="item">
               <%= link_to "Déconnexion", destroy_user_session_path, method: :delete  %>
             </div>
           </div>
         </div>
-      </div>
     </div>
     <% end %>
 
-    <div class="ui container">
-      <% if notice %>
-        <div class="ui success message">
-          <i class="close icon"></i>
-          <%= notice %>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="ui error message">
-          <i class="close icon"></i>
-          <%= alert %>
-        </div>
-      <% end %>
-
+    <div class="content">
+      <%= flash_messages %>
       <%= yield %>
     </div>
 
     <div class="ui vertical footer segment">
       <div class="ui center aligned container">
-        <p><img class="logo" src="<%= image_path('we-love-users-logo(50x50).gif')%>"></p>
+        <p><img class="logo" src="<%= image_path('we-love-users-logo(small).png')%>"></p>
         <p>2106 © We Love Users</p>
       </div>
     </div>

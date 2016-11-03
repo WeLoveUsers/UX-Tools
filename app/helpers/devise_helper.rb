@@ -8,7 +8,7 @@ module DeviseHelper
                       :resource => resource.class.model_name.human.downcase)
 
     html = <<-HTML
-    <div class="ui error message">
+    <div class="ui error message container">
       <i class="close icon"></i>
       <div class="title">#{sentence}</div>
       <ul>#{messages}</ul>

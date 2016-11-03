@@ -1,12 +1,14 @@
 <nav class="bc">
   <div class="ui large breadcrumb container">
-    <a href="<%= projects_path %>" class="ui right floated button">Annuler</a>
+    <a href="<%= projects_path %>" class="ui right floated inverted button">Annuler</a>
     <a class="section" href="<%= root_path %>">We Love Tools</a>
     <i class="right chevron icon divider"></i>
     <a class="section" href="<%= projects_path %>">Questionnaires UX</a>
     <i class="right chevron icon divider"></i>
-    <div class="active section">Nouvelle évaluation</div>
+    <h1 class="active section">Nouvelle évaluation</h1>
   </div>
 </nav>
+
+<%= flash_messages %>
 
 <%= render 'form', project: @project %>

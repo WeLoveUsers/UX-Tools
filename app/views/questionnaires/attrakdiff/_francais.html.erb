@@ -1,7 +1,7 @@
 <div class="ui text container">
   <div class="ui segment">
   	<h2>Veuillez lire attentivement la consigne</h2>
-  	<p>Dans le cadre d’un projet sur l’expérience utlisateur, nous souhaiterions évaluer vos impressions sur le  <strong><%= @project.product_type %></strong> <strong><%= @project.product_name %></strong>.</p>
+  	<p>Dans le cadre d’un projet sur l’expérience utlisateur, nous souhaiterions évaluer vos impressions sur <strong><%= @project.product_name %></strong>.</p>
   	<ul>
   		<li>Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluaton du système.</li>
   		<li>Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie.</li>
@@ -10,7 +10,7 @@
   		<li>Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !</li>
   	</ul>
     <div class="ui right aligned container">
-  		<a href="<%= url_for project_public_respond_path(project.uri_token, step: 1) %>" class="ui button primary">Commencer</a>
+  		<a href="<%= url_for project_public_respond_path(project.uri_token, step: 1) %>" class="ui button large">Commencer</a>
   	</div>
   </div>
 </div>

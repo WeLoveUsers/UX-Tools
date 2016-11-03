@@ -17,15 +17,31 @@ class Project < ApplicationRecord
   end
 
   def self.productTypes
-    ["Site Web", "Site E-Commerce", "Application mobile", "Application tablette", "Logiciel"]
+    ["Site Web", "Site E-Commerce", "Application mobile", "Application tablette", "Logiciel", "Autre"]
+  end
+
+  def has_responses?
+    if !self.responses.nil? && self.responses.count > 0
+      return true
+    else
+      return false
+    end
   end
 
   def questionnaire_id_clean
-    return self.questionnaire_id.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.gsub(/\s/,'_')
+    if self.questionnaire_id.nil?
+      return nil
+    else
+      return self.questionnaire_id.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.gsub(/\s/,'_')
+    end
   end
 
   def questionnaire_language_clean
-    return self.questionnaire_language.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase
+    if self.questionnaire_language.nil?
+      return nil
+    else
+      return self.questionnaire_language.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase
+    end
   end
 
   def questionnaire_template
@@ -60,14 +76,24 @@ class Project < ApplicationRecord
 
   def sus_grade
     score = self.sus_score
-    if score === 0
-      return "-"
-    elsif score >= 78.9
+    if score >= 84.1
+      return "A+"
+    elsif score >= 80.8
       return "A"
-    elsif score >= 72.6
+    elsif score >= 78.9
+      return "A-"
+    elsif score >= 77.2
+      return "B+"
+    elsif score >= 74.1
       return "B"
-    elsif score >= 62.7
+    elsif score >= 72.6
+      return "B-"
+    elsif score >= 71.1
+      return "C+"
+    elsif score >= 65
       return "C"
+    elsif score >= 62.7
+      return "C-"
     elsif score >= 51.7
       return "D"
     else

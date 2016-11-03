@@ -5,16 +5,18 @@
     <i class="right chevron icon divider"></i>
     <a href="<%= projects_path %>" class="section">Questionnaires UX</a>
     <i class="right chevron icon divider"></i>
-    <span class="active section"><%= @project.product_name %> - <%= @project.project_code %></span>
+    <h1 class="active section"><%= @project.product_name %> - <%= @project.project_code %></h1>
   </div>
 </nav>
 
+<%= flash_messages %>
+
 <div class="ui container">
   <div class="ui pointing secondary menu">
-    <a class="item active" data-tab="description">Description</a>
-    <a class="item" data-tab="results">Résultats</a>
+    <a class="item <%= "active" unless @project.has_responses? %>" data-tab="description">Description</a>
+    <a class="item <%= "active" if @project.has_responses? %>" data-tab="results">Résultats</a>
   </div>
-  <div class="ui tab active" data-tab="description">
+  <div class="ui tab <%= "active" unless @project.has_responses? %>" data-tab="description">
 
     <table class="ui very basic table">
       <tbody>
@@ -32,19 +34,19 @@
         </tr>
         <tr>
           <td nowrap>Lien public pour répondre :</td>
-          <td><%= link_to project_public_respond_url(@project.uri_token), project_public_respond_path(@project.uri_token) %> <div class="ui small button">copier</div></td>
+          <td><%= link_to project_public_respond_url(@project.uri_token), project_public_respond_path(@project.uri_token) %>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="ui tab" data-tab="results">
+  <div class="ui tab <%= "active" if @project.has_responses? %>" data-tab="results">
     <% if @project.questionnaire_id_clean == "system_usability_scale" %>
     <div class="ui segment">
       <div class="ui statistics">
         <div class="statistic">
           <div class="label">
-            Réponses
+            <%= "Réponse".pluralize(@project.responses.count) %>
           </div>
           <div class="value">
             <%= @project.responses.count %>
@@ -68,6 +70,7 @@
         </div>
       </div>
     </div>
+    <%= sus_chart_for(@project) %>
     <% end %>
 
     <% if @project.questionnaire_id_clean == "attrakdiff" %>
