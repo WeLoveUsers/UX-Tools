@@ -1,22 +1,30 @@
-<h2><%= t('.change_your_password') %></h2>
+<%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+<div class="ui middle aligned center aligned grid">
+  <div class="left aligned login column">
+    <h2 class="ui header"><%= t('.change_your_password') %></h2>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, :class => "ui large form signup" }) do |f| %>
+    <div class="ui stacked segment">
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Mot de passe", data: { content: "6 caractères minimum" }, class: "field-popup" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmation du mot de passe" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password, t('.new_password') %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.hidden_field :reset_password_token %>
+      <%= f.submit t('.change_my_password'), :class => "ui large fluid submit button" %>
+    </div>
+    <% end %>
+
+    <div class="ui message">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, t('.confirm_new_password') %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.change_my_password') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
