@@ -56,5 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'therubyracer'
 gem 'less-rails-semantic_ui', '~> 2.2.4'
 gem 'autoprefixer-rails', '~> 6.5.1'
+gem 'chartjs-ror'
 
 ruby "2.3.1"
