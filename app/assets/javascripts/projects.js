@@ -3,7 +3,6 @@ $(document).on('turbolinks:load', function() {
   $('.ui.calendar.date').calendar({
     type: 'date',
     firstDayOfWeek: 1,
-    today: true,
     minDate: new Date(),
     text: {
       days: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
