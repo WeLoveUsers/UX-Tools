@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+@TODO :
+- Choisir (ou aider ?) le type d'étude : A vs B ; Avant / Après ; Groupe 1 vs Groupe 2
+- Donner des recommandations sur la taille de l'échantillon ? (avant ou pendant l'évaluation)
+- Contrôler la validité des réponses et exclures ?
+- Ajouter :
+  - AttrakDiff abrégé
+  - SUS "positif"
+  - DEEP
+- Ajouter des descriptions des questionnaires et liens vers les publications ?
+- "Précautions à prendre" + "Bibliographie / Références"
+- Permettre de modifier le texte de la consigne
