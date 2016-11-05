@@ -200,6 +200,7 @@ DEPENDENCIES
   devise-i18n
   jbuilder (~> 2.5)
   jquery-rails
+  less-rails (~> 2.7.0)
   less-rails-semantic_ui (~> 2.2.4)
   listen (~> 3.0.5)
   pg (~> 0.18)

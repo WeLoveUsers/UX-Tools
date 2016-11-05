@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require semantic_ui/semantic_ui
 //= require semantic_ui_calendar/calendar
-//= require Chart.bundle.min
+//= require chart_js/Chart.bundle.2.3.0.min
 //= require_tree .

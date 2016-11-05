@@ -53,6 +53,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Semantic UI assets
+gem 'less-rails', '~> 2.7.0'
 gem 'therubyracer'
 gem 'less-rails-semantic_ui', '~> 2.2.4'
 gem 'autoprefixer-rails', '~> 6.5.1'

@@ -118,6 +118,15 @@
         </div>
       </div>
     </div>
+
+    <div class="ui grid container segment">
+      <div class="ui six wide column">
+          <%= attrak_diff_average_chart_for(@project) %>
+      </div>
+      <div class="ui ten wide column">
+          <%= attrak_diff_word_pair_chart_for(@project) %>
+      </div>
+    </div>
     <% end %>
     <a href="<%= url_for project_path(@project, format: "csv") %>" class="ui button">Télécharger les données brutes (.csv)</a>
   </div>
