@@ -25,6 +25,7 @@ $(document).on('turbolinks:load', function() {
         .transition('fade')
       ;
     });
+
   $('form input.field-popup')
     .popup({
       on: 'focus'
@@ -54,6 +55,19 @@ $(document).on('turbolinks:load', function() {
         'user[email]'                 : 'email',
         'user[password]'              : 'minLength[6]',
         'user[password_confirmation]' : 'match[user[password]]'
+      }
+    })
+  ;
+
+  $('.ui.form.evaluation-project')
+    .form({
+      fields: {
+        'project[questionnaire_id]'       : 'empty',
+        'project[questionnaire_language]' : 'empty',
+        'project[product_type]'           : 'empty',
+        'project[product_name]'           : 'empty',
+        'project[project_code]'           : 'empty',
+        'project[end_date]'               : 'empty'
       }
     })
   ;

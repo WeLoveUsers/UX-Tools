@@ -1,7 +1,7 @@
 <%= form_error_messages_for(project) %>
 
 <div class="ui container">
-<%= form_for(project, :html => {:class => "ui large form"}) do |f| %>
+<%= form_for(project, :html => {:class => "ui large form evaluation-project"}) do |f| %>
   <div class="ui stacked segment grid">
     <% if params[:action] === 'edit' %>
     <div class="ui black ribbon label">Modification</div>
