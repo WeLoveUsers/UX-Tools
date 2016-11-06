@@ -24,16 +24,26 @@ module ResponseAttrakDiffsHelper
     options = {
       title:{
         display: true,
-        text:'AttrakDiff - Diagramme des valeurs moyennes'
+        text:'AttrakDiff - Diagramme des valeurs moyennes',
+        fontFamily: "'Oswald'",
+        fontSize: 20
       },
       responsive: true,
       class: 'attrak-diff-average-chart',
       height: 300,
       scales: {
+                xAxes: [{
+                  ticks: {
+                    fontFamily: "'PT Serif'",
+                    fontSize: 12
+                  }
+                }],
                 yAxes: [{
                     ticks: {
                       min: -3,
-                      max: 3
+                      max: 3,
+                      fontFamily: "'PT Serif'",
+                      fontSize: 12
                     }
                 }]
             }
@@ -90,10 +100,12 @@ module ResponseAttrakDiffsHelper
     options = {
         title:{
             display:true,
-            text:'AttrakDiff - Diagramme des paires de mots'
+            text:'AttrakDiff - Diagramme des paires de mots',
+            fontFamily: "'Oswald'",
+            fontSize: 20
         },
         responsive: true,
-        class: 'attrak-diff-average-chart',
+        class: 'attrak-diff-word-pair-chart',
         height: 410,
 
         scales: {
@@ -101,17 +113,84 @@ module ResponseAttrakDiffsHelper
                 display: true,
                 ticks: {
                   min: -3,
-                  max: 3
+                  max: 3,
+                  fontFamily: "'PT Serif'",
+                  fontSize: 12
                 }
             }],
             yAxes: [{
                 barThickness: 15,
                 position: 'left',
-                display: true
+                display: true,
+                ticks: {
+                  fontFamily: "'PT Serif'",
+                  fontSize: 12
+                }
             }]
         }
     }
 
     horizontal_bar_chart data, options
+  end
+
+  def attrak_diff_portfolio_chart_for(project)
+    average_score = project.attrakdiff_average_score
+    data = {
+      datasets: [{
+                label: 'Scatter Dataset',
+                borderWidth: 5,
+                pointRadius: 8,
+                pointHoverRadius: 10,
+                pointBackgroundColor: "#333333",
+                data: [{
+                    x: average_score[:QP],
+                    y: (average_score[:QHS] + average_score[:QHI]) / 2
+                }]
+            }]
+    }
+    options = {
+      title:{
+          display:true,
+          text:'AttrakDiff - Portfolio des résultats',
+          fontFamily: "'Oswald'",
+          fontSize: 20
+      },
+      responsive: true,
+      class: 'attrak-diff-average-chart',
+      height: 300,
+      scales: {
+                xAxes: [{
+                    type: 'linear',
+                    position: 'bottom',
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Qualité pragmatique",
+                      fontFamily: "'Oswald'",
+                      fontSize: 12
+                    },
+                    ticks: {
+                      min: -3,
+                      max: 3,
+                      fontFamily: "'PT Serif'",
+                      fontSize: 12
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                      display: true,
+                      labelString: "Qualité hédonique",
+                      fontFamily: "'Oswald'",
+                      fontSize: 12
+                    },
+                    ticks: {
+                      min: -3,
+                      max: 3,
+                      fontFamily: "'PT Serif'",
+                      fontSize: 12
+                    }
+                }]
+            }
+    }
+    scatter_chart data, options
   end
 end

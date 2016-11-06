@@ -11,3 +11,4 @@
 - Ajouter des descriptions des questionnaires et liens vers les publications ?
 - "Précautions à prendre" + "Bibliographie / Références"
 - Permettre de modifier le texte de la consigne
+- Ajouter des bares d'erreur pour les IC

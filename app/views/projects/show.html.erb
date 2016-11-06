@@ -120,8 +120,11 @@
     </div>
 
     <div class="ui grid container segment">
-      <div class="ui six wide column">
+      <div class="ui eight wide column">
           <%= attrak_diff_average_chart_for(@project) %>
+      </div>
+      <div class="ui eight wide column">
+          <%= attrak_diff_portfolio_chart_for(@project) %>
       </div>
       <div class="ui ten wide column">
           <%= attrak_diff_word_pair_chart_for(@project) %>
