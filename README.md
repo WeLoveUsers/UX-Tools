@@ -12,3 +12,14 @@
 - "Précautions à prendre" + "Bibliographie / Références"
 - Permettre de modifier le texte de la consigne
 - Ajouter des bares d'erreur pour les IC
+
+QUESTIONS :
+- (Carine Lallemand) A-t-on le droit de mettre ces questionnaires en ligne ?
+
+TESTEURS :
+- lou.bonnamy@gmail.com
+- laruevanessa@yahoo.fr
+- carine.lallemand@hotmail.fr
+- aurelie.blaise17@gmail.com
+- corinne.leulier@kleegroup.com
+- guillaume.gronier@gmail.com
