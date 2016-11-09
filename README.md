@@ -21,9 +21,10 @@ QUESTIONS :
 - (Carine Lallemand) A-t-on le droit de mettre ces questionnaires en ligne ?
 
 TESTEURS :
-- lou.bonnamy@gmail.com
-- laruevanessa@yahoo.fr
-- carine.lallemand@hotmail.fr
-- aurelie.blaise17@gmail.com
-- corinne.leulier@kleegroup.com
-- guillaume.gronier@gmail.com
+1. lou.bonnamy@gmail.com
+2. laruevanessa@yahoo.fr
+3. carine.lallemand@hotmail.fr
+4. aurelie.blaise17@gmail.com
+5. corinne.leulier@kleegroup.com
+6. guillaume.gronier@gmail.com
+7. zenerg@gmail.com
