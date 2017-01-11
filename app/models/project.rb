@@ -1,9 +1,9 @@
 class Project < ApplicationRecord
   belongs_to :user
 
-  has_many :response_attrak_diffs, :dependent => :delete_all
-  has_many :response_sus, :dependent => :delete_all
-  has_many :response_deeps, :dependent => :delete_all
+  has_many :response_attrak_diffs, dependent: :destroy
+  has_many :response_sus, dependent: :destroy
+  has_many :response_deeps, dependent: :destroy
 
   validates_presence_of :questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :end_date
 
