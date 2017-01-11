@@ -1,7 +1,7 @@
 <nav class="bc">
   <div class="ui large breadcrumb container">
     <a href="<%= edit_project_path(@project) %>" class="ui right floated primary button">Modifier</a>
-    <a class="section" href="<%= root_path %>">We Love Tools</a>
+    <a class="section" href="<%= root_path %>"><%= wlu_tools_name %></a>
     <i class="right chevron icon divider"></i>
     <a href="<%= projects_path %>" class="section">Questionnaires UX</a>
     <i class="right chevron icon divider"></i>
@@ -22,7 +22,7 @@
       <tbody>
         <tr>
           <td width="20%" nowrap>Questionnaire :</td>
-          <td><%= @project.questionnaire_id %> (<%= @project.questionnaire_language %>)</td>
+          <td><%= @project.questionnaire_id %> (<%= @project.questionnaire_language %>) - <a href="#" class="show_editor_modal">consulter et modifier la consigne</a></td>
         </tr>
         <tr>
           <td nowrap>Type de produit :</td>
@@ -41,97 +41,12 @@
   </div>
 
   <div class="ui tab <%= "active" if @project.has_responses? %>" data-tab="results">
-    <% if @project.questionnaire_id_clean == "system_usability_scale" %>
-    <div class="ui segment">
-      <div class="ui statistics">
-        <div class="statistic">
-          <div class="label">
-            <%= "Réponse".pluralize(@project.responses.count) %>
-          </div>
-          <div class="value">
-            <%= @project.responses.count %>
-          </div>
-        </div>
-        <div class="statistic">
-          <div class="label">
-            Score
-          </div>
-          <div class="value">
-            <%= @project.sus_score %>
-          </div>
-        </div>
-        <div class="statistic">
-          <div class="label">
-            Note
-          </div>
-          <div class="value">
-            <%= @project.sus_grade %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <%= sus_chart_for(@project) %>
-    <% end %>
+    <%= render 'projects' + File::SEPARATOR + 'results' + File::SEPARATOR + @project.questionnaire_id_clean, project: @project %>
 
-    <% if @project.questionnaire_id_clean == "attrakdiff" %>
-    <div class="ui segment">
-      <div class="ui statistics">
-        <div class="statistic">
-          <div class="label">
-            Réponses
-          </div>
-          <div class="value">
-            <%= @project.responses.count %>
-          </div>
-        </div>
-        <div class="statistic">
-          <div class="label">
-            MOYENNE QP
-          </div>
-          <div class="value">
-            <%= @project.attrakdiff_average_score[:QP] %>
-          </div>
-        </div>
-        <div class="statistic">
-          <div class="label">
-            MOYENNE QHS
-          </div>
-          <div class="value">
-            <%= @project.attrakdiff_average_score[:QHS] %>
-          </div>
-        </div>
-        <div class="statistic">
-          <div class="label">
-            MOYENNE QHI
-          </div>
-          <div class="value">
-            <%= @project.attrakdiff_average_score[:QHI] %>
-          </div>
-        </div>
-        <div class="statistic">
-          <div class="label">
-            MOYENNE ATT
-          </div>
-          <div class="value">
-            <%= @project.attrakdiff_average_score[:ATT] %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <a href="<%= url_for project_path(@project, format: "xlsx") %>" class="ui button <%= 'disabled' if !@project.has_responses? %>">Télécharger les données brutes (.xlsx)</a>
 
-    <div class="ui grid container segment">
-      <div class="ui eight wide column">
-          <%= attrak_diff_average_chart_for(@project) %>
-      </div>
-      <div class="ui eight wide column">
-          <%= attrak_diff_portfolio_chart_for(@project) %>
-      </div>
-      <div class="ui ten wide column">
-          <%= attrak_diff_word_pair_chart_for(@project) %>
-      </div>
-    </div>
-    <% end %>
-    <a href="<%= url_for project_path(@project, format: "csv") %>" class="ui button">Télécharger les données brutes (.csv)</a>
   </div>
 
 </div>
+
+<%= render 'editor_modal', project: @project %>

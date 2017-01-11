@@ -25,3 +25,25 @@ fr:
       project:
         update: "Enregistrer"
         create: "Créer une évaluation"
+  projects:
+    respond:
+      closed: "Fini !"
+      closed_details: "Cette évaluation est à présent terminée."
+    questionnaires:
+      introduction:
+        title: "Veuillez lire attentivement la consigne"
+        submit: "Commencer"
+      system_usability_scale_step1:
+        title: "Evaluez"
+        likert_disagree: "Pas du tout d'accord"
+        likert_agree: "Tout à fait d'accord"
+        submit: "Envoyer"
+      attrakdiff_step1:
+        title: "Evaluez"
+        submit: "Envoyer"
+      deep_step1:
+        title: "Evaluez"
+        likert_disagree: "Pas du tout d'accord"
+        likert_agree: "Tout à fait d'accord"
+        likert_not_applicable: "Non applicable"
+        submit: "Envoyer"

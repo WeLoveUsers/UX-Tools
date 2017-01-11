@@ -1,0 +1,43 @@
+@wb.add_worksheet(name: "Réponses") do |sheet|
+  sheet.add_row ['Légende'], :style => @black_cell
+  sheet.add_row [ResponseDeep::G1_label[I18n.locale]]
+  sheet.add_row ['Q1 :',  ResponseDeep::Q1_label[I18n.locale]]
+  sheet.add_row ['Q2 :',  ResponseDeep::Q2_label[I18n.locale]]
+  sheet.add_row ['Q3 :',  ResponseDeep::Q3_label[I18n.locale]]
+  sheet.add_row ['Q4 :',  ResponseDeep::Q4_label[I18n.locale]]
+  sheet.add_row [ResponseDeep::G2_label[I18n.locale]]
+  sheet.add_row ['Q5 :',  ResponseDeep::Q5_label[I18n.locale]]
+  sheet.add_row ['Q6 :',  ResponseDeep::Q6_label[I18n.locale]]
+  sheet.add_row ['Q7 :',  ResponseDeep::Q7_label[I18n.locale]]
+  sheet.add_row [ResponseDeep::G3_label[I18n.locale]]
+  sheet.add_row ['Q8 :',  ResponseDeep::Q8_label[I18n.locale]]
+  sheet.add_row ['Q9 :',  ResponseDeep::Q9_label[I18n.locale]]
+  sheet.add_row ['Q10 :', ResponseDeep::Q10_label[I18n.locale]]
+  sheet.add_row [ResponseDeep::G4_label[I18n.locale]]
+  sheet.add_row ['Q11 :', ResponseDeep::Q11_label[I18n.locale]]
+  sheet.add_row ['Q12 :', ResponseDeep::Q12_label[I18n.locale] + " *"]
+  sheet.add_row ['Q13 :', ResponseDeep::Q13_label[I18n.locale]]
+  sheet.add_row [ResponseDeep::G5_label[I18n.locale]]
+  sheet.add_row ['Q14 :', ResponseDeep::Q14_label[I18n.locale]]
+  sheet.add_row ['Q15 :', ResponseDeep::Q15_label[I18n.locale] + " *"]
+  sheet.add_row ['Q16 :', ResponseDeep::Q16_label[I18n.locale]]
+  sheet.add_row [ResponseDeep::G6_label[I18n.locale]]
+  sheet.add_row ['Q17 :', ResponseDeep::Q17_label[I18n.locale]]
+  sheet.add_row ['Q18 :', ResponseDeep::Q18_label[I18n.locale]]
+  sheet.add_row ['Q19 :', ResponseDeep::Q19_label[I18n.locale]]
+  sheet.add_row ['']
+  sheet.add_row ["* les notes affichées sont toutes dans le même sens, que l'item soit inversé ou non :"]
+  sheet.add_row ['0 :', 'Non applicable']
+  sheet.add_row ['1 :', 'Note minimale']
+  sheet.add_row ['5 :', 'Note maximale']
+  sheet.add_row ['']
+
+  sheet.add_row ResponseDeep::Export_entete, :style => @black_cell
+  i = 1
+  @project.responses.each do |response|
+    sheet.add_row [i, response.Q1, response.Q2, response.Q3, response.Q4, response.Q5, response.Q6, response.Q7, response.Q8, response.Q9, response.Q10, response.Q11, response.Q12, response.Q13, response.Q14, response.Q15, response.Q16, response.Q17, response.Q18, response.Q19, response.created_at], :style => [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, @date]
+    i += 1
+  end
+
+  sheet.column_widths 13, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, nil
+end

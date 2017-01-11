@@ -1,32 +1,34 @@
 <div class="ui fixed main menu">
     <a href="<%= root_path %>" class="item"><img alt="We Love Users" src="<%= image_path('we-love-users-logo(small).png')%>"></a>
     <% if user_signed_in? %>
-    <div class="ui simple dropdown right item">
-      <i class="user icon"></i> <%= current_user.email %> <i class="dropdown icon"></i>
-      <div class="menu">
-        <% if Devise.mappings[:user].registerable? %>
-        <div class="item">
-          <%= link_to 'Mon compte', edit_user_registration_path %>
-        </div>
-        <% end %>
-        <div class="item">
-          <%= link_to "Déconnexion", destroy_user_session_path, method: :delete  %>
+    <div class="right menu">
+      <a href="#" class="item" onclick="_urq.push(['Feedback_Open'])">Une idée ou un bug ?</a>
+
+      <div class="ui simple dropdown item">
+        <i class="user icon"></i> <%= current_user.email %> <i class="dropdown icon"></i>
+        <div class="menu">
+          <% if Devise.mappings[:user].registerable? %>
+          <div class="item">
+            <%= link_to 'Mon compte', edit_user_registration_path %>
+          </div>
+          <% end %>
+          <div class="item">
+            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete  %>
+          </div>
         </div>
       </div>
     </div>
     <% else %>
     <div class="right menu">
+      <a href="#" class="item" onclick="_urq.push(['Feedback_Open'])">Une idée ou un bug ?</a>
+
       <div class="item">
         <%= link_to "Connexion", new_user_session_path, :class => 'ui button'  %>
       </div>
       <% if Devise.mappings[:user].registerable? %>
-      <div class="item">
-        <%= link_to "Inscription", new_user_registration_path, :class => 'ui primary button'  %>
-      </div>
+        <%= link_to "Inscription", new_user_registration_path, :class => 'item'  %>
       <% else %>
-      <div class="item">
-        <a href="mailto:f.jaouali@weloveusers.com?subject=Tester la beta de We Love Tools" class='ui primary button'>Demander à tester la beta</a>
-      </div>
+      <a class="item" href="mailto:f.jaouali@weloveusers.com?subject=Tester la beta de We Love Tools">Demander à tester la beta</a>
       <% end %>
     </div>
     <% end %>

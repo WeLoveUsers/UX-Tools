@@ -5,7 +5,7 @@ module ResponseAttrakDiffsHelper
       labels: ["QP", "QHS", "QHI", "ATT"],
       datasets: [
         {
-            label: "Valeur moyenne",
+            label: "Valeurs moyennes",
             borderWidth: 5,
             fill: false,
             showLine: false,
@@ -24,7 +24,7 @@ module ResponseAttrakDiffsHelper
     options = {
       title:{
         display: true,
-        text:'AttrakDiff - Diagramme des valeurs moyennes',
+        text:'Diagramme des valeurs moyennes',
         fontFamily: "'Oswald'",
         fontSize: 20
       },
@@ -100,7 +100,7 @@ module ResponseAttrakDiffsHelper
     options = {
         title:{
             display:true,
-            text:'AttrakDiff - Diagramme des paires de mots',
+            text:'Diagramme des paires de mots',
             fontFamily: "'Oswald'",
             fontSize: 20
         },
@@ -137,7 +137,7 @@ module ResponseAttrakDiffsHelper
     average_score = project.attrakdiff_average_score
     data = {
       datasets: [{
-                label: 'Scatter Dataset',
+                label: 'Moyenne pragmatique et hédonique',
                 borderWidth: 5,
                 pointRadius: 8,
                 pointHoverRadius: 10,
@@ -151,7 +151,7 @@ module ResponseAttrakDiffsHelper
     options = {
       title:{
           display:true,
-          text:'AttrakDiff - Portfolio des résultats',
+          text:'Portfolio des résultats',
           fontFamily: "'Oswald'",
           fontSize: 20
       },

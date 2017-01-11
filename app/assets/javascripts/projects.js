@@ -158,4 +158,48 @@ $(document).on('turbolinks:load', function() {
       }
     })
   ;
+
+  $('.ui.form.deep')
+    .form({
+      fields: {
+        'response_deep[Q1]' : 'checked',
+        'response_deep[Q2]' : 'checked',
+        'response_deep[Q3]' : 'checked',
+        'response_deep[Q4]' : 'checked',
+        'response_deep[Q5]' : 'checked',
+        'response_deep[Q6]' : 'checked',
+        'response_deep[Q7]' : 'checked',
+        'response_deep[Q8]' : 'checked',
+        'response_deep[Q9]' : 'checked',
+        'response_deep[Q10]' : 'checked',
+        'response_deep[Q11]' : 'checked',
+        'response_deep[Q12]' : 'checked',
+        'response_deep[Q13]' : 'checked',
+        'response_deep[Q14]' : 'checked',
+        'response_deep[Q15]' : 'checked',
+        'response_deep[Q16]' : 'checked',
+        'response_deep[Q17]' : 'checked',
+        'response_deep[Q18]' : 'checked',
+        'response_deep[Q19]' : 'checked'
+      }
+    })
+  ;
+
+  // Show rich text editor (modal) and define actions
+  $('a.show_editor_modal')
+    .on('click', function(event) {
+      event.preventDefault();
+      $('#instructions_editor_modal').modal('show');
+    });
+
+  // Show help to choose which questionnaire does what (modal)
+  $('a.show_questionnaire_help_modal')
+    .on('click', function(event) {
+      event.preventDefault();
+      $('#questionnaire_help_modal').modal({
+        approve  : '.close'
+      }).modal('show');
+    });
+
+
 });

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031142145) do
+ActiveRecord::Schema.define(version: 20170110131915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20161031142145) do
     t.integer  "user_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.text     "instructions"
     t.index ["uri_token"], name: "index_projects_on_uri_token", unique: true, using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
@@ -66,6 +67,33 @@ ActiveRecord::Schema.define(version: 20161031142145) do
     t.index ["project_id"], name: "index_response_attrak_diffs_on_project_id", using: :btree
   end
 
+  create_table "response_deeps", force: :cascade do |t|
+    t.integer  "Q1"
+    t.integer  "Q2"
+    t.integer  "Q3"
+    t.integer  "Q4"
+    t.integer  "Q5"
+    t.integer  "Q6"
+    t.integer  "Q7"
+    t.integer  "Q8"
+    t.integer  "Q9"
+    t.integer  "Q10"
+    t.integer  "Q11"
+    t.integer  "Q12"
+    t.integer  "Q13"
+    t.integer  "Q14"
+    t.integer  "Q15"
+    t.integer  "Q16"
+    t.integer  "Q17"
+    t.integer  "Q18"
+    t.integer  "Q19"
+    t.string   "respondent_id"
+    t.integer  "project_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["project_id"], name: "index_response_deeps_on_project_id", using: :btree
+  end
+
   create_table "response_sus", force: :cascade do |t|
     t.integer  "Q1"
     t.integer  "Q2"
@@ -103,5 +131,6 @@ ActiveRecord::Schema.define(version: 20161031142145) do
 
   add_foreign_key "projects", "users"
   add_foreign_key "response_attrak_diffs", "projects"
+  add_foreign_key "response_deeps", "projects"
   add_foreign_key "response_sus", "projects"
 end

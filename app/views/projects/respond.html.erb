@@ -1,14 +1,16 @@
-<% if @project.end_date >= Date.today %>
-  <% if !@showForm %>
-    <%= render @project.questionnaire_template, project: @project %>
+<%- I18n.with_locale(@project.questionnaire_language_code) do %>
+  <% if @project.end_date >= Date.today %>
+    <% if !@showForm %>
+      <%= render 'projects' + File::SEPARATOR + 'questionnaires' + File::SEPARATOR + 'introduction', project: @project %>
+    <% else %>
+      <%= render @form, project: @project, response: @response %>
+    <% end %>
   <% else %>
-    <%= render @form, project: @project, response: @response %>
-  <% end %>
-<% else %>
-  <div class="ui text container">
-    <div class="ui segment">
-    	<h2>Fini !</h2>
-      <p>Cette évaluation est terminée (date de fin : <%= @project.end_date %>)</p>
+    <div class="ui text container">
+      <div class="ui segment">
+      	<h2><%= t('.closed') %></h2>
+        <p><%= t('.closed_details') %></p>
+      </div>
     </div>
-  </div>  
+  <% end %>
 <% end %>

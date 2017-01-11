@@ -1,0 +1,36 @@
+<div id="questionnaire_help_modal" class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">Quelles différences entre les questionnaires ?</div>
+
+  <div class="content">
+    <table class="ui definition table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Description</th>
+          <th nowrap>Nb. questions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td width="20%"><%= ResponseAttrakDiff::Infos[:display_name] %></td>
+          <td><%= ResponseAttrakDiff::Infos[:description].html_safe %></td>
+          <td class="center aligned"><%= ResponseAttrakDiff::Infos[:number_of_questions] %></td>
+        </tr>
+        <tr>
+          <td><%= ResponseSu::Infos[:display_name] %> (<%= ResponseSu::Infos[:display_name_short] %>)</td>
+          <td><%= ResponseSu::Infos[:description].html_safe %></td>
+          <td class="center aligned"><%= ResponseSu::Infos[:number_of_questions] %></td>
+        </tr>
+        <tr>
+          <td><%= ResponseDeep::Infos[:display_name] %> (<%= ResponseDeep::Infos[:display_name_short] %>)</td>
+          <td><%= ResponseDeep::Infos[:description].html_safe %></td>
+          <td class="center aligned"><%= ResponseDeep::Infos[:number_of_questions] %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="actions">
+    <div class="ui close button">Fermer</div>
+  </div>
+</div>

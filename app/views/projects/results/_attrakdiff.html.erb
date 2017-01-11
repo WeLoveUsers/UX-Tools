@@ -1,0 +1,56 @@
+<div class="ui segment">
+  <div class="ui statistics">
+    <div class="statistic">
+      <div class="label">
+        Réponses
+      </div>
+      <div class="value">
+        <%= @project.responses.count %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        MOYENNE QP
+      </div>
+      <div class="value">
+        <%= @project.attrakdiff_average_score[:QP] %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        MOYENNE QHS
+      </div>
+      <div class="value">
+        <%= @project.attrakdiff_average_score[:QHS] %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        MOYENNE QHI
+      </div>
+      <div class="value">
+        <%= @project.attrakdiff_average_score[:QHI] %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        MOYENNE ATT
+      </div>
+      <div class="value">
+        <%= @project.attrakdiff_average_score[:ATT] %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui grid container segment">
+  <div class="ui eight wide column">
+      <%= attrak_diff_average_chart_for(@project) %>
+  </div>
+  <div class="ui eight wide column">
+      <%= attrak_diff_portfolio_chart_for(@project) %>
+  </div>
+  <div class="ui ten wide column">
+      <%= attrak_diff_word_pair_chart_for(@project) %>
+  </div>
+</div>

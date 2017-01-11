@@ -1,0 +1,29 @@
+<div class="ui segment">
+  <div class="ui statistics">
+    <div class="statistic">
+      <div class="label">
+        <%= "Réponse".pluralize(@project.responses.count) %>
+      </div>
+      <div class="value">
+        <%= @project.responses.count %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        Score
+      </div>
+      <div class="value">
+        <%= @project.sus_score %>
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="label">
+        Note
+      </div>
+      <div class="value">
+        <%= @project.sus_grade %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= sus_chart_for(@project) %>

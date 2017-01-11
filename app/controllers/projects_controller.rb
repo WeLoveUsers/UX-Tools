@@ -13,9 +13,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   # GET /projects/1.csv
   def show
+    filename = "[Questionnaire UX] - " + @project.product_name + "-" + @project.project_code + " (" + @project.questionnaire_id + ") - #{Date.today}"
     respond_to do |format|
       format.html
-      format.csv { send_data @project.responses.to_csv, filename: "questionnaire-ux-#{Date.today}.csv" }
+      #format.csv { send_data @project.responses.to_csv, filename: filename + ".csv" }
+      format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="' + filename + '.xlsx"' }
     end
   end
 
@@ -52,6 +54,14 @@ class ProjectsController < ApplicationController
           @response = ResponseSu.new
         else
         end
+      when "deep"
+        case params[:step]
+        when "1"
+          @showForm = true
+          @form = @project.questionnaire_template + "_" + "step" + params[:step]
+          @response = ResponseDeep.new
+        else
+        end
       end
     end
     render layout: "public_response"
@@ -71,7 +81,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -83,9 +93,19 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    if params["redirect_back"] === "true"
+      redirect_back = true
+    else
+      redirect_back = false
+    end
+
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        if redirect_back
+          format.html { redirect_back fallback_location: @project, notice: "La modification a bien été enregistrée." }
+        else
+          format.html { redirect_to @project, notice: 'La modification a bien été enregistrée.' }
+        end
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -99,7 +119,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: "Le projet d'évaluation a bien été supprimé." }
       format.json { head :no_content }
     end
   end
@@ -116,7 +136,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :end_date, :uri_token, :user_id)
+      params.require(:project).permit(:questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :instructions, :end_date, :uri_token)
     end
 
 end

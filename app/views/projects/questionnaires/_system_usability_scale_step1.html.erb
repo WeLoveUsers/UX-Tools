@@ -1,19 +1,19 @@
 <div class="ui container">
   <div class="ui segment">
-    <h2>Evaluate "<%= @project.product_name %>"</h2>
+    <h2><%= t('.title') + ' "' + @project.product_name + '"' %></h2>
     <%= form_for(response, :html => {:class => "ui huge-radio form sus"}) do |f| %>
   		<table class="ui selectable very basic large table">
   		  <tbody>
-          <tr class="field">
+          <tr class="header">
   		      <td>&nbsp;</td>
-  		      <td class="right aligned">Strongly Disagree</td>
+  		      <td class="right aligned"><%= t('.likert_disagree') %></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td>Strongly Agree</td>
+            <td><%= t('.likert_agree') %></td>
           </tr>
   		    <tr class="field">
-  		      <td>I think that I would like to use this system frequently.</td>
+  		      <td><%= ResponseSu::Q1_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="0"><label></label></div>
             </td>
@@ -31,7 +31,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I found the system unnecessarily complex.</td>
+  		      <td><%= ResponseSu::Q2_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="4"><label></label></div>
             </td>
@@ -49,7 +49,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I thought the system was easy to use.</td>
+  		      <td><%= ResponseSu::Q3_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="0"><label></label></div>
             </td>
@@ -67,7 +67,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I think that I would need the support of a technical person to be able to use this system.</td>
+  		      <td><%= ResponseSu::Q4_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="4"><label></label></div>
             </td>
@@ -85,7 +85,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I found the various functions in this system were well integrated.</td>
+  		      <td><%= ResponseSu::Q5_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="0"><label></label></div>
             </td>
@@ -103,7 +103,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I thought there was too much inconsistency in this system.</td>
+  		      <td><%= ResponseSu::Q6_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="4"><label></label></div>
             </td>
@@ -121,7 +121,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I would imagine that most people would learn to use this system very quickly.</td>
+  		      <td><%= ResponseSu::Q7_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="0"><label></label></div>
             </td>
@@ -139,7 +139,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I found the system very cumbersome to use.</td>
+  		      <td><%= ResponseSu::Q8_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="4"><label></label></div>
             </td>
@@ -157,7 +157,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I felt very confident using the system.</td>
+  		      <td><%= ResponseSu::Q9_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="0"><label></label></div>
             </td>
@@ -175,7 +175,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td>I needed to learn a lot of things before I could get going with this system.</td>
+  		      <td><%= ResponseSu::Q10_label[I18n.locale] %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="4"><label></label></div>
             </td>
@@ -198,7 +198,7 @@
       <input type="hidden" name="response_su[f]" value="">
 
       <div class="ui right aligned container">
-        <%= f.submit "Submit", :class => "ui large submit button" %>
+        <%= f.submit t(".submit"), :class => "ui large submit button" %>
       </div>
     <% end %>
   </div>

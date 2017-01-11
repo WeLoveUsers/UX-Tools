@@ -1,0 +1,19 @@
+<% @scores = @project.deep_scores %>
+<div class="ui segment">
+  <div class="ui statistics">
+    <div class="statistic">
+      <div class="label">
+        <%= "Réponse".pluralize(@project.responses.count) %>
+      </div>
+      <div class="value">
+        <%= @project.responses.count %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui grid container segment">
+  <div class="ui sixteen wide column">
+      <%= deep_radar_chart_for(@project) %>
+  </div>
+</div>

@@ -3,13 +3,14 @@ class Project < ApplicationRecord
 
   has_many :response_attrak_diffs, :dependent => :delete_all
   has_many :response_sus, :dependent => :delete_all
+  has_many :response_deeps, :dependent => :delete_all
 
   validates_presence_of :questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :end_date
 
-  before_create :add_token
+  before_create :add_token, :generate_instructions
 
   def self.questionnaireTypes
-    ["AttrakDiff", "System Usability Scale"]
+    [ResponseAttrakDiff::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
   end
 
   def self.questionnaireLanguages
@@ -36,6 +37,18 @@ class Project < ApplicationRecord
     end
   end
 
+  def questionnaire_language_code
+    if self.questionnaire_language.nil?
+      return nil
+    else
+      if self.questionnaire_language_clean == "anglais"
+        return 'en'
+      else
+        return 'fr'
+      end
+    end
+  end
+
   def questionnaire_language_clean
     if self.questionnaire_language.nil?
       return nil
@@ -45,8 +58,8 @@ class Project < ApplicationRecord
   end
 
   def questionnaire_template
-    # Ex.: 'questionnaires/system_usability_scale/francais'
-    return 'questionnaires' + File::SEPARATOR + self.questionnaire_id_clean + File::SEPARATOR + self.questionnaire_language_clean
+    # Ex.: 'projects/questionnaires/system_usability_scale'
+    return 'projects' + File::SEPARATOR + 'questionnaires' + File::SEPARATOR + self.questionnaire_id_clean
   end
 
   def responses
@@ -54,6 +67,8 @@ class Project < ApplicationRecord
       return self.response_attrak_diffs
     elsif self.questionnaire_id_clean == "system_usability_scale"
       return self.response_sus
+    elsif self.questionnaire_id_clean == "deep"
+      return self.response_deeps
     else
       return nil
     end
@@ -115,8 +130,8 @@ class Project < ApplicationRecord
       count = count + 1
       sum[:QP]  = sum[:QP]  + (response.QP1  + response.QP2  + response.QP3  + response.QP4  + response.QP5  + response.QP6  + response.QP7)
       sum[:QHS] = sum[:QHS] + (response.QHS1 + response.QHS2 + response.QHS3 + response.QHS4 + response.QHS5 + response.QHS6 + response.QHS7)
-      sum[:QHI] = sum[:QHS] + (response.QHI1 + response.QHI2 + response.QHI3 + response.QHI4 + response.QHI5 + response.QHI6 + response.QHI7)
-      sum[:ATT] = sum[:QHS] + (response.ATT1 + response.ATT2 + response.ATT3 + response.ATT4 + response.ATT5 + response.ATT6 + response.ATT7)
+      sum[:QHI] = sum[:QHI] + (response.QHI1 + response.QHI2 + response.QHI3 + response.QHI4 + response.QHI5 + response.QHI6 + response.QHI7)
+      sum[:ATT] = sum[:ATT] + (response.ATT1 + response.ATT2 + response.ATT3 + response.ATT4 + response.ATT5 + response.ATT6 + response.ATT7)
     end
     if count > 0
       score[:QP]  = (sum[:QP]  / (7 * count)).round(2)
@@ -203,6 +218,81 @@ class Project < ApplicationRecord
     return score
   end
 
+# DEEP
+  def deep_scores
+    score = {
+      G1: 0.00,
+      G2: 0.00,
+      G3: 0.00,
+      G4: 0.00,
+      G5: 0.00,
+      G6: 0.00
+    }
+    dividers = {
+      G1: 0,
+      G2: 0,
+      G3: 0,
+      G4: 0,
+      G5: 0,
+      G6: 0
+    }
+    count = 0
+    sum = score
+
+    self.response_deeps.each do |response|
+      count += 1
+      dividers[:G1] += 1 if response.Q1 > 0
+      dividers[:G1] += 1 if response.Q2 > 0
+      dividers[:G1] += 1 if response.Q3 > 0
+      dividers[:G1] += 1 if response.Q4 > 0
+      dividers[:G2] += 1 if response.Q5 > 0
+      dividers[:G2] += 1 if response.Q6 > 0
+      dividers[:G2] += 1 if response.Q7 > 0
+      dividers[:G3] += 1 if response.Q8 > 0
+      dividers[:G3] += 1 if response.Q9 > 0
+      dividers[:G3] += 1 if response.Q10 > 0
+      dividers[:G4] += 1 if response.Q11 > 0
+      dividers[:G4] += 1 if response.Q12 > 0
+      dividers[:G4] += 1 if response.Q13 > 0
+      dividers[:G5] += 1 if response.Q14 > 0
+      dividers[:G5] += 1 if response.Q15 > 0
+      dividers[:G5] += 1 if response.Q16 > 0
+      dividers[:G6] += 1 if response.Q17 > 0
+      dividers[:G6] += 1 if response.Q18 > 0
+      dividers[:G6] += 1 if response.Q19 > 0
+
+      sum[:G1]  = sum[:G1]  + (response.Q1  + response.Q2  + response.Q3  + response.Q4)
+      sum[:G2]  = sum[:G2]  + (response.Q5  + response.Q6  + response.Q7)
+      sum[:G3]  = sum[:G3]  + (response.Q8  + response.Q9  + response.Q10)
+      sum[:G4]  = sum[:G4]  + (response.Q11  + response.Q12  + response.Q13)
+      sum[:G5]  = sum[:G5]  + (response.Q14  + response.Q15  + response.Q16)
+      sum[:G6]  = sum[:G6]  + (response.Q17  + response.Q18  + response.Q19)
+    end
+    if count > 0
+      score[:G1]  = (sum[:G1]  / dividers[:G1]).round(2)
+      score[:G2]  = (sum[:G2]  / dividers[:G2]).round(2)
+      score[:G3]  = (sum[:G3]  / dividers[:G3]).round(2)
+      score[:G4]  = (sum[:G4]  / dividers[:G4]).round(2)
+      score[:G5]  = (sum[:G5]  / dividers[:G5]).round(2)
+      score[:G6]  = (sum[:G6]  / dividers[:G6]).round(2)
+      puts score
+    end
+    return score
+  end
+
+  def generate_instructions
+    instructions = ""
+    product_name = self.product_name
+    if self.questionnaire_id_clean == "attrakdiff"
+      instructions = ResponseAttrakDiff::generate_instructions(self)
+    elsif self.questionnaire_id_clean == "system_usability_scale"
+      instructions = ResponseSu::generate_instructions(self)
+    elsif self.questionnaire_id_clean == "deep"
+      instructions = ResponseDeep::generate_instructions(self)
+    end
+    self.instructions = instructions
+  end
+
   private
   def add_token
     begin
@@ -211,4 +301,5 @@ class Project < ApplicationRecord
       retry
     end while self.class.exists?(uri_token: uri_token)
   end
+
 end

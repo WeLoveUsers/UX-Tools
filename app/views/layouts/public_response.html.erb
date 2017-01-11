@@ -20,5 +20,8 @@
 
     <%= render "layouts/footer" %>
     <%= render "layouts/google_analytics" %>
+    <% if user_signed_in? %>
+      <%= render "layouts/user_report" %>
+    <% end %>
   </body>
 </html>

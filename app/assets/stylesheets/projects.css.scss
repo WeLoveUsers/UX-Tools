@@ -46,6 +46,8 @@ body .footer a:hover  {
   font-weight: 400;
 }
 .ui.breadcrumb a.ui.button.primary:hover,
+.ui.breadcrumb a.ui.button.primary:focus,
+.ui.button.primary:focus,
 .ui.button.primary:hover {
   background: #ffffff none;
   color: #000000;
@@ -59,6 +61,9 @@ body .footer a:hover  {
 }
 .ui.inverted.button {
   color:#636363;
+}
+.buttons.toolbar {
+  margin-bottom:20px;
 }
 
 /* BREADCRUMB */
@@ -106,14 +111,22 @@ nav.bc .button {
 }
 
 /* TABS & INSIDE CONTENT */
-.ui.tab a {
+.ui.tab a,
+.ui.form a,
+body .ui.message a:not(.button),
+.ui.message a {
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
+  text-decoration: none;
   color:#636363;
 }
-.ui.tab a:hover:not(.button) {
+.ui.tab a:hover:not(.button),
+.ui.form a:hover:not(.button),
+body .ui.message a:hover:not(.button),
+.ui.message a:hover:not(.button) {
   color: #333333;
   border-bottom: 3px #36f8b0 solid;
+  text-decoration: none;
 }
 .ui.secondary.pointing.menu {
   border-color: transparent;
@@ -162,4 +175,33 @@ nav.bc .button {
   line-height: 30px;
   min-height: 30px;
   min-width: 30px;
+}
+
+.ui.form input[type="number"].proportion {
+  width: 80px;
+}
+
+/* FORM RIBBON HEADERS */
+.ui.selectable.table tbody tr.header {
+  font-size:0.86em;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+}
+.ui.selectable.table tbody tr.header:hover {
+  background: transparent !important;
+}
+.ui.selectable.table tbody tr.header:hover td {
+  background: transparent;
+}
+.ui[class*="very basic"].table:not(.sortable):not(.striped) tr.header td.ribbon {
+  padding-left:1em;
+  padding-right:1em;
+  font-weight: 300;
+  margin-top:1.24em;
+}
+
+/* QUILL JS (surcharge) */
+.ql-container {
+  font-family: inherit;
+  font-size: inherit;
 }

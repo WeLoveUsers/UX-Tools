@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <div class="ui tiny bottom attached message">
+    <i class="write icon"></i>Vous êtes connectés en tant que <strong><%= current_user.email %></strong> et pouvez donc <a href="#" class="show_editor_modal">modifier la consigne</a>.
+  </div>
+  <%= render 'editor_modal', project: @project %>
+<% end %>

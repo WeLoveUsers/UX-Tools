@@ -16,6 +16,7 @@
         <% else %>
         <%= f.select :questionnaire_id, Project.questionnaireTypes %>
         <% end %>
+         - <a href="#" class="show_questionnaire_help_modal">Quelles différences ?</a>
       </div>
     </div>
 
@@ -37,12 +38,12 @@
 
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :product_name, 'Nom du produit ou service :' %></div>
-      <div class="eleven wide column"><%= f.text_field :product_name %></div>
+      <div class="eleven wide column"><%= f.text_field :product_name, :placeholder => "Ex. 'Mon super produit'" %></div>
     </div>
 
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :project_code, 'Code du projet :' %></div>
-      <div class="eleven wide column"><%= f.text_field :project_code %></div>
+      <div class="eleven wide column"><%= f.text_field :project_code, :placeholder => "Ex. 'Etude n°14'" %></div>
     </div>
 
     <div class="row no-padding field">
@@ -56,6 +57,12 @@
         </div>
       </div>
     </div>
+
+    <div class="row no-padding field">
+      <div class="five wide column"></div>
+      <div class="eleven wide column"><em>Tous les champs sont obligatoires</em></div>
+    </div>
+
     <div class="row no-padding field">
       <div class="five wide column"></div>
       <div class="eleven wide column"><%= f.submit :class => "ui large submit button" %></div>
@@ -86,3 +93,5 @@
   </div>
 <% end %>
 </div>
+
+<%= render 'questionnaire_help_modal', project: @project %>

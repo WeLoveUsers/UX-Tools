@@ -1,0 +1,32 @@
+@wb.add_worksheet(name: "Réponses") do |sheet|
+  sheet.add_row ['Légende'], :style => @black_cell
+  sheet.add_row ['Q1 :',  ResponseSu::Q1_label[I18n.locale]]
+  sheet.add_row ['Q2 :',  ResponseSu::Q2_label[I18n.locale] + " *"]
+  sheet.add_row ['Q3 :',  ResponseSu::Q3_label[I18n.locale]]
+  sheet.add_row ['Q4 :',  ResponseSu::Q4_label[I18n.locale] + " *"]
+  sheet.add_row ['Q5 :',  ResponseSu::Q5_label[I18n.locale]]
+  sheet.add_row ['Q6 :',  ResponseSu::Q6_label[I18n.locale] + " *"]
+  sheet.add_row ['Q7 :',  ResponseSu::Q7_label[I18n.locale]]
+  sheet.add_row ['Q8 :',  ResponseSu::Q8_label[I18n.locale] + " *"]
+  sheet.add_row ['Q9 :',  ResponseSu::Q9_label[I18n.locale]]
+  sheet.add_row ['Q10 :', ResponseSu::Q10_label[I18n.locale] + " *"]
+  sheet.add_row ['']
+  sheet.add_row ["* les notes affichées sont toutes dans le même sens, que l'item soit inversé ou non :"]
+  sheet.add_row ['0 :', 'Note minimale']
+  sheet.add_row ['4 :', 'Note maximale']
+  sheet.add_row ['']
+
+  sheet.add_row ResponseSu::Export_entete, :style => @black_cell
+  i = 1
+  @project.responses.each do |response|
+    #vector = [response.Q1, response.Q2, response.Q3, response.Q4, response.Q5, response.Q6, response.Q7, response.Q8, response.Q9, response.Q10].to_vector(:scale)
+    #ds = {'notes' => vector}.to_dataset
+    cronbach = ''
+    #Statsample::Reliability.cronbach_alpha(ds)
+    #cronbach = Statsample::Reliability.cronbach_alpha()
+    sheet.add_row [i, response.Q1, response.Q2, response.Q3, response.Q4, response.Q5, response.Q6, response.Q7, response.Q8, response.Q9, response.Q10, response.created_at], :style => [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, @date]
+    i = i + 1
+  end
+
+  sheet.column_widths 13, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, nil
+end

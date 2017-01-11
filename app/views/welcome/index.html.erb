@@ -1,26 +1,44 @@
 <nav class="bc">
   <div class="ui large breadcrumb container">
-    <h1 class="active section" href="<%= root_path %>">We Love Tools</h1>
+    <h1 class="active section" href="<%= root_path %>"><%= wlu_tools_name %></h1>
   </div>
 </nav>
 
 <%= flash_messages %>
 
 <div class="ui container">
-  <a class="ui card" href="<%= projects_path %>">
-    <div class="content">
-      <div class="header">Questionnaires UX</div>
-      <div class="meta">
-        <span class="category">Outils de mesure</span>
+  <div class="ui cards">
+    <a class="ui card" href="<%= projects_path %>">
+      <div class="content">
+        <div class="header">Questionnaires UX</div>
+        <div class="meta">
+          <span class="category">Outils de mesure</span>
+        </div>
+        <div class="description">
+          <p>Créez des évaluations UX basées sur des questionnaires standards (ex. SUS, AttrakDiff, DEEP, etc.)</p>
+        </div>
       </div>
-      <div class="description">
-        <p>Créez des évaluations UX basées sur des questionnaires standards (ex. SUS, AttrakDiff, DEEP, WAMMI, etc.)</p>
+      <% if user_signed_in? %>
+      <div class="extra content">
+        <i class="icon bar chart"></i> <%= current_user.projects.count %> projet(s) d'évaluation
       </div>
-    </div>
-    <% if user_signed_in? %>
-    <div class="extra content">
-      <i class="icon bar chart"></i> <%= current_user.projects.count %> projet(s) d'évaluation
-    </div>
+      <% end %>
+    </a>
+
+    <%
+    # Disabled for now
+    if false %>
+    <a class="ui card" href="<%= url_for :controller => 'sample_sizes', :action => 'usability_problems' %>">
+      <div class="content">
+        <div class="header">Combien d'utilisateurs pour un test ?</div>
+        <div class="meta">
+          <span class="category">Estimateur de taille d'échantillons</span>
+        </div>
+        <div class="description">
+          <p>[...]</p>
+        </div>
+      </div>
+    </a>
     <% end %>
-  </a>
+  </div>
 </div>

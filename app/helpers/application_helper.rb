@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def wlu_tools_name
+    "Tools"
+  end
+
   def flash_messages
     html = ""
     if notice

@@ -11,7 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require semantic_ui/semantic_ui
- += require semantic_ui_calendar/calendar
+ *= require semantic_ui_calendar/calendar
+ *= require trix/trix
  *= require_tree .
  *= require_self
  */
