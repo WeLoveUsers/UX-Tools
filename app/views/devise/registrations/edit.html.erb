@@ -44,6 +44,8 @@
     </div>
     <% end %>
 
+    <div class="ui message">Lire les <a href="#" class="show_terms_modal">Conditions Générales d'Utilisation</a></div>
+
     <h3 class="ui header">Zone dangereuse</h3>
     <div class="ui negative message">
       <div class="header"><%= t('.cancel_my_account') %></div>
@@ -53,3 +55,5 @@
 
   </div>
 </div>
+
+<%= render 'terms_modal', approvable: false %>

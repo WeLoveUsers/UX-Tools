@@ -27,6 +27,12 @@
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmation du mot de passe" %>
         </div>
       </div>
+      <div class="terms field">
+        <div class="ui checkbox">
+          <input type="checkbox" tabindex="0" class="hidden" name="terms" id="terms">
+          <label>Accepter les <a href="#" class="show_terms_modal">Conditions Générales d'Utilisation</a></label>
+        </div>
+      </div>
 
       <%= f.submit t('.sign_up'), :class => "ui fluid large submit button" %>
     </div>
@@ -35,4 +41,6 @@
   <div class="ui message">
     <%= render "devise/shared/links" %>
   </div>
+
+  <%= render 'terms_modal', approvable: true %>
 </div>

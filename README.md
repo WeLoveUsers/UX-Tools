@@ -6,11 +6,15 @@ v1.1 :
 - Intégration de UserReport pour la gestion de bugs et d'idées
 - Ajout du questionnaire DEEP
 
+v1.1.1 :
+- Ajouter des conditions d'utilisation
+- MAJ des checkboxes et radio
+
 @TODO :
+- CGU : QUID des questionnaires ? et crédit ?
 - WAMMI
 - Optimiser le code pour le calcul des stats
 - Version tablette + tél pour les répondants
-- Ajouter des conditions d'utilisation
 - Choisir (ou aider ?) le type d'étude : A vs B ; Avant / Après ; Groupe 1 vs Groupe 2
 - Donner des recommandations sur la taille de l'échantillon ? (avant ou pendant l'évaluation)
 - Contrôler la validité des réponses et exclures ?
@@ -30,12 +34,3 @@ v1.1 :
 
 QUESTIONS :
 - (Carine Lallemand) A-t-on le droit de mettre ces questionnaires en ligne ?
-
-TESTEURS :
-1. lou.bonnamy@gmail.com
-2. laruevanessa@yahoo.fr
-3. carine.lallemand@hotmail.fr
-4. aurelie.blaise17@gmail.com
-5. corinne.leulier@kleegroup.com
-6. guillaume.gronier@gmail.com
-7. zenerg@gmail.com

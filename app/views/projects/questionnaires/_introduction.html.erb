@@ -1,5 +1,5 @@
 <div class="ui text container">
-  <div class="ui <%= "top attached" if user_signed_in? %> segment">
+  <div class="ui segment">
   	<h2><%= t('.title')%></h2>
   	<div><%= @project.instructions.html_safe %></div>
     <div class="ui right aligned container">

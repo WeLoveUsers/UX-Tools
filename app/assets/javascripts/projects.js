@@ -17,6 +17,7 @@ $(document).on('turbolinks:load', function() {
 
   $('.ui.pointing.menu .item').tab();
   $('.ui.form select').dropdown();
+  $('.ui.checkbox').checkbox();
 
   $('.message .close')
     .on('click', function() {
@@ -54,7 +55,8 @@ $(document).on('turbolinks:load', function() {
       fields: {
         'user[email]'                 : 'email',
         'user[password]'              : 'minLength[6]',
-        'user[password_confirmation]' : 'match[user[password]]'
+        'user[password_confirmation]' : 'match[user[password]]',
+        'terms'                       : 'checked'
       }
     })
   ;
@@ -189,7 +191,10 @@ $(document).on('turbolinks:load', function() {
   $('a.show_editor_modal')
     .on('click', function(event) {
       event.preventDefault();
-      $('#instructions_editor_modal').modal('show');
+      $('#instructions_editor_modal').modal({
+        //blurring: true,
+        inverted: true
+      }).modal('show');
     });
 
   // Show help to choose which questionnaire does what (modal)
@@ -197,9 +202,25 @@ $(document).on('turbolinks:load', function() {
     .on('click', function(event) {
       event.preventDefault();
       $('#questionnaire_help_modal').modal({
-        approve  : '.close'
+        //blurring: true,
+        inverted: true,
+        cancel  : '.cancel',
+        approve  : '.approve'
       }).modal('show');
     });
 
-
+  // Show terms (modal)
+  $('a.show_terms_modal')
+    .on('click', function(event) {
+      event.preventDefault();
+      $('#terms_modal').modal({
+        //blurring: true,
+        inverted: true,
+        cancel  : '.cancel',
+        approve  : '.approve',
+        onApprove: function(what) {
+          $('.ui.form.signup input#terms').prop('checked', true);
+        }
+      }).modal('show');
+    });
 });

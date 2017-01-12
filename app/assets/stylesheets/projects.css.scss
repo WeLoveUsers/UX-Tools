@@ -128,6 +128,13 @@ body .ui.message a:hover:not(.button),
   border-bottom: 3px #36f8b0 solid;
   text-decoration: none;
 }
+.terms.field .ui.checkbox label a {
+  line-height: 1.6em;
+}
+.terms.field .ui.checkbox label:before,
+.terms.field .ui.checkbox label:after {
+  top: 0.38em;
+}
 .ui.secondary.pointing.menu {
   border-color: transparent;
   border-bottom-width: 3px;
@@ -198,6 +205,12 @@ body .ui.message a:hover:not(.button),
   padding-right:1em;
   font-weight: 300;
   margin-top:1.24em;
+}
+
+/* TERMS MODAL */
+#terms_modal .content {
+  height:26em;
+  overflow-y: scroll;
 }
 
 /* QUILL JS (surcharge) */
