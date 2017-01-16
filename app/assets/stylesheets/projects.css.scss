@@ -65,6 +65,9 @@ body .footer a:hover  {
 .buttons.toolbar {
   margin-bottom:20px;
 }
+ul.ui.list li {
+  line-height: 23px;
+}
 
 /* BREADCRUMB */
 nav.bc {
@@ -113,6 +116,7 @@ nav.bc .button {
 /* TABS & INSIDE CONTENT */
 .ui.tab a,
 .ui.form a,
+.ui.list a,
 body .ui.message a:not(.button),
 .ui.message a {
   font-family: 'Oswald', sans-serif;
@@ -122,6 +126,7 @@ body .ui.message a:not(.button),
 }
 .ui.tab a:hover:not(.button),
 .ui.form a:hover:not(.button),
+.ui.list a:hover:not(.button),
 body .ui.message a:hover:not(.button),
 .ui.message a:hover:not(.button) {
   color: #333333;

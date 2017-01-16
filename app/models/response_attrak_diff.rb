@@ -10,8 +10,8 @@ class ResponseAttrakDiff < ApplicationRecord
     :available_languages => ['fr', 'en'],
     :number_of_questions => 28,
     :description => "<p>Mesure de <strong>l’expérience utilisateur</strong> d'un <strong>système interactif</strong>.</p><p>Le questionnaire se décompose en 4 dimensions : qualités hédoniques stimulation, qualités hédonique identification, qualités pragmatiques et attractivité globale.</p>",
-    :bibliography => ['Hassenzahl, M., Burmester, M., & Koller, F. (2003). AttrakDiff: Ein Fragebogen zur Messung wahrgenommener hedonischer und pragmatischer Qualität. In <em>Mensch & Computer 2003</em> (pp. 187-196). Vieweg+ Teubner Verlag. Chicago',
-                      'Lallemand, C., Koenig, V., Gronier, G., & Martin, R. (2015). Création et validation d’une version française du questionnaire AttrakDiff pour l’évaluation de l’expérience utilisateur des systèmes interactifs. <em>Revue Européenne de Psychologie Appliquée/European Review of Applied Psychology, 65</em>(5), 239-252. Chicago']
+    :bibliography => ['Hassenzahl, M., Burmester, M., & Koller, F. (2003). <a href="http://attrakdiff.de" target="_blank">AttrakDiff: Ein Fragebogen zur Messung wahrgenommener hedonischer und pragmatischer Qualität. In <em>Mensch & Computer 2003</em></a> (pp. 187-196). Vieweg+ Teubner Verlag. Chicago',
+                      'Lallemand, C., Koenig, V., Gronier, G., & Martin, R. (2015). <a href="http://dx.doi.org/10.1016/j.erap.2015.08.002" target="_blank">Création et validation d’une version française du questionnaire AttrakDiff pour l’évaluation de l’expérience utilisateur des systèmes interactifs. <em>Revue Européenne de Psychologie Appliquée/European Review of Applied Psychology, 65</em></a>(5), 239-252. Chicago']
   }
 
   Export_entete = ["Répondant", "ATT1", "ATT2", "ATT3", "ATT4", "ATT5", "ATT6", "ATT7", "QP1", "QP2", "QP3", "QP4", "QP5", "QP6", "QP7", "QHS1", "QHS2", "QHS3", "QHS4", "QHS5", "QHS6", "QHS7", "QHI1", "QHI2", "QHI3", "QHI4", "QHI5", "QHI6", "QHI7", "Date et heure"]

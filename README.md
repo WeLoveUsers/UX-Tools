@@ -10,7 +10,11 @@ v1.1.1 :
 - Ajouter des conditions d'utilisation
 - MAJ des checkboxes et radio
 
+v1.1.2 :
+- MAJ des conditions d'utilisation avec ajout des lien vers les références
+
 @TODO :
+- Routes ou pages pour erreurs 404 et 500
 - CGU : QUID des questionnaires ? et crédit ?
 - WAMMI
 - Optimiser le code pour le calcul des stats

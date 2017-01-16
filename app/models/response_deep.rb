@@ -10,7 +10,8 @@ class ResponseDeep < ApplicationRecord
     :available_languages => ['fr', 'en'],
     :number_of_questions => 19,
     :description => "<p>Mesure de <strong>l’utilisabilité</strong> des <strong>sites web</strong>.</p><p>Le questionnaire se décompose en 6 dimensions : contenu, strucure, navigation, effort cognitif, cohérence, guidage visuel.</p>",
-    :bibliography => ['Yang, T., Linder, J., & Bolchini, D. (2012). DEEP: design-oriented evaluation of perceived usability. <em>International Journal of Human-Computer Interaction, 28</em>(5), 308-346.']
+    :bibliography => ['Yang, T., Linder, J., & Bolchini, D. (2012). <a href="http://dx.doi.org/10.1080/10447318.2011.586320" target="_blank">DEEP: design-oriented evaluation of perceived usability. <em>International Journal of Human-Computer Interaction, 28</em></a>(5), 308-346.',
+                      "Lallemand, C., & Gronier, G. (2015). <a href='http://www.eyrolles.com/Informatique/Livre/methodes-de-design-ux-9782212141436' target='_blank'><em>Méthodes de design UX: 30 méthodes fondamentales pour concevoir et évaluer les systèmes interactifs.</em></a> Editions Eyrolles."]
   }
 
   Export_entete = ["Répondant", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Date et heure"]

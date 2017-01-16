@@ -10,7 +10,8 @@ class ResponseSu < ApplicationRecord
     :available_languages => ['fr', 'en'],
     :number_of_questions => 10,
     :description => "<p>Mesure de <strong>l’utilisabilité</strong> d'un <strong>système</strong>.</p><p>Le questionnaire peut également fournir une mesure de l'apprentissage (<em>learnability</em>).<p>",
-    :bibliography => ['Bangor, A., Kortum, P., & Miller, J. (2009). Determining what individual SUS scores mean: Adding an adjective rating scale. <em>Journal of usability studies, 4</em>(3), 114-123.']
+    :bibliography => ['Bangor, A., Kortum, P., & Miller, J. (2009). <a href="http://dl.acm.org/citation.cfm?id=2835589" target="_blank">Determining what individual SUS scores mean: Adding an adjective rating scale. <em>Journal of usability studies, 4</em></a>(3), 114-123.',
+                      "Lallemand, C., & Gronier, G. (2015). <a href='http://www.eyrolles.com/Informatique/Livre/methodes-de-design-ux-9782212141436' target='_blank'><em>Méthodes de design UX: 30 méthodes fondamentales pour concevoir et évaluer les systèmes interactifs.</em></a> Editions Eyrolles."]
   }
 
   Export_entete = ["Répondant", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Date et heure"]
