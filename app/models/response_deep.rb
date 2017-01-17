@@ -29,7 +29,7 @@ class ResponseDeep < ApplicationRecord
 
   G2_label  = {:fr => "Structure perçue et architecture de l'information",
                :en => "Perceived Structure and Information Architecture"}
-  Q5_label  = {:fr => "Je pouvais rapidment connaître la structure du site web en parcourant sa page d'accueil.",
+  Q5_label  = {:fr => "Je pouvais rapidement connaître la structure du site web en parcourant sa page d'accueil.",
                :en => "I could quickly get to know the structure of the website by skimming its homepage."}
   Q6_label  = {:fr => "L'organisation du site web était claire.",
                :en => "The organization of the website was clear."}
@@ -56,7 +56,7 @@ class ResponseDeep < ApplicationRecord
   Q13_label = {:fr => "J'ai appris à utiliser ce site web rapidement.",
               :en => "I learned to use this website quickly."}
 
-  G5_label  = {:fr => "Cohérence de la mise en pace perçue",
+  G5_label  = {:fr => "Cohérence de la mise en page perçue",
              :en => "Perceived Layout Consistency"}
   Q14_label  = {:fr => "La mise en page à travers tout le site web était cohérente.",
               :en => "The layout of the pages throughout the website was consistent."}

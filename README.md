@@ -13,6 +13,9 @@ v1.1.1 :
 v1.1.2 :
 - MAJ des conditions d'utilisation avec ajout des lien vers les références
 
+v1.1.3 :
+- Correction de coquilles dans DEEP
+
 @TODO :
 - Routes ou pages pour erreurs 404 et 500
 - CGU : QUID des questionnaires ? et crédit ?
