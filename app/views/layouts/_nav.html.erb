@@ -2,8 +2,10 @@
     <a href="<%= root_path %>" class="item"><img alt="We Love Users" src="<%= image_path('we-love-users-logo(small).png')%>"></a>
     <% if user_signed_in? %>
     <div class="right menu">
+      <a href="https://feedback.userreport.com/6aff57ca-4a63-4ab0-a39f-7cf2ac5e4750/" class="item" target="_blank">Une idée ou un bug ?</a>
+<!--
       <a href="#" class="item" onclick="_urq.push(['Feedback_Open'])">Une idée ou un bug ?</a>
-
+-->
       <div class="ui simple dropdown item">
         <i class="user icon"></i> <%= current_user.email %> <i class="dropdown icon"></i>
         <div class="menu">
@@ -20,7 +22,7 @@
     </div>
     <% else %>
     <div class="right menu">
-      <a href="#" class="item" onclick="_urq.push(['Feedback_Open'])">Une idée ou un bug ?</a>
+      <a href="https://feedback.userreport.com/6aff57ca-4a63-4ab0-a39f-7cf2ac5e4750/" class="item" target="_blank">Une idée ou un bug ?</a>
 
       <div class="item">
         <%= link_to "Connexion", new_user_session_path, :class => 'ui button'  %>
