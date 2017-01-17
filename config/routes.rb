@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :response_deeps
   resources :projects
   devise_for :users
+  get 'admin', to: 'admin#index', as: 'admin_root'
+  get 'admin/index'
   get 'welcome/index'
   get 'projects/index'
   get 'sample_sizes/usability_problems'

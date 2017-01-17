@@ -16,6 +16,10 @@ v1.1.2 :
 v1.1.3 :
 - Correction de coquilles dans DEEP
 
+v1.1.4 :
+- Modif lien UserReport
+- Ajout d'un champ "admin" sur "users" et d'une page /admin
+
 @TODO :
 - Routes ou pages pour erreurs 404 et 500
 - CGU : QUID des questionnaires ? et crédit ?

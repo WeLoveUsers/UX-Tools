@@ -17,6 +17,12 @@
           <div class="item">
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete  %>
           </div>
+          <% if current_user.admin? %>
+          <div class="divider"></div>
+          <div class="item">
+            <%= link_to 'Admin', admin_root_path %>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
