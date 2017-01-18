@@ -19,6 +19,26 @@ $(document).on('turbolinks:load', function() {
   $('.ui.form select').dropdown();
   $('.ui.checkbox').checkbox();
 
+  $('.ui.confidence.dropdown').dropdown({
+    onChange: function(value, text, $choice) {
+      if (!this.target_QP || !this.target_QHS || !this.target_QHI || !this.target_ATT ) {
+        this.target_QP  = $('#' + $(this).data('target') + '_QP');
+        this.target_QHS = $('#' + $(this).data('target') + '_QHS');
+        this.target_QHI = $('#' + $(this).data('target') + '_QHI');
+        this.target_ATT = $('#' + $(this).data('target') + '_ATT');
+      }
+      value = value.split("_");
+      this.target_QP.text(value[0]);
+      this.target_QHS.text(value[1]);
+      this.target_QHI.text(value[2]);
+      this.target_ATT.text(value[3]);
+      this.target_QP.transition('flash');
+      this.target_QHS.transition('flash');
+      this.target_QHI.transition('flash');
+      this.target_ATT.transition('flash');
+    }
+  });
+
   $('.message .close')
     .on('click', function() {
       $(this)

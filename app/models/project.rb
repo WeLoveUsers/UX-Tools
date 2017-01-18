@@ -142,6 +142,36 @@ class Project < ApplicationRecord
     return score
   end
 
+  def attrakdiff_average_scores
+    values = {
+      QP:  [],
+      QHS: [],
+      QHI: [],
+      ATT: []
+    }
+    score = {
+      QP:  {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]},
+      QHS: {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]},
+      QHI: {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]},
+      ATT: {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]}
+    }
+    count = 0
+    self.response_attrak_diffs.each do |response|
+      count += 1
+      values[:QP].push(response.QP1, response.QP2, response.QP3, response.QP4, response.QP5, response.QP6, response.QP7)
+      values[:QHS].push(response.QHS1, response.QHS2, response.QHS3, response.QHS4, response.QHS5, response.QHS6, response.QHS7)
+      values[:QHI].push(response.QHI1, response.QHI2, response.QHI3, response.QHI4, response.QHI5, response.QHI6, response.QHI7)
+      values[:ATT].push(response.ATT1, response.ATT2, response.ATT3, response.ATT4, response.ATT5, response.ATT6, response.ATT7)
+    end
+    if count > 0
+      score[:QP] = compute_stats_summary_for_data(values[:QP], count)
+      score[:QHS] = compute_stats_summary_for_data(values[:QHS], count)
+      score[:QHI] = compute_stats_summary_for_data(values[:QHI], count)
+      score[:ATT] = compute_stats_summary_for_data(values[:ATT], count)
+    end
+    return score
+  end
+
   def attrakdiff_word_pair_average_score
     score = {
       QP1:  0.00, QP2:  0.00, QP3:  0.00, QP4:  0.00, QP5:  0.00, QP6:  0.00, QP7:  0.00,
@@ -300,6 +330,39 @@ class Project < ApplicationRecord
     rescue ActiveRecord::RecordNotUnique
       retry
     end while self.class.exists?(uri_token: uri_token)
+  end
+
+  #
+  # Calcule : moyenne, écart-type et intervalles de confiances (90%, 95%, 99%) pour un ensemble de données
+  #
+  def compute_stats_summary_for_data(data_array, n, round = 2)
+    data_array.to_vector(:scale)
+    summary = {
+      mean:   0.00,
+      sd:     0.00,
+      ci_90: [0.00, 0.00],
+      ci_95: [0.00, 0.00],
+      ci_99: [0.00, 0.00]
+    }
+    summary[:mean]   = data_array.mean.round(round)
+    summary[:sd]     = data_array.sd.round(round)
+    if n > 60
+      summary[:ci_90]= Statsample::SRS.mean_confidence_interval_z(data_array.mean, data_array.sd, n, 10**100, 0.9)
+      summary[:ci_95]= Statsample::SRS.mean_confidence_interval_z(data_array.mean, data_array.sd, n, 10**100, 0.95)
+      summary[:ci_99]= Statsample::SRS.mean_confidence_interval_z(data_array.mean, data_array.sd, n, 10**100, 0.99)
+    else
+      summary[:ci_90]= Statsample::SRS.mean_confidence_interval_t(data_array.mean, data_array.sd, n, 10**100, 0.9)
+      summary[:ci_95]= Statsample::SRS.mean_confidence_interval_t(data_array.mean, data_array.sd, n, 10**100, 0.95)
+      summary[:ci_99]= Statsample::SRS.mean_confidence_interval_t(data_array.mean, data_array.sd, n, 10**100, 0.99)
+    end
+
+    summary[:ci_90][0] = summary[:ci_90][0].round(round)
+    summary[:ci_95][0] = summary[:ci_95][0].round(round)
+    summary[:ci_99][0] = summary[:ci_99][0].round(round)
+    summary[:ci_90][1] = summary[:ci_90][1].round(round)
+    summary[:ci_95][1] = summary[:ci_95][1].round(round)
+    summary[:ci_99][1] = summary[:ci_99][1].round(round)
+    return summary
   end
 
 end

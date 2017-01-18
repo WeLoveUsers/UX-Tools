@@ -20,28 +20,44 @@ v1.1.4 :
 - Modif lien UserReport
 - Ajout d'un champ "admin" sur "users" et d'une page /admin
 
+v1.1.5 :
+- div > a dans la nav
+- Mise à jour des références
+
+(W I P) :
+- Ajout des écart-types et des IC
+
 @TODO :
-- Routes ou pages pour erreurs 404 et 500
-- CGU : QUID des questionnaires ? et crédit ?
-- WAMMI
-- Optimiser le code pour le calcul des stats
-- Version tablette + tél pour les répondants
-- Choisir (ou aider ?) le type d'étude : A vs B ; Avant / Après ; Groupe 1 vs Groupe 2
-- Donner des recommandations sur la taille de l'échantillon ? (avant ou pendant l'évaluation)
-- Contrôler la validité des réponses et exclures ?
-- Ajouter des bares d'erreur pour les IC
-- Ecart type et intervalle de confiance
+- Crédits, remerciements, droits
+  - John Brooke : OK mais source acknowledged (Remerciements) + Sauro du coup :) à intégrer dans l'export XLS aussi
+  - CGU : QUID des questionnaires ? et crédit ?
+  - Ajouter des descriptions des questionnaires et liens vers les publications ?
+  - "Précautions à prendre" + "Bibliographie / Références"
+  - (Carine Lallemand) A-t-on le droit de mettre ces questionnaires en ligne ?
+
+- Aide :
+  - Contrôler la validité des réponses et exclures ?
+  - Choisir (ou aider ?) le type d'étude : A vs B ; Avant / Après ; Groupe 1 vs Groupe 2
+  - Donner des recommandations sur la taille de l'échantillon ? (avant ou pendant l'évaluation)
+
+- UI :
+  - Version tablette + tél pour les répondants
+  - Ajouter des filtres pour les dates / statuts des projets
+  - Trier par ...??
+  - Afficher le statut du proget : (Ouvert) - (Fermé)
+
+- Stats :
+  - Optimiser le code pour le calcul des stats
+  - Ajouter des bares d'erreur pour les IC
+  - Ecart type et intervalle de confiance
+
 - Ajouter :
   - AttrakDiff abrégé
   - SUS "positif"
-- Ajouter des descriptions des questionnaires et liens vers les publications ?
-- "Précautions à prendre" + "Bibliographie / Références"
-- Ajouter des filtres pour les dates / statuts des projets
-- Trier par ...??
-- Afficher le statut du proget : (Ouvert) - (Fermé)
+  - WAMMI    
+
+- Routes ou pages pour erreurs 404 et 500
+
 - Suppression logique : https://rubygems.org/gems/paranoia
 - Ajouter des questions sur le participant :
   - Âge, sexe, éducation, profession, utilise le produit depuis [moins d'un an]
-
-QUESTIONS :
-- (Carine Lallemand) A-t-on le droit de mettre ces questionnaires en ligne ?

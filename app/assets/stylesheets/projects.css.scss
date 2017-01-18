@@ -166,6 +166,9 @@ body .ui.message a:hover:not(.button),
   font-family: 'Oswald', sans-serif;
   font-weight: 300;
 }
+.ui.statistics .statistic .tiny.label {
+  text-transform: none !important;
+}
 
 /* FOOTER */
 .ui.footer.segment {

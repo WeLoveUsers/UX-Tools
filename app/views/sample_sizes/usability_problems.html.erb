@@ -38,4 +38,10 @@
   </div>
 
   <h2 class="ui header">Estimateur</h2>
+  <div class="ui segment">
+    z(90%) <%= Distribution::Normal.p_value(1-((1-0.9) / 2)) %><br />
+    z(95%) <%= Distribution::Normal.p_value(1-((1-0.95) / 2)) %><br />
+    z(99%) <%= Distribution::Normal.p_value(1-((1-0.99) / 2)) %><br />
+    z(99.9%) <%= Distribution::Normal.p_value(1-((1-0.999) / 2)) %><br />
+  </div>
 </div>
