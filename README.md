@@ -24,6 +24,10 @@ v1.1.5 :
 - div > a dans la nav
 - Mise à jour des références
 
+v1.1.6 :
+- Mise à jour de l'admin
+- Correction affichage tableau dans DEEP
+
 (W I P) :
 - Ajout des écart-types et des IC
 

@@ -93,6 +93,36 @@
       </tbody>
     </table>
 
+    <h2 class="ui header">Top des projets actifs</h2>
+    <table class="ui table">
+      <thead>
+        <tr>
+          <th colspan="2">Projet</th>
+          <th>Questionnaire UX</th>
+          <th>Date de fin</th>
+          <th class="center aligned" width="15%">Réponses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @projects[:top_active].each do |project, count|
+            css_class = 'basic'
+            if (5..14).include?(count)
+              css_class = 'teal'
+            elsif count >= 15
+              css_class = 'pink'
+            end
+        %>
+        <tr>
+          <td><%= project.product_name %> - <%= project.project_code %><br /></td>
+          <td><%= project.product_type %></td>
+          <td><%= project.questionnaire_id %> (<%= project.questionnaire_language %>)</td>
+          <td><%= l project.end_date, format: :long %><br /><span class="ui tiny basic label"><%= project.user.email %></span></td>
+          <td class="center aligned" width="15%"><span class="ui <%= css_class %> circular label"><%= count %></span></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
     <h2 class="ui header">Nouveaux projets</h2>
     <table class="ui table">
       <thead>
@@ -122,6 +152,7 @@
         <% end %>
       </tbody>
     </table>
+
   </div>
 
 </div>

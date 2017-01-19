@@ -11,6 +11,18 @@ class AdminController < ApplicationController
     @users[:new] = User.order(:created_at).last(5)
     @projects = {}
     @projects[:new] = Project.order(:created_at).last(5)
+    @projects[:top_active] = {}
+    ResponseAttrakDiff.group(:project).count.each do |project, count|
+      @projects[:top_active][project] = count if project.end_date >= Date.today
+    end
+    ResponseSu.group(:project).count.each do |project, count|
+      @projects[:top_active][project] = count if project.end_date >= Date.today
+    end
+    ResponseDeep.group(:project).count.each do |project, count|
+      @projects[:top_active][project] = count if project.end_date >= Date.today
+    end
+    @projects[:top_active] = @projects[:top_active].to_a.sort_by{ |k, v| v }.reverse.take(5)
+
   end
 
   private
