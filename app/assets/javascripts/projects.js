@@ -18,8 +18,25 @@ $(document).on('turbolinks:load', function() {
   $('.ui.pointing.menu .item').tab();
   $('.ui.form select').dropdown();
   $('.ui.checkbox').checkbox();
+  $('.ui.checkbox#show_variability').checkbox({
+    onChecked: function() {
+      $('.variability').show();
+      document.cookie = "show_variability=1";
+    },
+    onUnchecked: function() {
+      $('.variability').hide();
+      document.cookie = "show_variability=0";
+    }
+  });
 
-  $('.ui.confidence.dropdown').dropdown({
+  $('.ui.config.button').popup({
+    inline: true,
+    position: 'bottom right',
+    on: 'click',
+    variation: "wide"
+  });
+
+  $('.ui.attrakdiff_confidence.dropdown').dropdown({
     onChange: function(value, text, $choice) {
       if (!this.target_QP || !this.target_QHS || !this.target_QHI || !this.target_ATT ) {
         this.target_QP  = $('#' + $(this).data('target') + '_QP');
@@ -27,6 +44,7 @@ $(document).on('turbolinks:load', function() {
         this.target_QHI = $('#' + $(this).data('target') + '_QHI');
         this.target_ATT = $('#' + $(this).data('target') + '_ATT');
       }
+      document.cookie = "ci_level=" + text;
       value = value.split("_");
       this.target_QP.text(value[0]);
       this.target_QHS.text(value[1]);

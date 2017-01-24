@@ -168,6 +168,20 @@ body .ui.message a:hover:not(.button),
 }
 .ui.statistics .statistic .tiny.label {
   text-transform: none !important;
+  font-family: 'PT Serif', serif;
+}
+
+/* CONFIG BUTTON & POPUP */
+.ui.config.button {
+  position: absolute;
+  right:1em;
+  top:1em;
+}
+.ui.config.popup .ui.checkbox label:before {
+  top: 0.18em;
+}
+.ui.config.popup .ui.checkbox label {
+  line-height: 1.4em;
 }
 
 /* FOOTER */

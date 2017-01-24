@@ -10,9 +10,16 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1
-  # GET /projects/1.json
   # GET /projects/1.csv
   def show
+    @show_variability = false
+    if cookies[:show_variability] && cookies[:show_variability].to_i > 0
+      @show_variability = true
+    end
+    @ci_level = cookies[:ci_level] || '95%'
+    @ci_level_hash_key = 'ci_' + @ci_level[0..1]
+    @ci_level_hash_key = @ci_level_hash_key.to_sym
+
     filename = "[Questionnaire UX] - " + @project.product_name + "-" + @project.project_code + " (" + @project.questionnaire_id + ") - #{Date.today}"
     respond_to do |format|
       format.html

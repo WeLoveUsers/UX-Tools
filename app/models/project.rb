@@ -117,6 +117,8 @@ class Project < ApplicationRecord
   end
 
 # Attrak Diff
+
+  # A supprimer car remplacé par "attrakdiff_average_scores"
   def attrakdiff_average_score
     score = {
       QP: 0.00,

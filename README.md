@@ -28,8 +28,9 @@ v1.1.6 :
 - Mise à jour de l'admin
 - Correction affichage tableau dans DEEP
 
-(W I P) :
-- Ajout des écart-types et des IC
+v1.1.7 :
+- Ajout des écart-types et des IC sur AttrakDiff
+- Ajout de liens dans la partie admin
 
 @TODO :
 - Crédits, remerciements, droits
