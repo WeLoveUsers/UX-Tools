@@ -76,21 +76,35 @@ class Project < ApplicationRecord
 
 # System Usability Scale
   def sus_score
-    score = 0
+    score = {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]}
     count = 0
-    sum = 0
+    values = []
     self.response_sus.each do |response|
-      count = count + 1
-      sum = sum + (2.5 * (response.Q1 + response.Q2 + response.Q3 + response.Q4 + response.Q5 + response.Q6 + response.Q7 + response.Q8 + response.Q9 + response.Q10))
+      count += 1
+      values.push(2.5 * (response.Q1 + response.Q2 + response.Q3 + response.Q4 + response.Q5 + response.Q6 + response.Q7 + response.Q8 + response.Q9 + response.Q10))
     end
     if count > 0
-      score = sum / count
+      score = compute_stats_summary_for_data(values, count)
     end
-    return score.round(2)
+    return score
   end
+  # (original)
+  # def sus_score
+  #   score = 0
+  #   count = 0
+  #   sum = 0
+  #   self.response_sus.each do |response|
+  #     count = count + 1
+  #     sum = sum + (2.5 * (response.Q1 + response.Q2 + response.Q3 + response.Q4 + response.Q5 + response.Q6 + response.Q7 + response.Q8 + response.Q9 + response.Q10))
+  #   end
+  #   if count > 0
+  #     score = sum / count
+  #   end
+  #   return score.round(2)
+  # end
 
   def sus_grade
-    score = self.sus_score
+    score = self.sus_score[:mean]
     if score >= 84.1
       return "A+"
     elsif score >= 80.8

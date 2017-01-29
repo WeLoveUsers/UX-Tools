@@ -45,15 +45,15 @@
       <li><%= s.html_safe %></li>
       <% end %>
     </ul>
-    <p><strong><%= ResponseSu::Infos[:display_name] %></strong> (<%= ResponseSu::Infos[:display_name_short] %>)</p>
-    <ul class="ui list">
-      <% ResponseSu::Infos[:bibliography].each do |s| %>
-      <li><%= s.html_safe %></li>
-      <% end %>
-    </ul>
     <p><strong><%= ResponseDeep::Infos[:display_name] %></strong> (<%= ResponseDeep::Infos[:display_name_short] %>)</p>
     <ul class="ui list">
       <% ResponseDeep::Infos[:bibliography].each do |s| %>
+      <li><%= s.html_safe %></li>
+      <% end %>
+    </ul>
+    <p><strong><%= ResponseSu::Infos[:display_name] %></strong> (<%= ResponseSu::Infos[:display_name_short] %>)</p>
+    <ul class="ui list">
+      <% ResponseSu::Infos[:bibliography].each do |s| %>
       <li><%= s.html_safe %></li>
       <% end %>
     </ul>

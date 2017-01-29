@@ -1,7 +1,7 @@
 module ResponseSusHelper
 
   def sus_chart_for(project)
-    score = project.sus_score
+    score = project.sus_score[:mean]
     grade = project.sus_grade
     css_grade_class = "grade-" + project.sus_grade[0].downcase
 

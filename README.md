@@ -32,9 +32,14 @@ v1.1.7 :
 - Ajout des écart-types et des IC sur AttrakDiff
 - Ajout de liens dans la partie admin
 
+v1.1.8 :
+- Bug dans l'enregistrement de date
+- Ajout références et remerciements
+- Ajout des écart-types et des IC sur SUS
+
 @TODO :
 - Crédits, remerciements, droits
-  - John Brooke : OK mais source acknowledged (Remerciements) + Sauro du coup :) à intégrer dans l'export XLS aussi
+  - Réf : à intégrer dans l'export XLS aussi
   - CGU : QUID des questionnaires ? et crédit ?
   - Ajouter des descriptions des questionnaires et liens vers les publications ?
   - "Précautions à prendre" + "Bibliographie / Références"
@@ -44,6 +49,8 @@ v1.1.7 :
   - Contrôler la validité des réponses et exclures ?
   - Choisir (ou aider ?) le type d'étude : A vs B ; Avant / Après ; Groupe 1 vs Groupe 2
   - Donner des recommandations sur la taille de l'échantillon ? (avant ou pendant l'évaluation)
+  - IC /ecart type
+  - Transparence technologique sur les formules utilisées (ex. comment sont calculés les IC ?)
 
 - UI :
   - Version tablette + tél pour les répondants

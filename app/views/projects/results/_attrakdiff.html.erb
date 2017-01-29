@@ -20,7 +20,7 @@
   </div>
   <div class="ui three wide column">
     <div class="statistic">
-      <div class="label">Réponses</div>
+      <div class="label"><%= "Réponse".pluralize(@project.responses.count) %></div>
       <div class="value"><%= @project.responses.count %></div>
     </div>
   </div>

@@ -3,6 +3,7 @@ $(document).on('turbolinks:load', function() {
   $('.ui.calendar.date').calendar({
     type: 'date',
     firstDayOfWeek: 1,
+    monthFirst: false,
     minDate: new Date(),
     text: {
       days: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
@@ -13,6 +14,9 @@ $(document).on('turbolinks:load', function() {
       am: 'AM',
       pm: 'PM'
     },
+    onChange: function (date, text) {
+      $(this).next("input[type='hidden']").val(date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear());
+    }
   });
 
   $('.ui.pointing.menu .item').tab();
@@ -34,6 +38,17 @@ $(document).on('turbolinks:load', function() {
     position: 'bottom right',
     on: 'click',
     variation: "wide"
+  });
+
+  $('.ui.sus_confidence.dropdown').dropdown({
+    onChange: function(value, text, $choice) {
+      if (!this.target) {
+        this.target = $('#' + $(this).data('target'));
+      }
+      document.cookie = "ci_level=" + text;
+      this.target.text(value);
+      this.target.transition('flash');
+    }
   });
 
   $('.ui.attrakdiff_confidence.dropdown').dropdown({
@@ -147,41 +162,6 @@ $(document).on('turbolinks:load', function() {
     })
   ;
 
-  $('.ui.form.attrakdiff')
-    .form({
-      fields: {
-        'response_attrak_diff[QP1]' : 'checked',
-        'response_attrak_diff[QP2]' : 'checked',
-        'response_attrak_diff[QP3]' : 'checked',
-        'response_attrak_diff[QP4]' : 'checked',
-        'response_attrak_diff[QP5]' : 'checked',
-        'response_attrak_diff[QP6]' : 'checked',
-        'response_attrak_diff[QP7]' : 'checked',
-        'response_attrak_diff[QHS1]' : 'checked',
-        'response_attrak_diff[QHS2]' : 'checked',
-        'response_attrak_diff[QHS3]' : 'checked',
-        'response_attrak_diff[QHS4]' : 'checked',
-        'response_attrak_diff[QHS5]' : 'checked',
-        'response_attrak_diff[QHS6]' : 'checked',
-        'response_attrak_diff[QHS7]' : 'checked',
-        'response_attrak_diff[QHI1]' : 'checked',
-        'response_attrak_diff[QHI2]' : 'checked',
-        'response_attrak_diff[QHI3]' : 'checked',
-        'response_attrak_diff[QHI4]' : 'checked',
-        'response_attrak_diff[QHI5]' : 'checked',
-        'response_attrak_diff[QHI6]' : 'checked',
-        'response_attrak_diff[QHI7]' : 'checked',
-        'response_attrak_diff[ATT1]' : 'checked',
-        'response_attrak_diff[ATT2]' : 'checked',
-        'response_attrak_diff[ATT3]' : 'checked',
-        'response_attrak_diff[ATT4]' : 'checked',
-        'response_attrak_diff[ATT5]' : 'checked',
-        'response_attrak_diff[ATT6]' : 'checked',
-        'response_attrak_diff[ATT7]' : 'checked'
-      }
-    })
-  ;
-
   $('.ui.form.sus')
     .form({
       fields: {
@@ -240,6 +220,18 @@ $(document).on('turbolinks:load', function() {
     .on('click', function(event) {
       event.preventDefault();
       $('#questionnaire_help_modal').modal({
+        //blurring: true,
+        inverted: true,
+        cancel  : '.cancel',
+        approve  : '.approve'
+      }).modal('show');
+    });
+
+  // Show references of questionnaires (modal)
+  $('a.show_questionnaire_references_modal')
+    .on('click', function(event) {
+      event.preventDefault();
+      $('#questionnaire_references_modal').modal({
         //blurring: true,
         inverted: true,
         cancel  : '.cancel',
