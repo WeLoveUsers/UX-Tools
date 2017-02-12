@@ -18,6 +18,11 @@
           <td class="center aligned"><%= ResponseAttrakDiff::Infos[:number_of_questions] %></td>
         </tr>
         <tr>
+          <td width="20%"><%= ResponseAttrakDiffAbridged::Infos[:display_name] %></td>
+          <td>Identique mais avec moins d'items, donc plus rapide à faire passer mais moins précis.</td>
+          <td class="center aligned"><%= ResponseAttrakDiffAbridged::Infos[:number_of_questions] %></td>
+        </tr>
+        <tr>
           <td><%= ResponseSu::Infos[:display_name] %> (<%= ResponseSu::Infos[:display_name_short] %>)</td>
           <td><%= ResponseSu::Infos[:description].html_safe %></td>
           <td class="center aligned"><%= ResponseSu::Infos[:number_of_questions] %></td>

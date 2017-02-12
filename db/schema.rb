@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117091043) do
+ActiveRecord::Schema.define(version: 20170211031614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,24 @@ ActiveRecord::Schema.define(version: 20170117091043) do
     t.text     "instructions"
     t.index ["uri_token"], name: "index_projects_on_uri_token", unique: true, using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
+  end
+
+  create_table "response_attrak_diff_abridgeds", force: :cascade do |t|
+    t.integer  "ATT2"
+    t.integer  "ATT5"
+    t.integer  "QP2"
+    t.integer  "QP3"
+    t.integer  "QP5"
+    t.integer  "QP6"
+    t.integer  "QHS2"
+    t.integer  "QHS5"
+    t.integer  "QHI3"
+    t.integer  "QHI4"
+    t.string   "respondent_id"
+    t.integer  "project_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["project_id"], name: "index_response_attrak_diff_abridgeds_on_project_id", using: :btree
   end
 
   create_table "response_attrak_diffs", force: :cascade do |t|
@@ -131,6 +149,7 @@ ActiveRecord::Schema.define(version: 20170117091043) do
   end
 
   add_foreign_key "projects", "users"
+  add_foreign_key "response_attrak_diff_abridgeds", "projects"
   add_foreign_key "response_attrak_diffs", "projects"
   add_foreign_key "response_deeps", "projects"
   add_foreign_key "response_sus", "projects"

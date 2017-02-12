@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ATT2: 1
+  ATT5: 1
+  QP2: 1
+  QP3: 1
+  QP5: 1
+  QP6: 1
+  QHS2: 1
+  QHS5: 1
+  QHI3: 1
+  QHI4: 1
+  respondent_id: MyString
+  project: one
+
+two:
+  ATT2: 1
+  ATT5: 1
+  QP2: 1
+  QP3: 1
+  QP5: 1
+  QP6: 1
+  QHS2: 1
+  QHS5: 1
+  QHI3: 1
+  QHI4: 1
+  respondent_id: MyString
+  project: two

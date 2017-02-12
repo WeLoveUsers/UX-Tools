@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   belongs_to :user
 
   has_many :response_attrak_diffs, dependent: :destroy
+  has_many :response_attrak_diff_abridgeds, dependent: :destroy
   has_many :response_sus, dependent: :destroy
   has_many :response_deeps, dependent: :destroy
 
@@ -10,6 +11,7 @@ class Project < ApplicationRecord
   before_create :add_token, :generate_instructions
 
   def self.questionnaireTypes
+    #[ResponseAttrakDiff::Infos#[:display_name], ResponseAttrakDiffAbridged::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
     [ResponseAttrakDiff::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
   end
 
@@ -33,7 +35,7 @@ class Project < ApplicationRecord
     if self.questionnaire_id.nil?
       return nil
     else
-      return self.questionnaire_id.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.gsub(/\s/,'_')
+      return self.questionnaire_id.mb_chars.normalize(:kd).gsub(/[(-)]/,'').gsub(/[^\x00-\x7F]/n,'').downcase.gsub(/\s/,'_')
     end
   end
 
@@ -65,6 +67,8 @@ class Project < ApplicationRecord
   def responses
     if self.questionnaire_id_clean == "attrakdiff"
       return self.response_attrak_diffs
+    elsif self.questionnaire_id_clean == "attrakdiff_abrege"
+      return self.response_attrak_diff_abridgeds
     elsif self.questionnaire_id_clean == "system_usability_scale"
       return self.response_sus
     elsif self.questionnaire_id_clean == "deep"
@@ -131,33 +135,6 @@ class Project < ApplicationRecord
   end
 
 # Attrak Diff
-
-  # A supprimer car remplacé par "attrakdiff_average_scores"
-  def attrakdiff_average_score
-    score = {
-      QP: 0.00,
-      QHS: 0.00,
-      QHI: 0.00,
-      ATT: 0.00
-    }
-    count = 0
-    sum = score
-    self.response_attrak_diffs.each do |response|
-      count = count + 1
-      sum[:QP]  = sum[:QP]  + (response.QP1  + response.QP2  + response.QP3  + response.QP4  + response.QP5  + response.QP6  + response.QP7)
-      sum[:QHS] = sum[:QHS] + (response.QHS1 + response.QHS2 + response.QHS3 + response.QHS4 + response.QHS5 + response.QHS6 + response.QHS7)
-      sum[:QHI] = sum[:QHI] + (response.QHI1 + response.QHI2 + response.QHI3 + response.QHI4 + response.QHI5 + response.QHI6 + response.QHI7)
-      sum[:ATT] = sum[:ATT] + (response.ATT1 + response.ATT2 + response.ATT3 + response.ATT4 + response.ATT5 + response.ATT6 + response.ATT7)
-    end
-    if count > 0
-      score[:QP]  = (sum[:QP]  / (7 * count)).round(2)
-      score[:QHS] = (sum[:QHS] / (7 * count)).round(2)
-      score[:QHI] = (sum[:QHI] / (7 * count)).round(2)
-      score[:ATT] = (sum[:ATT] / (7 * count)).round(2)
-    end
-    return score
-  end
-
   def attrakdiff_average_scores
     values = {
       QP:  [],
@@ -172,12 +149,25 @@ class Project < ApplicationRecord
       ATT: {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]}
     }
     count = 0
-    self.response_attrak_diffs.each do |response|
+    abridged = false
+    responses = self.response_attrak_diffs
+    if self.questionnaire_id_clean == "attrakdiff_abrege"
+      abridged = true
+      responses = self.response_attrak_diff_abridgeds
+    end
+    responses.each do |response|
       count += 1
-      values[:QP].push(response.QP1, response.QP2, response.QP3, response.QP4, response.QP5, response.QP6, response.QP7)
-      values[:QHS].push(response.QHS1, response.QHS2, response.QHS3, response.QHS4, response.QHS5, response.QHS6, response.QHS7)
-      values[:QHI].push(response.QHI1, response.QHI2, response.QHI3, response.QHI4, response.QHI5, response.QHI6, response.QHI7)
-      values[:ATT].push(response.ATT1, response.ATT2, response.ATT3, response.ATT4, response.ATT5, response.ATT6, response.ATT7)
+      if !abridged
+        values[:QP].push(response.QP1, response.QP2, response.QP3, response.QP4, response.QP5, response.QP6, response.QP7)
+        values[:QHS].push(response.QHS1, response.QHS2, response.QHS3, response.QHS4, response.QHS5, response.QHS6, response.QHS7)
+        values[:QHI].push(response.QHI1, response.QHI2, response.QHI3, response.QHI4, response.QHI5, response.QHI6, response.QHI7)
+        values[:ATT].push(response.ATT1, response.ATT2, response.ATT3, response.ATT4, response.ATT5, response.ATT6, response.ATT7)
+      else
+        values[:QP].push(response.QP2, response.QP3, response.QP5, response.QP6)
+        values[:QHS].push(response.QHS2, response.QHS5)
+        values[:QHI].push(response.QHI3, response.QHI4)
+        values[:ATT].push(response.ATT2, response.ATT5)
+      end
     end
     if count > 0
       score[:QP] = compute_stats_summary_for_data(values[:QP], count)
@@ -197,39 +187,45 @@ class Project < ApplicationRecord
     }
     count = 0
     sum = score
-    self.response_attrak_diffs.each do |response|
+    abridged = false
+    responses = self.response_attrak_diffs
+    if self.questionnaire_id_clean == "attrakdiff_abrege"
+      abridged = true
+      responses = self.response_attrak_diff_abridgeds
+    end
+    responses.each do |response|
       count = count + 1
-      sum[:QP1] = sum[:QP1] + response.QP1
+      sum[:QP1] = sum[:QP1] + response.QP1 if !abridged
       sum[:QP2] = sum[:QP2] + response.QP2
       sum[:QP3] = sum[:QP3] + response.QP3
-      sum[:QP4] = sum[:QP4] + response.QP4
+      sum[:QP4] = sum[:QP4] + response.QP4 if !abridged
       sum[:QP5] = sum[:QP5] + response.QP5
       sum[:QP6] = sum[:QP6] + response.QP6
-      sum[:QP7] = sum[:QP7] + response.QP7
+      sum[:QP7] = sum[:QP7] + response.QP7 if !abridged
 
-      sum[:QHS1] = sum[:QHS1] + response.QHS1
+      sum[:QHS1] = sum[:QHS1] + response.QHS1 if !abridged
       sum[:QHS2] = sum[:QHS2] + response.QHS2
-      sum[:QHS3] = sum[:QHS3] + response.QHS3
-      sum[:QHS4] = sum[:QHS4] + response.QHS4
+      sum[:QHS3] = sum[:QHS3] + response.QHS3 if !abridged
+      sum[:QHS4] = sum[:QHS4] + response.QHS4 if !abridged
       sum[:QHS5] = sum[:QHS5] + response.QHS5
-      sum[:QHS6] = sum[:QHS6] + response.QHS6
-      sum[:QHS7] = sum[:QHS7] + response.QHS7
+      sum[:QHS6] = sum[:QHS6] + response.QHS6 if !abridged
+      sum[:QHS7] = sum[:QHS7] + response.QHS7 if !abridged
 
-      sum[:QHI1] = sum[:QHI1] + response.QHI1
-      sum[:QHI2] = sum[:QHI2] + response.QHI2
+      sum[:QHI1] = sum[:QHI1] + response.QHI1 if !abridged
+      sum[:QHI2] = sum[:QHI2] + response.QHI2 if !abridged
       sum[:QHI3] = sum[:QHI3] + response.QHI3
       sum[:QHI4] = sum[:QHI4] + response.QHI4
-      sum[:QHI5] = sum[:QHI5] + response.QHI5
-      sum[:QHI6] = sum[:QHI6] + response.QHI6
-      sum[:QHI7] = sum[:QHI7] + response.QHI7
+      sum[:QHI5] = sum[:QHI5] + response.QHI5 if !abridged
+      sum[:QHI6] = sum[:QHI6] + response.QHI6 if !abridged
+      sum[:QHI7] = sum[:QHI7] + response.QHI7 if !abridged
 
-      sum[:ATT1] = sum[:ATT1] + response.ATT1
+      sum[:ATT1] = sum[:ATT1] + response.ATT1 if !abridged
       sum[:ATT2] = sum[:ATT2] + response.ATT2
-      sum[:ATT3] = sum[:ATT3] + response.ATT3
-      sum[:ATT4] = sum[:ATT4] + response.ATT4
+      sum[:ATT3] = sum[:ATT3] + response.ATT3 if !abridged
+      sum[:ATT4] = sum[:ATT4] + response.ATT4 if !abridged
       sum[:ATT5] = sum[:ATT5] + response.ATT5
-      sum[:ATT6] = sum[:ATT6] + response.ATT6
-      sum[:ATT7] = sum[:ATT7] + response.ATT7
+      sum[:ATT6] = sum[:ATT6] + response.ATT6 if !abridged
+      sum[:ATT7] = sum[:ATT7] + response.ATT7 if !abridged
     end
     if count > 0
       score[:QP1]  = (sum[:QP1]  / count).round(2)
@@ -331,6 +327,8 @@ class Project < ApplicationRecord
     product_name = self.product_name
     if self.questionnaire_id_clean == "attrakdiff"
       instructions = ResponseAttrakDiff::generate_instructions(self)
+    elsif self.questionnaire_id_clean == "attrakdiff_abrege"
+      instructions = ResponseAttrakDiffAbridged::generate_instructions(self)
     elsif self.questionnaire_id_clean == "system_usability_scale"
       instructions = ResponseSu::generate_instructions(self)
     elsif self.questionnaire_id_clean == "deep"

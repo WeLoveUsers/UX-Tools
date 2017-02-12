@@ -1,0 +1,36 @@
+@wb.add_worksheet(name: "Réponses") do |sheet|
+  sheet.add_row ['Légende'], :style => @black_cell
+
+  sheet.add_row ['ATT2 :', ResponseAttrakDiffAbridged::ATT2_label[I18n.locale][:bad] + " - " + ResponseAttrakDiffAbridged::ATT2_label[I18n.locale][:good]]
+  sheet.add_row ['ATT5 :', ResponseAttrakDiffAbridged::ATT5_label[I18n.locale][:bad] + " - " + ResponseAttrakDiffAbridged::ATT5_label[I18n.locale][:good]]
+
+  sheet.add_row ['QP2 :',  ResponseAttrakDiffAbridged::QP2_label[I18n.locale][:bad]  + " - " + ResponseAttrakDiffAbridged::QP2_label[I18n.locale][:good]]
+  sheet.add_row ['QP3 :',  ResponseAttrakDiffAbridged::QP3_label[I18n.locale][:bad]  + " - " + ResponseAttrakDiffAbridged::QP3_label[I18n.locale][:good]]
+  sheet.add_row ['QP5 :',  ResponseAttrakDiffAbridged::QP5_label[I18n.locale][:bad]  + " - " + ResponseAttrakDiffAbridged::QP5_label[I18n.locale][:good]]
+  sheet.add_row ['QP6 :',  ResponseAttrakDiffAbridged::QP6_label[I18n.locale][:bad]  + " - " + ResponseAttrakDiffAbridged::QP6_label[I18n.locale][:good]]
+
+  sheet.add_row ['QHS2 :', ResponseAttrakDiffAbridged::QHS2_label[I18n.locale][:bad] + " - " + ResponseAttrakDiffAbridged::QHS2_label[I18n.locale][:good]]
+  sheet.add_row ['QHS5 :', ResponseAttrakDiffAbridged::QHS5_label[I18n.locale][:bad] + " - " + ResponseAttrakDiffAbridged::QHS5_label[I18n.locale][:good]]
+
+  sheet.add_row ['QHI3 :', ResponseAttrakDiffAbridged::QHI3_label[I18n.locale][:bad] + " - " + ResponseAttrakDiffAbridged::QHI3_label[I18n.locale][:good]]
+  sheet.add_row ['QHI4 :', ResponseAttrakDiffAbridged::QHI4_label[I18n.locale][:bad] + " - " + ResponseAttrakDiffAbridged::QHI4_label[I18n.locale][:good]]
+
+  sheet.add_row ['']
+  sheet.add_row ['-3 :', 'Note minimale']
+  sheet.add_row ['+3 :', 'Note maximale']
+  sheet.add_row ['']
+
+  sheet.add_row ResponseAttrakDiffAbridged::Export_entete, :style => @black_cell
+  i = 1
+  @project.responses.each do |response|
+    sheet.add_row [i, response.ATT2, response.ATT5,
+                      response.QP2, response.QP3, response.QP5, response.QP6,
+                      response.QHS2, response.QHS5,
+                      response.QHI3, response.QHI4,
+                      response.created_at],
+                      :style => [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, @date]
+    i = i + 1
+  end
+
+  sheet.column_widths 13, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, nil
+end

@@ -17,4 +17,7 @@
 //= require semantic_ui_calendar/calendar
 //= require chart_js/Chart.bundle.2.4.0.min
 //= require trix/trix
+//= require timer_js/timer.min
+//= require progressbar_js/progressbar.min
+//= require screenfull/screenfull.min
 //= require_tree .

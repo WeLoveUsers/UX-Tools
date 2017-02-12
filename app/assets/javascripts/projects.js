@@ -162,6 +162,23 @@ $(document).on('turbolinks:load', function() {
     })
   ;
 
+  $('.ui.form.attrakdiffabridged')
+    .form({
+      fields: {
+        'response_attrak_diff_abridged[QP2]' : 'checked',
+        'response_attrak_diff_abridged[QP3]' : 'checked',
+        'response_attrak_diff_abridged[QP5]' : 'checked',
+        'response_attrak_diff_abridged[QP6]' : 'checked',
+        'response_attrak_diff_abridged[QHS2]' : 'checked',
+        'response_attrak_diff_abridged[QHS5]' : 'checked',
+        'response_attrak_diff_abridged[QHI3]' : 'checked',
+        'response_attrak_diff_abridged[QHI4]' : 'checked',
+        'response_attrak_diff_abridged[ATT2]' : 'checked',
+        'response_attrak_diff_abridged[ATT5]' : 'checked'
+      }
+    })
+  ;
+
   $('.ui.form.sus')
     .form({
       fields: {

@@ -13,10 +13,10 @@ module ResponseAttrakDiffsHelper
             pointHoverRadius: 10,
             pointBackgroundColor: "#333333",
             data: [
-              project.attrakdiff_average_score[:QP],
-              project.attrakdiff_average_score[:QHS],
-              project.attrakdiff_average_score[:QHI],
-              project.attrakdiff_average_score[:ATT]
+              project.attrakdiff_average_scores[:QP][:mean],
+              project.attrakdiff_average_scores[:QHS][:mean],
+              project.attrakdiff_average_scores[:QHI][:mean],
+              project.attrakdiff_average_scores[:ATT][:mean]
             ]
         }
       ]
@@ -133,8 +133,72 @@ module ResponseAttrakDiffsHelper
     horizontal_bar_chart data, options
   end
 
+  def attrak_diff_abridged_word_pair_chart_for(project)
+    s = project.attrakdiff_word_pair_average_score
+    data = {
+      labels: [
+        'Compliqué - Simple',
+        'Pas pratique - Pratique',
+        'Imprévisible - Prévisible',
+        'Confus - Clair',
+        'Sans imagination - Créatif',
+        'Ennuyeux - Captivant',
+        'De mauvais goût - De bon goût',
+        'Bas de gamme - Haut de gamme',
+        'Laid - Beau',
+        'Mauvais - Bon'
+      ],
+      datasets: [{
+          backgroundColor: "#333333",
+          borderWidth: 0,
+          label: "Valeus moyennes par paires de mots",
+          data: [
+            s[:QP2],  s[:QP3],  s[:QP5],  s[:QP6],
+            s[:QHS2], s[:QHS5],
+            s[:QHI3], s[:QHI4],
+            s[:ATT2], s[:ATT5]
+          ]
+      }]
+    }
+    options = {
+        title:{
+            display:true,
+            text:'Diagramme des paires de mots',
+            fontFamily: "'Oswald'",
+            fontSize: 20
+        },
+        responsive: true,
+        class: 'attrak-diff-word-pair-chart',
+        height: 280,
+
+        scales: {
+            xAxes: [{
+                display: true,
+                ticks: {
+                  min: -3,
+                  max: 3,
+                  fontFamily: "'PT Serif'",
+                  fontSize: 12
+                }
+            }],
+            yAxes: [{
+                barThickness: 15,
+                position: 'left',
+                display: true,
+                ticks: {
+                  fontFamily: "'PT Serif'",
+                  fontSize: 12
+                }
+            }]
+        }
+    }
+
+    horizontal_bar_chart data, options
+
+  end
+
   def attrak_diff_portfolio_chart_for(project)
-    average_score = project.attrakdiff_average_score
+    average_score = project.attrakdiff_average_scores
     data = {
       datasets: [{
                 label: 'Moyenne pragmatique et hédonique',
@@ -143,8 +207,8 @@ module ResponseAttrakDiffsHelper
                 pointHoverRadius: 10,
                 pointBackgroundColor: "#333333",
                 data: [{
-                    x: average_score[:QP],
-                    y: (average_score[:QHS] + average_score[:QHI]) / 2
+                    x: average_score[:QP][:mean],
+                    y: (average_score[:QHS][:mean] + average_score[:QHI][:mean]) / 2
                 }]
             }]
     }

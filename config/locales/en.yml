@@ -36,6 +36,9 @@ en:
       attrakdiff_step1:
         title: "Evaluate"
         submit: "Submit"
+      attrakdiff_abrege_step1:
+        title: "Evaluate"
+        submit: "Submit"
       deep_step1:
         title: "Evaluate"
         likert_disagree: "Strongly Disagree"

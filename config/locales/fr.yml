@@ -41,6 +41,9 @@ fr:
       attrakdiff_step1:
         title: "Evaluez"
         submit: "Envoyer"
+      attrakdiff_abrege_step1:
+        title: "Evaluez"
+        submit: "Envoyer"
       deep_step1:
         title: "Evaluez"
         likert_disagree: "Pas du tout d'accord"

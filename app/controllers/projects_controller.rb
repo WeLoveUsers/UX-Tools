@@ -53,6 +53,14 @@ class ProjectsController < ApplicationController
           @response = ResponseAttrakDiff.new
         else
         end
+      when "attrakdiff_abrege"
+        case params[:step]
+        when "1"
+          @showForm = true
+          @form = @project.questionnaire_template + "_" + "step" + params[:step]
+          @response = ResponseAttrakDiffAbridged.new
+        else
+        end
       when "system_usability_scale"
         case params[:step]
         when "1"

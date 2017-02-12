@@ -37,7 +37,20 @@ v1.1.8 :
 - Ajout références et remerciements
 - Ajout des écart-types et des IC sur SUS
 
+v1.1.9 :
+- Ajout du timer
+- Ajout du code et table pour AttrakDiff abrégé mais desactivé (test de non régression à faire)
+
+##########################
+#### Test non régression
+#### Finaliser questionnaire ATT abrégé
+#### Variabilité cookie pour Abrégé
+
 @TODO :
+- Timer :
+  - Permettre la desactivation du son
+  - Alléger le code JS timer pour supprimer les ms (performance)
+
 - Crédits, remerciements, droits
   - Réf : à intégrer dans l'export XLS aussi
   - CGU : QUID des questionnaires ? et crédit ?
@@ -62,6 +75,7 @@ v1.1.8 :
   - Optimiser le code pour le calcul des stats
   - Ajouter des bares d'erreur pour les IC
   - Ecart type et intervalle de confiance
+  - Revoir calcul pour "attrakdiff_word_pair_average_score"
 
 - Ajouter :
   - AttrakDiff abrégé
