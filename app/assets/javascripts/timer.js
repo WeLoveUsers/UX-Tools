@@ -20,8 +20,8 @@ $(document).on('turbolinks:load', function() {
 
     parser: {
       getHumanTime : function(timeInSeconds) {
-        minutes = Math.floor(timeInSeconds / 60);
-        seconds = timeInSeconds % 60;
+        var minutes = Math.floor(timeInSeconds / 60);
+        var seconds = timeInSeconds % 60;
         return this.strPadLeft(minutes,'0',2) + ':' + this.strPadLeft(seconds,'0',2);
       },
       strPadLeft: function(string, pad, length) {
@@ -191,7 +191,7 @@ $(document).on('turbolinks:load', function() {
     reset: function() {
       var that = this;
 
-      sec = that.timeInput.val() * 60;
+      var sec = that.timeInput.val() * 60;
       that.progressBar.set(-(sec / 3600));
       that.progressBarText.text(that.parser.getHumanTime(sec));
     },

@@ -41,6 +41,9 @@ v1.1.9 :
 - Ajout du timer
 - Ajout du code et table pour AttrakDiff abrégé mais desactivé (test de non régression à faire)
 
+v1.1.10 :
+- Ajout Smartlook (current_user && !admin)
+
 ##########################
 #### Test non régression
 #### Finaliser questionnaire ATT abrégé
@@ -50,9 +53,11 @@ v1.1.9 :
 - Timer :
   - Permettre la desactivation du son
   - Alléger le code JS timer pour supprimer les ms (performance)
+  - Bugs sous Firefox (popup & fullscreen)
 
 - Crédits, remerciements, droits
   - Réf : à intégrer dans l'export XLS aussi
+  - "Traduction libre extraite du livre « Méthodes de Design UX », de Carine Lallemand et Guillaume Gronier (Editions Eyrolles, 2016)."
   - CGU : QUID des questionnaires ? et crédit ?
   - Ajouter des descriptions des questionnaires et liens vers les publications ?
   - "Précautions à prendre" + "Bibliographie / Références"
