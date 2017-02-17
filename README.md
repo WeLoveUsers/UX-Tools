@@ -44,10 +44,9 @@ v1.1.9 :
 v1.1.10 :
 - Ajout Smartlook (current_user && !admin)
 
-##########################
-#### Test non régression
-#### Finaliser questionnaire ATT abrégé
-#### Variabilité cookie pour Abrégé
+v1.1.11 :
+- Ajout Yandex.Metrica
+- Activation AttrakDiff abrégé
 
 @TODO :
 - Timer :
@@ -83,9 +82,8 @@ v1.1.10 :
   - Revoir calcul pour "attrakdiff_word_pair_average_score"
 
 - Ajouter :
-  - AttrakDiff abrégé
   - SUS "positif"
-  - WAMMI    
+  - WAMMI
 
 - Routes ou pages pour erreurs 404 et 500
 

@@ -11,8 +11,8 @@ class Project < ApplicationRecord
   before_create :add_token, :generate_instructions
 
   def self.questionnaireTypes
-    #[ResponseAttrakDiff::Infos#[:display_name], ResponseAttrakDiffAbridged::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
-    [ResponseAttrakDiff::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
+    [ResponseAttrakDiff::Infos[:display_name], ResponseAttrakDiffAbridged::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
+    #[ResponseAttrakDiff::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
   end
 
   def self.questionnaireLanguages
