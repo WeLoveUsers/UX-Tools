@@ -1,27 +1,5 @@
 $(document).on('turbolinks:load', function() {
 
-  $('.ui.calendar.date').calendar({
-    type: 'date',
-    firstDayOfWeek: 1,
-    monthFirst: false,
-    minDate: new Date(),
-    text: {
-      days: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
-      months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-      monthsShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jui', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
-      today: "Aujourd'hui",
-      now: 'Maintenant',
-      am: 'AM',
-      pm: 'PM'
-    },
-    onChange: function (date, text) {
-      $(this).next("input[type='hidden']").val(date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear());
-    }
-  });
-
-  $('.ui.pointing.menu .item').tab();
-  $('.ui.form select').dropdown();
-  $('.ui.checkbox').checkbox();
   $('.ui.checkbox#show_variability').checkbox({
     onChecked: function() {
       $('.variability').show();
@@ -31,13 +9,6 @@ $(document).on('turbolinks:load', function() {
       $('.variability').hide();
       document.cookie = "show_variability=0";
     }
-  });
-
-  $('.ui.config.button').popup({
-    inline: true,
-    position: 'bottom right',
-    on: 'click',
-    variation: "wide"
   });
 
   $('.ui.sus_confidence.dropdown').dropdown({
@@ -71,48 +42,6 @@ $(document).on('turbolinks:load', function() {
       this.target_ATT.transition('flash');
     }
   });
-
-  $('.message .close')
-    .on('click', function() {
-      $(this)
-        .closest('.message')
-        .transition('fade')
-      ;
-    });
-
-  $('form input.field-popup')
-    .popup({
-      on: 'focus'
-    })
-  ;
-
-  $('.ui.form.password')
-    .form({
-      fields: {
-        'user[email]'     : 'email'
-      }
-    })
-  ;
-
-  $('.ui.form.login')
-    .form({
-      fields: {
-        'user[email]'     : 'email',
-        'user[password]'  : 'empty'
-      }
-    })
-  ;
-
-  $('.ui.form.signup')
-    .form({
-      fields: {
-        'user[email]'                 : 'email',
-        'user[password]'              : 'minLength[6]',
-        'user[password_confirmation]' : 'match[user[password]]',
-        'terms'                       : 'checked'
-      }
-    })
-  ;
 
   $('.ui.form.evaluation-project')
     .form({

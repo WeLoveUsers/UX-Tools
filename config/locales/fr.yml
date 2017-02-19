@@ -26,6 +26,9 @@ fr:
         update: "Enregistrer"
         create: "Créer une évaluation"
   projects:
+    form:
+      are_you_sure: "Êtes-vous sûr de vouloir supprimer ce projet d'évaluation ?"
+      btn_delete: "Supprimer ce projet d'évaluation"
     respond:
       closed: "Fini !"
       closed_details: "Cette évaluation est à présent terminée."

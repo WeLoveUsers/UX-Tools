@@ -18,37 +18,37 @@ class ResponseAttrakDiff < ApplicationRecord
 
   QP1_label  = {:fr => {:bad => "Technique",     :good => "Humain"},
                 :en => {:bad => "Technical",     :good => "Human"}}
-  QP2_label  = {:fr => {:bad => "Compliqué",     :good => "Simple"},
+  QP2_label  = {:fr => {:bad => "Compliqué",     :good => "Simple"},
                 :en => {:bad => "Complicated",   :good => "Simple"}}
   QP3_label  = {:fr => {:bad => "Pas pratique",  :good => "Pratique"},
                 :en => {:bad => "Impractical",   :good => "Practical"}}
   QP4_label  = {:fr => {:bad => "Fastidieux",    :good => "Efficace"},
                 :en => {:bad => "Cumbersome",    :good => "Straightforward"}}
-  QP5_label  = {:fr => {:bad => "Imprévisible",  :good => "Prévisible"},
+  QP5_label  = {:fr => {:bad => "Imprévisible",  :good => "Prévisible"},
                 :en => {:bad => "Unpredictable", :good => "Predictable"}}
   QP6_label  = {:fr => {:bad => "Confus",        :good => "Clair"},
                 :en => {:bad => "Confusing",     :good => "Clearly structured"}}
-  QP7_label  = {:fr => {:bad => "Incontrôlable", :good => "Maîtrisable"},
+  QP7_label  = {:fr => {:bad => "Incontrôlable", :good => "Maîtrisable"},
                 :en => {:bad => "Unruly",        :good => "Manageable"}}
 
   QHI1_label  = {:fr => {:bad => "M’isole",                  :good => "Me sociabilise"},
                  :en => {:bad => "Isolating",                :good => "Connective"}}
   QHI2_label  = {:fr => {:bad => "Amateur",                  :good => "Professionnel"},
                  :en => {:bad => "Unprofessional",           :good => "Professional"}}
-  QHI3_label  = {:fr => {:bad => "De mauvais goût",          :good => "De bon goût"},
+  QHI3_label  = {:fr => {:bad => "De mauvais goût",          :good => "De bon goût"},
                  :en => {:bad => "Tacky",                    :good => "Stylish"}}
   QHI4_label  = {:fr => {:bad => "Bas de gamme",             :good => "Haut de gamme"},
                  :en => {:bad => "Cheap",                    :good => "Premium"}}
-  QHI5_label  = {:fr => {:bad => "M’exclut",                 :good => "M’intègre"},
+  QHI5_label  = {:fr => {:bad => "M’exclut",                 :good => "M’intègre"},
                  :en => {:bad => "Alienating",               :good => "Integrating"}}
-  QHI6_label  = {:fr => {:bad => "Me sépare des autres",     :good => "Me rapproche des autres"},
+  QHI6_label  = {:fr => {:bad => "Me sépare des autres",     :good => "Me rapproche des autres"},
                  :en => {:bad => "Separates me from people", :good => "Brings me closer to people"}}
-  QHI7_label  = {:fr => {:bad => "Non présentable",          :good => "Présentable"},
+  QHI7_label  = {:fr => {:bad => "Non présentable",          :good => "Présentable"},
                  :en => {:bad => "Unpresentable",            :good => "Presentable"}}
 
   QHS1_label  = {:fr => {:bad => "Conventionnel",         :good => "Original"},
                  :en => {:bad => "Conventional",          :good => "Inventive"}}
-  QHS2_label  = {:fr => {:bad => "Sans imagination",      :good => "Créatif"},
+  QHS2_label  = {:fr => {:bad => "Sans imagination",      :good => "Créatif"},
                  :en => {:bad => "Unimaginative",         :good => "Creative"}}
   QHS3_label  = {:fr => {:bad => "Prudent",               :good => "Audacieux"},
                  :en => {:bad => "Cautious",              :good => "Bold"}}
@@ -61,11 +61,11 @@ class ResponseAttrakDiff < ApplicationRecord
   QHS7_label  = {:fr => {:bad => "Commun",                :good => "Nouveau"},
                  :en => {:bad => "Ordinary",              :good => "Novel"}}
 
-  ATT1_label  = {:fr => {:bad => "Déplaisant",        :good => "Plaisant"},
+  ATT1_label  = {:fr => {:bad => "Déplaisant",        :good => "Plaisant"},
                  :en => {:bad => "Unpleasant",        :good => "Pleasant"}}
   ATT2_label  = {:fr => {:bad => "Laid",              :good => "Beau"},
                  :en => {:bad => "Ugly",              :good => "Attractive"}}
-  ATT3_label  = {:fr => {:bad => "Désagréable",       :good => "Agréable"},
+  ATT3_label  = {:fr => {:bad => "Désagréable",       :good => "Agréable"},
                  :en => {:bad => "Disagreeable",      :good => "Likeable"}}
   ATT4_label  = {:fr => {:bad => "Rebutant",          :good => "Attirant"},
                  :en => {:bad => "Rejecting",         :good => "Inviting"}}
@@ -73,7 +73,7 @@ class ResponseAttrakDiff < ApplicationRecord
                  :en => {:bad => "Bad",               :good => "Good"}}
   ATT6_label  = {:fr => {:bad => "Repoussant",        :good => "Attrayant"},
                  :en => {:bad => "Repelling",         :good => "Appealing"}}
-  ATT7_label  = {:fr => {:bad => "Décourageant",      :good => "Motivant"},
+  ATT7_label  = {:fr => {:bad => "Décourageant",      :good => "Motivant"},
                  :en => {:bad => "Discouraging",      :good => "Motivating"}}
 
   def self.generate_instructions(project)
@@ -81,13 +81,13 @@ class ResponseAttrakDiff < ApplicationRecord
     product_name = project.product_name
     if project.questionnaire_language_clean == "francais"
       instructions = <<-HTML
-        <div>Dans le cadre d’un projet sur l’expérience utilisateur, nous souhaiterions évaluer vos impressions sur <strong>#{product_name}</strong>.</div>
+        <div>Dans le cadre d’un projet sur l’expérience utilisateur, nous souhaiterions évaluer vos impressions sur <strong>#{product_name}</strong>.</div>
       	<ul>
-      		<li>Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluation du système.</li>
-      		<li>Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie.</li>
-      		<li>Ne pensez pas aux paires de mots et essayez simplement de donner une réponse spontanée.</li>
-      		<li>Vous pourrez avoir l’impression que certains termes ne décrivent pas correctement le système. Dans ce cas, assurez- vous de donner tout de même une réponse.</li>
-      		<li>Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !</li>
+      		<li>Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluation du système.</li>
+      		<li>Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie.</li>
+      		<li>Ne pensez pas aux paires de mots et essayez simplement de donner une réponse spontanée.</li>
+      		<li>Vous pourrez avoir l’impression que certains termes ne décrivent pas correctement le système. Dans ce cas, assurez- vous de donner tout de même une réponse.</li>
+      		<li>Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !</li>
       	</ul>
       HTML
       instructions.html_safe

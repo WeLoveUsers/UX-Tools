@@ -35,13 +35,13 @@ class ResponseAttrakDiffAbridged < ApplicationRecord
     product_name = project.product_name
     if project.questionnaire_language_clean == "francais"
       instructions = <<-HTML
-        <div>Dans le cadre d’un projet sur l’expérience utilisateur, nous souhaiterions évaluer vos impressions sur <strong>#{product_name}</strong>.</div>
+        <div>Dans le cadre d’un projet sur l’expérience utilisateur, nous souhaiterions évaluer vos impressions sur <strong>#{product_name}</strong>.</div>
       	<ul>
-      		<li>Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluation du système.</li>
-      		<li>Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie.</li>
-      		<li>Ne pensez pas aux paires de mots et essayez simplement de donner une réponse spontanée.</li>
-      		<li>Vous pourrez avoir l’impression que certains termes ne décrivent pas correctement le système. Dans ce cas, assurez- vous de donner tout de même une réponse.</li>
-      		<li>Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !</li>
+      		<li>Ce questionnaire se présente sous forme de paires de mots pour vous assister dans l’évaluation du système.</li>
+      		<li>Chaque paire représente des contrastes. Les échelons entre les deux extrémités vous permettent de décrire l’intensité de la qualité choisie.</li>
+      		<li>Ne pensez pas aux paires de mots et essayez simplement de donner une réponse spontanée.</li>
+      		<li>Vous pourrez avoir l’impression que certains termes ne décrivent pas correctement le système. Dans ce cas, assurez- vous de donner tout de même une réponse.</li>
+      		<li>Gardez à l’esprit qu’il n’y a pas de bonne ou mauvaise réponse. Seule votre opinion compte !</li>
       	</ul>
       HTML
       instructions.html_safe

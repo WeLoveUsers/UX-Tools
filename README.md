@@ -47,6 +47,7 @@ v1.1.10 :
 v1.1.11 :
 - Ajout Yandex.Metrica
 - Activation AttrakDiff abrégé
+- Suppression jquery_ujs
 
 @TODO :
 - Timer :
@@ -70,6 +71,7 @@ v1.1.11 :
   - Transparence technologique sur les formules utilisées (ex. comment sont calculés les IC ?)
 
 - UI :
+  - Problème sous FF avec "Déconnexion" (et DELETE)
   - Version tablette + tél pour les répondants
   - Ajouter des filtres pour les dates / statuts des projets
   - Trier par ...??
