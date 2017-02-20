@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function() {
 
   $('.ui.pointing.menu .item').tab();
   $('.ui.form select').dropdown();
-  $('.ui.checkbox').checkbox();
+  $('.ui.checkbox:not(#show_variability)').checkbox();
 
   $('.ui.config.button').popup({
     inline: true,
@@ -41,19 +41,16 @@ $(document).on('turbolinks:load', function() {
   $('form input.field-popup')
     .popup({
       on: 'focus'
-    })
-  ;
+    });
 
-  $('input[data-confirm]').each(function(){
+  /*
+   * Recherche "data-modalconfirm" pour afficher une fenêtre modal de confirmation
+   */
+  $('input[data-modalconfirm]').each(function(){
     var e = $(this);
-    var message = e.data('confirm');
+    var message = e.data('modalconfirm');
     var form = e.parent('form');
-    // var confirmationHeader = $('<div class="header">Confirmation</div>');
-    // var confirmationContent = $('<div class="content">' + message + '</div>');
-    // var confirmationActions = $('<div class="actions"><div class="ui cancel inverted button">Annuler</div><div class="ui approve button">Confirmer</div></div>');
-    // var confirmationModal = $('<div class="ui small modal"></div>');
     var confirmationModal = $('<div class="ui small modal"><div class="header">Confirmation</div><div class="content">' + message + '</div><div class="actions"><div class="ui cancel inverted button">Annuler</div><div class="ui approve button">Confirmer</div></div></div>');
-    //confirmationModal.append(confirmationHeader).append(confirmationContent).append(confirmationActions);
     form.append(confirmationModal);
     form.confirmed = false;
     var modal = confirmationModal.modal({
