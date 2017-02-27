@@ -44,6 +44,10 @@
   - Âge, sexe, éducation, profession, utilise le produit depuis [moins d'un an]
 
 @RELEASES
+v1.1.13 :
+- Suppression Yandex
+- Correction fil d'Ariane pour le compte à rebourds
+
 v1.1.12 :
 - Bug IC
 - Rajout jquery_ujs
