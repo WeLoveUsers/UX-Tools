@@ -16,17 +16,28 @@
   sheet.add_row ['4 :', 'Note maximale']
   sheet.add_row ['']
 
+  sheet.add_row ['Synthèse'], :style => @black_cell
+  sheet.add_row ['Note moyenne :',  @project.sus_grade]
+  sheet.add_row ['Score moyen :',  @project.sus_score[:mean]]
+  sheet.add_row ['Ecart type :',  @project.sus_score[:sd]]
+  sheet.add_row ['IC (90%) :',  @project.sus_score[:ci_90]]
+  sheet.add_row ['IC (95%) :',  @project.sus_score[:ci_95]]
+  sheet.add_row ['IC (99%) :',  @project.sus_score[:ci_99]]
+  sheet.add_row ['']
+
+
   sheet.add_row ResponseSu::Export_entete, :style => @black_cell
   i = 1
   @project.responses.each do |response|
+    score = 2.5 * (response.Q1 + response.Q2 + response.Q3 + response.Q4 + response.Q5 + response.Q6 + response.Q7 + response.Q8 + response.Q9 + response.Q10)
     #vector = [response.Q1, response.Q2, response.Q3, response.Q4, response.Q5, response.Q6, response.Q7, response.Q8, response.Q9, response.Q10].to_vector(:scale)
     #ds = {'notes' => vector}.to_dataset
     cronbach = ''
     #Statsample::Reliability.cronbach_alpha(ds)
     #cronbach = Statsample::Reliability.cronbach_alpha()
-    sheet.add_row [i, response.Q1, response.Q2, response.Q3, response.Q4, response.Q5, response.Q6, response.Q7, response.Q8, response.Q9, response.Q10, response.created_at], :style => [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, @date]
+    sheet.add_row [i, response.Q1, response.Q2, response.Q3, response.Q4, response.Q5, response.Q6, response.Q7, response.Q8, response.Q9, response.Q10, score, response.created_at], :style => [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, @date]
     i = i + 1
   end
 
-  sheet.column_widths 13, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, nil
+  sheet.column_widths 13, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, nil
 end

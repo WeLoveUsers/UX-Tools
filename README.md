@@ -44,6 +44,10 @@
   - Âge, sexe, éducation, profession, utilise le produit depuis [moins d'un an]
 
 @RELEASES
+v1.1.14 :
+- Ajout de données dans l'export SUS
+- Correction dans le Timer (continue après modification du temps + focus on click)
+
 v1.1.13 :
 - Suppression Yandex
 - Correction fil d'Ariane pour le compte à rebourds

@@ -160,9 +160,11 @@ $(document).on('turbolinks:load', function() {
         inline: true,
         position: 'top center',
         on: 'click',
-        variation: "large"
+        variation: "large",
+        onVisible: function() {
+          that.timeInput.focus().select();
+        }
       });
-
 
       that.form
         .form({
@@ -176,13 +178,13 @@ $(document).on('turbolinks:load', function() {
         if (that.form.form('is valid')) {
           var time = that.timeInput.val();
           document.cookie = "timer_minutes=" + time;
-          that.timer.stop();
-          that.reset();
           if (that.timer.getStatus() === 'started') {
               setTimeout(function(){
                 that.timer.start(time * 60);
-              }, 1);
+              }, 100);
           }
+          that.timer.stop();
+          that.reset();
           popup.click();
         }
       });
