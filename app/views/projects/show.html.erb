@@ -1,6 +1,11 @@
 <nav class="bc">
   <div class="ui large breadcrumb container">
     <a href="<%= edit_project_path(@project) %>" class="ui right floated primary button">Modifier</a>
+    <% if !@project.is_closed %>
+    <a href="<%= close_project_path(@project) %>" class="ui right floated left labeled button"><span class="ui green right pointing label">Ouvert</span><span class="ui inverted button">Fermer le projet</span></a>
+    <% else %>
+    <a href="<%= open_project_path(@project) %>" class="ui right floated left labeled button"><span class="ui red right pointing label">Fermé</span><span class="ui inverted button">Réouvrir le projet</span></a>
+    <% end %>
     <a class="section" href="<%= root_path %>"><%= wlu_tools_name %></a>
     <i class="right chevron icon divider"></i>
     <a href="<%= projects_path %>" class="section">Questionnaires UX</a>
@@ -29,8 +34,12 @@
           <td><%= @project.product_type %></td>
         </tr>
         <tr>
+          <td nowrap>Statut :</td>
+          <td><%= status_full_for(@project) %></td>
+        </tr>
+        <tr>
           <td nowrap>Date de fin de l'évaluation :</td>
-          <td><%= l @project.end_date, format: :long unless @project.end_date.nil? %></td>
+          <td><%= end_date_full_for(@project) %></td>
         </tr>
         <tr>
           <td nowrap>Lien public pour répondre :</td>

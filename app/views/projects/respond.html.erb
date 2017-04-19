@@ -1,5 +1,5 @@
 <%- I18n.with_locale(@project.questionnaire_language_code) do %>
-  <% if @project.end_date >= Date.today %>
+  <% if !@project.is_closed %>
     <% if !@showForm %>
       <%= render 'projects' + File::SEPARATOR + 'questionnaires' + File::SEPARATOR + 'introduction', project: @project %>
     <% else %>

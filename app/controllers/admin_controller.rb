@@ -14,13 +14,13 @@ class AdminController < ApplicationController
     @projects[:new] = Project.order(:created_at).last(5)
     @projects[:top_active] = {}
     ResponseAttrakDiff.group(:project).count.each do |project, count|
-      @projects[:top_active][project] = count if project.end_date >= Date.today
+      @projects[:top_active][project] = count if !project.is_closed
     end
     ResponseSu.group(:project).count.each do |project, count|
-      @projects[:top_active][project] = count if project.end_date >= Date.today
+      @projects[:top_active][project] = count if !project.is_closed
     end
     ResponseDeep.group(:project).count.each do |project, count|
-      @projects[:top_active][project] = count if project.end_date >= Date.today
+      @projects[:top_active][project] = count if !project.is_closed
     end
     @projects[:top_active] = @projects[:top_active].to_a.sort_by{ |k, v| v }.reverse.take(5)
   end

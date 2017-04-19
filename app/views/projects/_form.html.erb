@@ -48,21 +48,25 @@
     </div>
 
     <div class="row no-padding field">
-      <div class="five wide column"><%= f.label :end_date, "Date de fin de l'évaluation :" %></div>
-      <div class="eleven wide column">
-        <div class="ui date calendar">
-          <div class="ui input left icon">
-            <i class="calendar icon"></i>
-            <input type="text" placeholder="Date" value="<%= project.end_date %>">
-          </div>
-        </div>
-        <input type="hidden" name="project[end_date]" id="project_end_date" value="<%= project.end_date %>">
+      <div class="sixteen wide column">
+        <div class="ui dividing header">Options</div>
       </div>
     </div>
 
     <div class="row no-padding field">
-      <div class="five wide column"></div>
-      <div class="eleven wide column"><em>Tous les champs sont obligatoires</em></div>
+      <div class="five wide column"><%= f.label :end_date, "Date de fin de l'évaluation :" %></div>
+      <div class="eleven wide column">
+        <div class="ui date calendar">
+          <div class="ui left icon action input">
+            <i class="calendar icon"></i>
+            <input type="text" placeholder="Date" value="<%= project.end_date %>">
+            <div class="ui icon clear-date basic button">
+              <i class="close icon"></i>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="project[end_date]" id="project_end_date" value="<%= project.end_date %>">
+      </div>
     </div>
 
     <div class="row no-padding field">

@@ -15,13 +15,29 @@ $(document).on('turbolinks:load', function() {
       pm: 'PM'
     },
     onChange: function (date, text) {
-      $(this).next("input[type='hidden']").val(date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear());
+      if (date === undefined) {
+        $(this).next("input[type='hidden']").val('');
+      } else {
+        $(this).next("input[type='hidden']").val(date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear());
+      }
     }
   });
+
+  $('.ui.calendar.date .clear-date.button')
+    .on('click', function() {
+      if (!this.calendar) {
+        this.calendar = $(this).parent().parent();
+      }
+      this.calendar.calendar('clear');
+      this.calendar.calendar('blur');
+    });
 
   $('.ui.pointing.menu .item').tab();
   $('.ui.form select').dropdown();
   $('.ui.checkbox:not(#show_variability)').checkbox();
+  $('.popup').popup({
+    offset: -13
+  });
 
   $('.ui.config.button').popup({
     inline: true,

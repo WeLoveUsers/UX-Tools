@@ -66,7 +66,7 @@
           <td><a href="<%= url_for admin_project_path(project) %>"><%= project.product_name %> - <%= project.project_code %></a></td>
           <td><%= project.product_type %></td>
           <td><%= project.questionnaire_id %> (<%= project.questionnaire_language %>)</td>
-          <td><%= l project.end_date, format: :long %><br /><span class="ui tiny basic label"><%= project.user.email %></span></td>
+          <td><%= end_date_for(project) %><br /><span class="ui tiny basic label"><%= project.user.email %></span></td>
           <td class="center aligned" width="15%"><span class="ui <%= css_class %> circular label"><%= count %></span></td>
         </tr>
         <% end %>

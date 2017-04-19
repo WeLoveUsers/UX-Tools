@@ -7,11 +7,9 @@
   - Bugs sous Firefox (popup & fullscreen)
 
 - Crédits, remerciements, droits
-  - Réf : à intégrer dans l'export XLS aussi
-  - "Traduction libre extraite du livre « Méthodes de Design UX », de Carine Lallemand et Guillaume Gronier (Editions Eyrolles, 2016)."
   - CGU : QUID des questionnaires ? et crédit ?
-  - Ajouter des descriptions des questionnaires et liens vers les publications ?
-  - "Précautions à prendre" + "Bibliographie / Références"
+  - Ajouter des descriptions des questionnaires ?
+  - "Précautions à prendre"
   - (Carine Lallemand) A-t-on le droit de mettre ces questionnaires en ligne ?
 
 - Aide :
@@ -24,14 +22,10 @@
 - UI :
   - Version tablette + tél pour les répondants
   - Ajouter des filtres pour les dates / statuts des projets
-  - Trier par ...??
-  - Afficher le statut du proget : (Ouvert) - (Fermé)
 
 - Stats :
-  - Optimiser le code pour le calcul des stats
-  - Ajouter des bares d'erreur pour les IC
-  - Ecart type et intervalle de confiance
-  - Revoir calcul pour "attrakdiff_word_pair_average_score"
+  - Ajouter des barres d'erreur pour les IC
+  - Revoir calcul des stats pour "attrakdiff_word_pair_average_score"
 
 - Ajouter :
   - SUS "positif"
@@ -41,9 +35,27 @@
 
 - Suppression logique : https://rubygems.org/gems/paranoia
 - Ajouter des questions sur le participant :
-  - Âge, sexe, éducation, profession, utilise le produit depuis [moins d'un an]
+  - Âge, sexe, profession/occupation,
+  - Groupe d'utilisateurs, version du produit testée,
+  - Education, utilise le produit depuis [moins d'un an]
+
+- Montrer un petit message "Nouveautés" et le descriptif
 
 @RELEASES
+v1.2 :
+- Bugs :
+  - Modal sur fond blanc
+- Exports XLS :
+  - Ajout des stats synthétiques pour AttrakDiff et DEEP
+  - Ajout des références aux publications
+- Questionnaires UX :
+  - La date de fin devient optionnelle
+  - Ajout d'un statut au proget (Ouvert / Fermé)
+  - Ajout d'un champ "Ordonner par..."
+  - Ajout des intervalles de confiance et écart-types pour DEEP
+- Invisible :
+  - Ajout d'un (daily) job automatique pour basculer les statuts des projets (voir doc : https://devcenter.heroku.com/articles/scheduler)
+
 v1.1.14 :
 - Ajout de données dans l'export SUS
 - Correction dans le Timer (continue après modification du temps + focus on click)

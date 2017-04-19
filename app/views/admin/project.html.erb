@@ -28,8 +28,12 @@
           <td><%= @project.product_type %></td>
         </tr>
         <tr>
+          <td nowrap>Statut :</td>
+          <td><%= status_full_for(@project) %></td>
+        </tr>
+        <tr>
           <td nowrap>Date de fin de l'évaluation :</td>
-          <td><%= l @project.end_date, format: :long unless @project.end_date.nil? %></td>
+          <td><%= end_date_full_for(@project) %></td>
         </tr>
         <tr>
           <td nowrap>Lien public pour répondre :</td>

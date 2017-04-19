@@ -1,5 +1,19 @@
 $(document).on('turbolinks:load', function() {
 
+  // Show terms (modal)
+  var terms_modal = $('#terms_modal').modal({
+    cancel  : '.cancel',
+    approve  : '.approve',
+    onApprove: function(what) {
+      $('.ui.form.signup input#terms').prop('checked', true);
+    }
+  });
+  $('a.show_terms_modal')
+    .on('click', function(event) {
+      event.preventDefault();
+      terms_modal.modal({inverted: true}).modal('show');
+    });
+
   $('.ui.form.password')
     .form({
       fields: {

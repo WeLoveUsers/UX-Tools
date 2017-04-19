@@ -41,6 +41,8 @@ body .footer a:hover  {
 .ui.main.menu .item > img:not(.ui) {
   width: auto;
 }
+
+/* Semantic UI overrides */
 .ui.breadcrumb a.ui.button.primary {
   color: #636363;
 }
@@ -71,6 +73,19 @@ body .footer a:hover  {
 }
 ul.ui.list li {
   line-height: 23px;
+}
+.ui.red.label {
+  background-color: #fa3a6d !important;
+  border-color: #fa3a6d !important;
+}
+.ui.green.label {
+  background-color: #36f8b0 !important;
+  border-color: #36f8b0 !important;
+  color:#636363 !important;
+}
+.ui.cream.label {
+  background-color: #f0ebcd !important;
+  border-color: #f0ebcd !important;
 }
 
 /* BREADCRUMB */
@@ -104,6 +119,15 @@ nav.bc .button {
   margin-top:2.7rem;
 }
 
+/* SEARCH MENU */
+nav.search {
+  background: #F9FAFB;
+  border-bottom: 1px #EEEEEE solid;
+  margin-top: -2em;
+  padding-bottom: 0.8em;
+  margin-bottom: 2em;
+}
+
 /* PROJECTS LIST */
 .ui.vertically.divided.grid a {
     color:#636363;
@@ -115,6 +139,14 @@ nav.bc .button {
 }
 .ui.grid .sub.header {
   font-size: 0.5em;
+}
+
+/* PROJECTS FORM */
+.ui.date.calendar {
+  width:14em;
+}
+.ui.dividing.header {
+  display: block;
 }
 
 /* TABS & INSIDE CONTENT */

@@ -16,7 +16,7 @@ module ResponseDeepsHelper
           borderWidth: 0,
           label: "Valeus moyennes par dimension",
           data: [
-            s[:G1],  s[:G2],  s[:G3],  s[:G4],  s[:G5],  s[:G6]
+            s[:G1][:mean],  s[:G2][:mean],  s[:G3][:mean],  s[:G4][:mean],  s[:G5][:mean],  s[:G6][:mean]
           ]
       }]
     }
@@ -72,7 +72,7 @@ module ResponseDeepsHelper
           borderWidth: 0,
           label: "Valeus moyennes par dimension",
           data: [
-            s[:G1],  s[:G2],  s[:G3],  s[:G4],  s[:G5],  s[:G6]
+            s[:G1][:mean],  s[:G2][:mean],  s[:G3][:mean],  s[:G4][:mean],  s[:G5][:mean],  s[:G6][:mean]
           ]
       }]
     }

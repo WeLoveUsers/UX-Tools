@@ -1,5 +1,11 @@
 $(document).on('turbolinks:load', function() {
 
+  $('.ui.selection.projects_order.dropdown').dropdown({
+    onChange: function(value, text, $choice) {
+      $(this).parent().parent('form').submit();
+    }
+  });
+
   $('.ui.checkbox#show_variability').checkbox({
     onChecked: function() {
       $('.variability').show();
@@ -43,6 +49,33 @@ $(document).on('turbolinks:load', function() {
     }
   });
 
+  $('.ui.deep_confidence.dropdown').dropdown({
+    onChange: function(value, text, $choice) {
+      if (!this.target_G1 || !this.target_G2 || !this.target_G3 || !this.target_G4 || !this.target_G5 || !this.target_G6) {
+        this.target_G1 = $('#' + $(this).data('target') + '_G1');
+        this.target_G2 = $('#' + $(this).data('target') + '_G2');
+        this.target_G3 = $('#' + $(this).data('target') + '_G3');
+        this.target_G4 = $('#' + $(this).data('target') + '_G4');
+        this.target_G5 = $('#' + $(this).data('target') + '_G5');
+        this.target_G6 = $('#' + $(this).data('target') + '_G6');
+      }
+      document.cookie = "ci_level=" + text;
+      value = value.split("_");
+      this.target_G1.text(value[0]);
+      this.target_G2.text(value[1]);
+      this.target_G3.text(value[2]);
+      this.target_G4.text(value[3]);
+      this.target_G5.text(value[3]);
+      this.target_G6.text(value[3]);
+      this.target_G1.transition('flash');
+      this.target_G2.transition('flash');
+      this.target_G3.transition('flash');
+      this.target_G4.transition('flash');
+      this.target_G5.transition('flash');
+      this.target_G6.transition('flash');
+    }
+  });
+
   $('.ui.form.evaluation-project')
     .form({
       fields: {
@@ -50,8 +83,7 @@ $(document).on('turbolinks:load', function() {
         'project[questionnaire_language]' : 'empty',
         'project[product_type]'           : 'empty',
         'project[product_name]'           : 'empty',
-        'project[project_code]'           : 'empty',
-        'project[end_date]'               : 'empty'
+        'project[project_code]'           : 'empty'
       }
     })
   ;
@@ -152,51 +184,35 @@ $(document).on('turbolinks:load', function() {
   ;
 
   // Show rich text editor (modal) and define actions
+  var instructions_modal = $('#instructions_editor_modal').modal();
+
   $('a.show_editor_modal')
     .on('click', function(event) {
       event.preventDefault();
-      $('#instructions_editor_modal').modal({
-        //blurring: true,
-        inverted: true
-      }).modal('show');
+      instructions_modal.modal({inverted: true}).modal('show');
     });
 
   // Show help to choose which questionnaire does what (modal)
+  var questionnaire_help_modal = $('#questionnaire_help_modal').modal({
+    cancel  : '.cancel',
+    approve  : '.approve'
+  });
+
   $('a.show_questionnaire_help_modal')
     .on('click', function(event) {
       event.preventDefault();
-      $('#questionnaire_help_modal').modal({
-        //blurring: true,
-        inverted: true,
-        cancel  : '.cancel',
-        approve  : '.approve'
-      }).modal('show');
+      questionnaire_help_modal.modal({inverted: true}).modal('show');
     });
 
   // Show references of questionnaires (modal)
+  var questionnaire_references_modal = $('#questionnaire_references_modal').modal({
+    cancel  : '.cancel',
+    approve  : '.approve'
+  });
   $('a.show_questionnaire_references_modal')
     .on('click', function(event) {
       event.preventDefault();
-      $('#questionnaire_references_modal').modal({
-        //blurring: true,
-        inverted: true,
-        cancel  : '.cancel',
-        approve  : '.approve'
-      }).modal('show');
+      questionnaire_references_modal.modal({inverted: true}).modal('show');
     });
 
-  // Show terms (modal)
-  $('a.show_terms_modal')
-    .on('click', function(event) {
-      event.preventDefault();
-      $('#terms_modal').modal({
-        //blurring: true,
-        inverted: true,
-        cancel  : '.cancel',
-        approve  : '.approve',
-        onApprove: function(what) {
-          $('.ui.form.signup input#terms').prop('checked', true);
-        }
-      }).modal('show');
-    });
 });

@@ -39,5 +39,11 @@
     i = i + 1
   end
 
+  sheet.add_row ['']
+  sheet.add_row ['Références'], :style => @black_cell
+  ResponseSu::Infos[:bibliography].each do |s|
+    sheet.add_row [strip_tags(s.html_safe).gsub(/&amp;/, "&")]
+  end
+
   sheet.column_widths 13, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, nil
 end

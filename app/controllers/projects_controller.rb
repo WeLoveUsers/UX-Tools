@@ -1,12 +1,42 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :close, :open, :destroy]
 
   before_action :authenticate_user!, except: [:respond, :response_saved]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects
+    default = 'date_desc'
+    whitelist = ['name_asc', 'name_desc', 'date_asc', 'date_desc']
+    @order_by_possible_values = {
+      'date_desc' => 'du plus récent au plus ancien',
+      'date_asc'  => 'du plus ancien au plus récent',
+      'divider'   => '',
+      'name_asc'  => 'de A à Z',
+      'name_desc'  => 'de Z à A'
+    }
+    @order_by_selected_value = default
+    @projects = current_user.projects.order(created_at: :desc)
+    if (params.has_key?(:order_by) && whitelist.include?(params[:order_by]))
+      @order_by_selected_value = params[:order_by]
+      cookies[:order_projects_by] = params[:order_by]
+    else
+      if cookies[:order_projects_by] && whitelist.include?(cookies[:order_projects_by])
+        @order_by_selected_value = cookies[:order_projects_by]
+      end
+    end
+
+    case @order_by_selected_value
+    when "name_asc"
+      @projects = current_user.projects.order(product_name: :asc)
+    when "name_desc"
+      @projects = current_user.projects.order(product_name: :desc)
+    when "date_asc"
+      @projects = current_user.projects.order(created_at: :asc)
+    when "date_desc"
+      @projects = current_user.projects.order(created_at: :desc)
+    end
+
   end
 
   # GET /projects/1
@@ -37,9 +67,39 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+  # GET /projects/1/close
+  def close
+    @project.is_closed = true
+    @project.save
+    respond_to do |format|
+      format.html { redirect_back fallback_location: @project }
+    end
+  end
+
+  # GET /projects/1/open
+  def open
+    message = nil
+    @project.is_closed = false
+    if @project.should_get_closed
+      @project.end_date = nil
+      message = "Le projet a bien été réouvert et la date de fin a été supprimée."
+    end
+    @project.save
+    respond_to do |format|
+      format.html { redirect_back fallback_location: @project, notice: message }
+    end
+  end
+
   # GET /r/1
   def respond
     @project = Project.find_by uri_token: params[:uri_token]
+
+    #Updates project status if needed
+    if @project.should_get_closed
+      @project.is_closed = true
+      @project.save
+    end
+
     @showForm = false
     @form = ''
 

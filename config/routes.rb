@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'admin/project/:id', to: 'admin#project', as: 'admin_project'
   get 'welcome/index'
   get 'projects/index'
+  get 'projects/:id/close', to: 'projects#close', as: 'close_project'
+  get 'projects/:id/open', to: 'projects#open', as: 'open_project'
   get 'sample_sizes/usability_problems'
   get 'timer/index'
   get 'r/success', to: 'projects#response_saved', as: 'project_public_response_saved'
