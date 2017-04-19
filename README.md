@@ -22,6 +22,7 @@
 - UI :
   - Version tablette + tél pour les répondants
   - Ajouter des filtres pour les dates / statuts des projets
+  - Pouvoir créer des dossiers de projet (nous réalisons souvent des tests sur les memes projets, en cycle itératif / sprint de dév). retrouver tous les tests associés à un meme projet dans le meme dossier serait pratique.
 
 - Stats :
   - Ajouter des barres d'erreur pour les IC
