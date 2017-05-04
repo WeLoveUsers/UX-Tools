@@ -16,7 +16,7 @@ class ResponseSu < ApplicationRecord
                       'Sauro, J., & Lewis, J. R. (2012). <a href="https://www.elsevier.com/books/quantifying-the-user-experience/unknown/978-0-12-802308-2" target="_blank"><em>Quantifying the user experience: Practical statistics for user research.</em></a> Elsevier.']
   }
 
-  Export_entete = ["Répondant", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Score SUS", "Date et heure"]
+  Export_entete = ["Répondant", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Score SUS", "Date et heure (Paris)"]
 
   Q1_label  = {:fr => "Je pense que j'aimerais utiliser ce système fréquemment.",
                :en => "I think that I would like to use this system frequently."}

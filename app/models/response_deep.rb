@@ -14,7 +14,7 @@ class ResponseDeep < ApplicationRecord
                       'Yang, T., Linder, J., & Bolchini, D. (2012). <a href="http://dx.doi.org/10.1080/10447318.2011.586320" target="_blank">DEEP: design-oriented evaluation of perceived usability. <em>International Journal of Human-Computer Interaction, 28</em></a>(5), 308-346.']
   }
 
-  Export_entete = ["Répondant", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Date et heure"]
+  Export_entete = ["Répondant", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Date et heure (Paris)"]
 
   G1_label  = {:fr => "Contenu perçu",
                :en => "Perceived Content"}

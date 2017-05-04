@@ -43,6 +43,9 @@
 - Montrer un petit message "Nouveautés" et le descriptif
 
 @RELEASES
+v1.2.1 :
+- Spécification de la Timezone (Paris)
+
 v1.2 :
 - Bugs :
   - Modal sur fond blanc

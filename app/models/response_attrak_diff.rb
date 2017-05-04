@@ -14,7 +14,7 @@ class ResponseAttrakDiff < ApplicationRecord
                       'Lallemand, C., Koenig, V., Gronier, G., & Martin, R. (2015). <a href="http://dx.doi.org/10.1016/j.erap.2015.08.002" target="_blank">Création et validation d’une version française du questionnaire AttrakDiff pour l’évaluation de l’expérience utilisateur des systèmes interactifs. <em>Revue Européenne de Psychologie Appliquée/European Review of Applied Psychology, 65</em></a>(5), 239-252. Chicago']
   }
 
-  Export_entete = ["Répondant", "ATT1", "ATT2", "ATT3", "ATT4", "ATT5", "ATT6", "ATT7", "QP1", "QP2", "QP3", "QP4", "QP5", "QP6", "QP7", "QHS1", "QHS2", "QHS3", "QHS4", "QHS5", "QHS6", "QHS7", "QHI1", "QHI2", "QHI3", "QHI4", "QHI5", "QHI6", "QHI7", "Date et heure"]
+  Export_entete = ["Répondant", "ATT1", "ATT2", "ATT3", "ATT4", "ATT5", "ATT6", "ATT7", "QP1", "QP2", "QP3", "QP4", "QP5", "QP6", "QP7", "QHS1", "QHS2", "QHS3", "QHS4", "QHS5", "QHS6", "QHS7", "QHI1", "QHI2", "QHI3", "QHI4", "QHI5", "QHI6", "QHI7", "Date et heure (Paris)"]
 
   QP1_label  = {:fr => {:bad => "Technique",     :good => "Humain"},
                 :en => {:bad => "Technical",     :good => "Human"}}
