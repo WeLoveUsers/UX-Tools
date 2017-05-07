@@ -209,12 +209,12 @@ module Stats
         values[:G6].push(response.Q19) if response.Q19 > 0
       end
       if count > 0
-        score[:G1] = Helper::compute_stats_summary_for_data(values[:G1], count)
-        score[:G2] = Helper::compute_stats_summary_for_data(values[:G2], count)
-        score[:G3] = Helper::compute_stats_summary_for_data(values[:G3], count)
-        score[:G4] = Helper::compute_stats_summary_for_data(values[:G4], count)
-        score[:G5] = Helper::compute_stats_summary_for_data(values[:G5], count)
-        score[:G6] = Helper::compute_stats_summary_for_data(values[:G6], count)
+        score[:G1] = Helper::compute_stats_summary_for_data(values[:G1], count) if values[:G1].count > 0
+        score[:G2] = Helper::compute_stats_summary_for_data(values[:G2], count) if values[:G2].count > 0
+        score[:G3] = Helper::compute_stats_summary_for_data(values[:G3], count) if values[:G3].count > 0
+        score[:G4] = Helper::compute_stats_summary_for_data(values[:G4], count) if values[:G4].count > 0
+        score[:G5] = Helper::compute_stats_summary_for_data(values[:G5], count) if values[:G5].count > 0
+        score[:G6] = Helper::compute_stats_summary_for_data(values[:G6], count) if values[:G6].count > 0
       end
       return score
     end
