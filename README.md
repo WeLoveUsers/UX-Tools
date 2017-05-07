@@ -34,7 +34,6 @@
 
 - Routes ou pages pour erreurs 404 et 500
 
-- Suppression logique : https://rubygems.org/gems/paranoia
 - Ajouter des questions sur le participant :
   - Âge, sexe, profession/occupation,
   - Groupe d'utilisateurs, version du produit testée,
@@ -43,6 +42,11 @@
 - Montrer un petit message "Nouveautés" et le descriptif
 
 @RELEASES
+v1.2.2 :
+- Affichage des réponses sous forme de tableau
+- Possibilité de supprimer et récupérer une réponse (suppression logique)
+- Restructuration du code pour les stats (Module / Sous-module)
+
 v1.2.1 :
 - Spécification de la Timezone (Paris)
 

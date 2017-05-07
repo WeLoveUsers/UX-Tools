@@ -16,6 +16,38 @@ class ResponseSusController < ApplicationController
     end
   end
 
+  # DELETE /response_sus/1
+  # DELETE /response_sus/1.json
+  def destroy
+    @response_su = ResponseSu.find(params[:id])
+    if current_user != @response_su.project.user
+      redirect_to root_path
+      return false
+    end
+    @response_su.destroy
+    respond_to do |format|
+      format.html {
+        session[:back_to_responses] = true
+        redirect_to @response_su.project
+      }
+      format.json { head :no_content }
+    end
+  end
+
+  # GET /response_sus/recover/1
+  # GET /response_sus/recover/1.json
+  def recover
+    @response_su = ResponseSu.only_deleted.find(params[:id])
+    @response_su.recover
+    respond_to do |format|
+      format.html {
+        session[:back_to_responses] = true
+        redirect_to @response_su.project
+      }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_su_params

@@ -1,4 +1,6 @@
 class ResponseAttrakDiffAbridged < ApplicationRecord
+  acts_as_paranoid
+  
   belongs_to :project
 
   validates_numericality_of :ATT2, :ATT5, :QP2, :QP3, :QP5, :QP6, :QHS2, :QHS5, :QHI3, :QHI4, :only_integer => true, :greater_than_or_equal_to => -3, :less_than_or_equal_to => 3

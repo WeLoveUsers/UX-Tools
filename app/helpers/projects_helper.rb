@@ -1,5 +1,9 @@
 module ProjectsHelper
 
+  def human_date_for(date)
+    l date, format: :long
+  end
+
   def end_date_for(project)
     if project.end_date.nil?
       "-"

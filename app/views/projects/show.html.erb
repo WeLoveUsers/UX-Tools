@@ -18,10 +18,11 @@
 
 <div class="ui container">
   <div class="ui pointing secondary menu">
-    <a class="item <%= "active" unless @project.has_responses? %>" data-tab="description">Description</a>
-    <a class="item <%= "active" if @project.has_responses? %>" data-tab="results">Résultats</a>
+    <a class="item <%= "active" unless @project.has_responses? || @back_to_responses %>" data-tab="description">Description</a>
+    <a class="item <%= "active" if @project.has_responses? && !@back_to_responses %>" data-tab="results">Résultats</a>
+    <a class="item <%= "active" if @back_to_responses %>" data-tab="responses">Réponses</a>
   </div>
-  <div class="ui tab <%= "active" unless @project.has_responses? %>" data-tab="description">
+  <div class="ui tab <%= "active" unless @project.has_responses? || @back_to_responses %>" data-tab="description">
 
     <table class="ui very basic table">
       <tbody>
@@ -49,11 +50,12 @@
     </table>
   </div>
 
-  <div class="ui tab <%= "active" if @project.has_responses? %>" data-tab="results">
+  <div class="ui tab <%= "active" if @project.has_responses? && !@back_to_responses %>" data-tab="results">
     <%= render 'projects' + File::SEPARATOR + 'results' + File::SEPARATOR + @project.questionnaire_id_clean, project: @project %>
+  </div>
 
-    <a href="<%= url_for project_path(@project, format: "xlsx") %>" class="ui button <%= 'disabled' if !@project.has_responses? %>">Télécharger les données brutes (.xlsx)</a>
-
+  <div class="ui tab <%= "active" if @back_to_responses %>" data-tab="responses" id="responsesTab">
+    <%= render 'projects' + File::SEPARATOR + 'responses' + File::SEPARATOR + @project.questionnaire_id_clean, project: @project %>
   </div>
 
 </div>

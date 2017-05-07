@@ -10,6 +10,8 @@ Projet d'évaluation
 - Répondre
 - Exporter
 - Supprimer (avec réponses / sans réponses)
+- Fermer / ouvrir
+- Supprimer des réponses / récupérer
 
 Timer :
 - Définir

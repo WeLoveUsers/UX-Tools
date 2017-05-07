@@ -16,6 +16,38 @@ class ResponseAttrakDiffAbridgedsController < ApplicationController
     end
   end
 
+  # DELETE /response_attrak_diff_abridgeds/1
+  # DELETE /response_attrak_diff_abridgeds/1.json
+  def destroy
+    @response_attrak_diff_abridged = ResponseAttrakDiffAbridged.find(params[:id])
+    if current_user != @response_attrak_diff_abridged.project.user
+      redirect_to root_path
+      return false
+    end
+    @response_attrak_diff_abridged.destroy
+    respond_to do |format|
+      format.html {
+        session[:back_to_responses] = true
+        redirect_to @response_attrak_diff_abridged.project
+      }
+      format.json { head :no_content }
+    end
+  end
+
+  # GET /response_attrak_diff_abridgeds/recover/1
+  # GET /response_attrak_diff_abridgeds/recover/1.json
+  def recover
+    @response_attrak_diff_abridged = ResponseAttrakDiffAbridged.only_deleted.find(params[:id])
+    @response_attrak_diff_abridged.recover
+    respond_to do |format|
+      format.html {
+        session[:back_to_responses] = true
+        redirect_to @response_attrak_diff_abridged.project
+      }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_attrak_diff_abridged_params

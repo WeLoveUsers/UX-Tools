@@ -206,6 +206,11 @@ body .ui.message a:hover:not(.button),
   text-transform: none !important;
   font-family: 'PT Serif', serif;
 }
+.ui.table tr.deleted td:not(.action) {
+  text-decoration: line-through;
+  color:#ccc;
+  font-style: italic;
+}
 
 /* CONFIG BUTTON & POPUP */
 .ui.config.button {

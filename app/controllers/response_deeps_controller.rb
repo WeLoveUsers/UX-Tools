@@ -16,6 +16,38 @@ class ResponseDeepsController < ApplicationController
     end
   end
 
+  # DELETE /response_deeps/1
+  # DELETE /response_deeps/1.json
+  def destroy
+    @response_deep = ResponseDeep.find(params[:id])
+    if current_user != @response_deep.project.user
+      redirect_to root_path
+      return false
+    end
+    @response_deep.destroy
+    respond_to do |format|
+      format.html {
+        session[:back_to_responses] = true
+        redirect_to @response_deep.project
+      }
+      format.json { head :no_content }
+    end
+  end
+
+  # GET /response_deeps/recover/1
+  # GET /response_deeps/recover/1.json
+  def recover
+    @response_deep = ResponseDeep.only_deleted.find(params[:id])
+    @response_deep.recover
+    respond_to do |format|
+      format.html {
+        session[:back_to_responses] = true
+        redirect_to @response_deep.project
+      }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_deep_params

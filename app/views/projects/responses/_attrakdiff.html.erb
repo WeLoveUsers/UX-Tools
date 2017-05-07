@@ -1,0 +1,53 @@
+<a href="<%= url_for project_path(@project, format: "xlsx") %>" class="ui button <%= 'disabled' if !@project.has_responses? %>">Télécharger les données brutes (.xlsx)</a>
+
+<table class="ui small compact celled table">
+  <thead>
+    <tr>
+      <th>Répondant</th>
+      <th>Attractivité Globale</th>
+      <th>Qualité Pragmatique</th>
+      <th>Qualité Hédonique</th>
+      <th>Date et heure (Paris)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%
+      i = 0
+      @project.responses.order("created_at asc").each do |response|
+        i = i + 1
+        scores = Stats::AttrakDiff::average_scores(response)
+    %>
+    <tr>
+      <td><%= i %></td>
+      <td><%= scores[:ATT][:mean] %></td>
+      <td><%= scores[:QP][:mean] %></td>
+      <td><%= scores[:QH][:mean] %></td>
+      <td><%= human_date_for(response.created_at) %></td>
+      <td class="action"><%= link_to "Supprimer", response, method: :delete %></td>
+    </tr>
+    <% end %>
+    <%
+      @project.responses.only_deleted.order("created_at asc").each do |response|
+        scores = Stats::AttrakDiff::average_scores(response)
+    %>
+    <tr class="deleted">
+      <td>-</td>
+      <td><%= scores[:ATT][:mean] %></td>
+      <td><%= scores[:QP][:mean] %></td>
+      <td><%= scores[:QH][:mean] %></td>
+      <td><%= human_date_for(response.created_at) %></td>
+      <td class="action"><%= link_to "Récupérer", recover_response_attrak_diffs_url(response) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th>N = <%= @project.responses.count %></th>
+      <th><%= @project.attrakdiff_average_scores[:ATT][:mean] %> (σ = <%= @project.attrakdiff_average_scores[:ATT][:sd] %>)</th>
+      <th><%= @project.attrakdiff_average_scores[:QP][:mean] %> (σ = <%= @project.attrakdiff_average_scores[:QP][:sd] %>)</th>
+      <th><%= @project.attrakdiff_average_scores[:QH][:mean] %> (σ = <%= @project.attrakdiff_average_scores[:QH][:sd] %>)</th>
+      <th colspan="2"></th>
+    </tr>
+  </tfoot>
+</table>

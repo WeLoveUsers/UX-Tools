@@ -16,6 +16,38 @@ class ResponseAttrakDiffsController < ApplicationController
     end
   end
 
+  # DELETE /response_attrak_diffs/1
+  # DELETE /response_attrak_diffs/1.json
+  def destroy
+    @response_attrak_diff = ResponseAttrakDiff.find(params[:id])
+    if current_user != @response_attrak_diff.project.user
+      redirect_to root_path
+      return false
+    end
+    @response_attrak_diff.destroy
+    respond_to do |format|
+      format.html {
+        session[:back_to_responses] = true
+        redirect_to @response_attrak_diff.project
+      }
+      format.json { head :no_content }
+    end
+  end
+
+  # GET /response_attrak_diffs/recover/1
+  # GET /response_attrak_diffs/recover/1.json
+  def recover
+    @response_attrak_diff = ResponseAttrakDiff.only_deleted.find(params[:id])
+    @response_attrak_diff.recover
+    respond_to do |format|
+      format.html {
+        session[:back_to_responses] = true
+        redirect_to @response_attrak_diff.project
+      }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_attrak_diff_params

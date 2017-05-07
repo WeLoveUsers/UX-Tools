@@ -50,6 +50,9 @@ class ProjectsController < ApplicationController
     @ci_level_hash_key = 'ci_' + @ci_level[0..1]
     @ci_level_hash_key = @ci_level_hash_key.to_sym
 
+    @back_to_responses = session["back_to_responses"]
+    session["back_to_responses"] = nil
+
     filename = "[Questionnaire UX] - " + @project.product_name + "-" + @project.project_code + " (" + @project.questionnaire_id + ") - #{Date.today}"
     respond_to do |format|
       format.html
@@ -192,7 +195,8 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project.destroy
+    @project.destroy_fully!
+    #@project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: "Le projet d'évaluation a bien été supprimé." }
       format.json { head :no_content }
