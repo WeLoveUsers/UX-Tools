@@ -42,6 +42,9 @@
 - Montrer un petit message "Nouveautés" et le descriptif
 
 @RELEASES
+v1.2.3 :
+- MAJ Admin
+
 v1.2.2 :
 - Affichage des réponses sous forme de tableau
 - Possibilité de supprimer et récupérer une réponse (suppression logique)
