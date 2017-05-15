@@ -5,10 +5,10 @@ class ResponseAttrakDiffsController < ApplicationController
     @response_attrak_diff = ResponseAttrakDiff.new(response_attrak_diff_params)
     @response_attrak_diff.project = Project.find_by uri_token: params[:uri_token]
     @response_attrak_diff.respondent_id = request.remote_ip
-    # Autre possibilité : ajouter un cookie
 
     respond_to do |format|
       if @response_attrak_diff.save
+        save_project_response_tracking(@response_attrak_diff.project)
         format.html { redirect_to project_public_response_saved_path }
       else
         format.html { redirect_to project_public_respond_path(uri_token: @response_attrak_diff.project.uri_token, step: 1), alert: 'Des erreurs ont été détectées.' }

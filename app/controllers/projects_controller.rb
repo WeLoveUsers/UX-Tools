@@ -105,6 +105,7 @@ class ProjectsController < ApplicationController
 
     @showForm = false
     @form = ''
+    @has_already_responded = has_already_responded(@project)
 
     if (params.has_key?(:step))
       case @project.questionnaire_id_clean
@@ -215,7 +216,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :instructions, :end_date, :uri_token)
+      params.require(:project).permit(:questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :instructions, :end_date, :uri_token, :forbid_multiple_reponses)
     end
 
 end

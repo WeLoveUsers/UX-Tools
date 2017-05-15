@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   acts_as_paranoid
-  
+
   belongs_to :user
 
   has_many :response_attrak_diffs, dependent: :destroy
@@ -37,7 +37,7 @@ class Project < ApplicationRecord
     if self.questionnaire_id.nil?
       return nil
     else
-      return self.questionnaire_id.mb_chars.normalize(:kd).gsub(/[(-)]/,'').gsub(/[^\x00-\x7F]/n,'').downcase.gsub(/\s/,'_')
+      return self.questionnaire_id.mb_chars.normalize(:kd).gsub(/[(-)]/,'').gsub(/[^\x00-\x7F]/,'').downcase.gsub(/\s/,'_')
     end
   end
 

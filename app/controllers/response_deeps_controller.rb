@@ -5,10 +5,10 @@ class ResponseDeepsController < ApplicationController
     @response_deep = ResponseDeep.new(response_deep_params)
     @response_deep.project = Project.find_by uri_token: params[:uri_token]
     @response_deep.respondent_id = request.remote_ip
-    # Autre possibilité : ajouter un cookie
 
     respond_to do |format|
       if @response_deep.save
+        save_project_response_tracking(@response_deep.project)
         format.html { redirect_to project_public_response_saved_path }
       else
         format.html { redirect_to project_public_respond_path(uri_token: @response_deep.project.uri_token, step: 1), alert: 'Des erreurs ont été détectées.' }

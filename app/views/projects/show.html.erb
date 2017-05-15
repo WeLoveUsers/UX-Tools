@@ -43,6 +43,10 @@
           <td><%= end_date_full_for(@project) %></td>
         </tr>
         <tr>
+          <td nowrap>Réponses multiples :</td>
+          <td><%= are_multiple_responses_allowed_for(@project) %></td>
+        </tr>
+        <tr>
           <td nowrap>Lien public pour répondre :</td>
           <td><%= link_to project_public_respond_url(@project.uri_token), project_public_respond_path(@project.uri_token) %>
         </tr>

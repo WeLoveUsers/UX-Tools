@@ -32,6 +32,8 @@ fr:
     respond:
       closed: "Fini !"
       closed_details: "Cette évaluation est à présent terminée."
+      responded: "Déjà répondu !"
+      responded_details: "Il semble que vous ayez déjà répondu à cette évaluation."
     questionnaires:
       introduction:
         title: "Veuillez lire attentivement la consigne"

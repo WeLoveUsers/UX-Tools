@@ -70,6 +70,16 @@
     </div>
 
     <div class="row no-padding field">
+      <div class="five wide column">Réponses multiples :</div>
+      <div class="eleven wide column">
+        <div class="ui checkbox">
+          <%= f.check_box :forbid_multiple_reponses %>
+          <label for="project_forbid_multiple_reponses">Interdire à un <em><span data-tooltip="Fonctionne avec un cookie enregistré dans le navigateur des répondants.">même participant<sup>*</sup></span></em> de répondre plusieurs fois</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row no-padding field">
       <div class="five wide column"></div>
       <div class="eleven wide column"><%= f.submit :class => "ui large submit button" %></div>
     </div>

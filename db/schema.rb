@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506150635) do
+ActiveRecord::Schema.define(version: 20170514122121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 20170506150635) do
     t.datetime "end_date"
     t.string   "uri_token"
     t.integer  "user_id"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.text     "instructions"
-    t.boolean  "is_closed",              default: false
+    t.boolean  "is_closed",                default: false
     t.datetime "deleted_at"
+    t.boolean  "forbid_multiple_reponses", default: false
     t.index ["deleted_at"], name: "index_projects_on_deleted_at", using: :btree
     t.index ["uri_token"], name: "index_projects_on_uri_token", unique: true, using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree

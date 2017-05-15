@@ -20,6 +20,14 @@ module ProjectsHelper
     html.html_safe
   end
 
+  def are_multiple_responses_allowed_for(project)
+    if project.forbid_multiple_reponses
+      "Interdites"
+    else
+      "Autorisées"
+    end
+  end
+
   def status_for(project)
     html = ""
     if project.is_closed

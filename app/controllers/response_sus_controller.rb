@@ -5,10 +5,10 @@ class ResponseSusController < ApplicationController
     @response_su = ResponseSu.new(response_su_params)
     @response_su.project = Project.find_by uri_token: params[:uri_token]
     @response_su.respondent_id = request.remote_ip
-    # Autre possibilité : ajouter un cookie
 
     respond_to do |format|
       if @response_su.save
+        save_project_response_tracking(@response_su.project)
         format.html { redirect_to project_public_response_saved_path }
       else
         format.html { redirect_to project_public_respond_path(uri_token: @response_su.project.uri_token, step: 1), alert: 'Des erreurs ont été détectées.' }

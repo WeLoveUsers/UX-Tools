@@ -42,6 +42,10 @@
 - Montrer un petit message "Nouveautés" et le descriptif
 
 @RELEASES
+V1.2.4 :
+- Possibilité d'interdire les réponses multiples (bdd + cookies)
+- Suppression d'un "n" dans une regex
+
 v1.2.3 :
 - MAJ Admin
 
