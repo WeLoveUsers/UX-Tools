@@ -55,7 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Semantic UI assets
 gem 'less-rails', '~> 2.7.0' #A mettre à jour pour les PB de less-rails
 gem 'therubyracer'
-gem 'less-rails-semantic_ui', '~> 2.2.10' #A mettre à jour pour les PB de less-rails
+gem 'less-rails-semantic_ui', '~> 2.2.13' #A mettre à jour pour les PB de less-rails
 gem 'autoprefixer-rails', '~> 6.7.7.1'
 
 # Chart
