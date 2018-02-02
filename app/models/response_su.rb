@@ -1,9 +1,10 @@
 class ResponseSu < ApplicationRecord
   acts_as_paranoid
-  
+
   belongs_to :project
 
   validates_numericality_of :Q1, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :Q10, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 4
+  attr_accessor :product_type
 
   Infos = {
     :id => "sus",
@@ -20,26 +21,27 @@ class ResponseSu < ApplicationRecord
 
   Export_entete = ["Répondant", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Score SUS", "Date et heure (Paris)"]
 
-  Q1_label  = {:fr => "Je pense que j'aimerais utiliser ce système fréquemment.",
-               :en => "I think that I would like to use this system frequently."}
-  Q2_label  = {:fr => "J'ai trouvé ce système inutilement complexe.",
-               :en => "I found the system unnecessarily complex."}
-  Q3_label  = {:fr => "J'ai trouvé ce système facile à utiliser.",
-               :en => "I thought the system was easy to use."}
-  Q4_label  = {:fr => "Je pense que j'aurais besoin d'un support technique pour être capable d'utiliser ce système.",
-               :en => "I think that I would need the support of a technical person to be able to use this system."}
-  Q5_label  = {:fr => "J'ai trouvé que les différentes fonctions de ce système étaient bien intégrées.",
-               :en => "I found the various functions in this system were well integrated."}
-  Q6_label  = {:fr => "J'ai trouvé qu'il y avait trop d'incohérence dans ce système.",
-               :en => "I thought there was too much inconsistency in this system."}
-  Q7_label  = {:fr => "Je suppose que la plupart des gens apprendraient très rapidement à utiliser ce système.",
-               :en => "I would imagine that most people would learn to use this system very quickly."}
-  Q8_label  = {:fr => "J'ai trouvé ce système très contraignant à utiliser.",
-               :en => "I found the system very cumbersome to use."}
-  Q9_label  = {:fr => "Je me suis senti(e) très confiant(e) en utilisant ce système.",
-               :en => "I felt very confident using the system."}
-  Q10_label = {:fr => "J'ai du apprendre beaucoup de choses avant de me sentir familiarisé(e) avec ce système.",
-               :en => "I needed to learn a lot of things before I could get going with this system."}
+  Q1_label  = {:fr => "Je pense que j'aimerais utiliser @product_type fréquemment.",
+               :en => "I think that I would like to use @product_type frequently."}
+  Q2_label  = {:fr => "J'ai trouvé @product_type inutilement complexe.",
+               :en => "I found @product_type unnecessarily complex."}
+  Q3_label  = {:fr => "J'ai trouvé @product_type facile à utiliser.",
+               :en => "I thought @product_type was easy to use."}
+  Q4_label  = {:fr => "Je pense que j'aurais besoin d'un support technique pour être capable d'utiliser @product_type.",
+               :en => "I think that I would need the support of a technical person to be able to use @product_type."}
+  Q5_label  = {:fr => "J'ai trouvé que les différentes fonctions de @product_type étaient bien intégrées.",
+               :en => "I found the various functions in @product_type were well integrated."}
+  Q6_label  = {:fr => "J'ai trouvé qu'il y avait trop d'incohérence dans @product_type.",
+               :en => "I thought there was too much inconsistency in @product_type."}
+  Q7_label  = {:fr => "Je suppose que la plupart des gens apprendraient très rapidement à utiliser @product_type.",
+               :en => "I would imagine that most people would learn to use @product_type very quickly."}
+  Q8_label  = {:fr => "J'ai trouvé @product_type très contraignant à utiliser.",
+               :en => "I found @product_type very cumbersome to use."}
+  Q9_label  = {:fr => "Je me suis senti(e) très confiant(e) en utilisant @product_type.",
+               :en => "I felt very confident using @product_type."}
+  Q10_label = {:fr => "J'ai du apprendre beaucoup de choses avant de me sentir familiarisé(e) avec @product_type.",
+               :en => "I needed to learn a lot of things before I could get going with @product_type."}
+
 
   def self.generate_instructions(project)
     instructions = ""

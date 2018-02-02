@@ -100,6 +100,29 @@ class Project < ApplicationRecord
     return Stats::SUS::grade(self.sus_score[:mean])
   end
 
+  def sus_product_type
+    case product_type
+    when "Site Web"
+      {:fr => "ce site web",
+      :en => "this website"}
+    when "Site E-Commerce"
+      {:fr => "ce site e-commerce",
+      :en => "this e-commerce website"}
+    when "Application mobile"
+      {:fr => "cette application mobile",
+      :en => "this mobile app"}
+    when "Application tablette"
+      {:fr => "cette application tablette",
+      :en => "this tablet app"}
+    when "Logiciel"
+      {:fr => "ce logiciel",
+      :en => "this software"}
+    else
+      {:fr => "ce système",
+      :en => "this system"}
+    end
+  end
+
   # Attrak Diff
   def attrakdiff_average_scores
     abridged = false
