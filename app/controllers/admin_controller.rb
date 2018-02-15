@@ -7,11 +7,17 @@ class AdminController < ApplicationController
     @count[:users] = User.count(:all)
     @count[:projects] = Project.count(:all)
     @count[:responses] = ResponseDeep.count(:all) + ResponseSu.count(:all) + ResponseAttrakDiff.count(:all)
+
     @users = {}
-    @users[:active] = User.order(:current_sign_in_at).last(5)
-    @users[:new] = User.order(:created_at).last(5)
+    @users[:active] = User.select("users.*, COUNT(projects.id) projects_count")
+                          .joins(:projects)
+                          .group("users.id")
+                          .order("projects_count DESC")
+                          .order("sign_in_count DESC")
+                          .limit(10)
+    @users[:new] = User.order(created_at: :desc).limit(5)
     @projects = {}
-    @projects[:new] = Project.order(:created_at).last(5)
+    @projects[:new] = Project.order(created_at: :desc).limit(5)
     @projects[:top_active] = {}
     ResponseAttrakDiff.group(:project).count.each do |project, count|
       @projects[:top_active][project] = count if !project.is_closed
