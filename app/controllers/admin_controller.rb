@@ -43,12 +43,4 @@ class AdminController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def authenticate_admin_user
-      if !self.authenticate_user! || !current_user.admin?
-        redirect_to root_path, alert: 'Cette page est réservée aux administrateurs.'
-        return false
-      end
-    end
 end

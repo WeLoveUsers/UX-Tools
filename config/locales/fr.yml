@@ -20,11 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  time:
+    formats:
+      custom: "%A %e %B %Y"
   helpers:
     submit:
       project:
         update: "Enregistrer"
         create: "Créer une évaluation"
+      app_notification:
+        update: "Enregistrer"
+        create: "Créer une notification"
   projects:
     form:
       are_you_sure: "Êtes-vous sûr de vouloir supprimer ce projet d'évaluation ?"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :app_notifications
   resources :response_sus
   resources :response_attrak_diffs
   resources :response_attrak_diff_abridgeds
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
   get 'response_attrak_diffs/recover/:id', to: 'response_attrak_diffs#recover', as: 'recover_response_attrak_diffs'
   get 'response_attrak_diff_abridgeds/recover/:id', to: 'response_attrak_diff_abridgeds#recover', as: 'recover_response_attrak_diff_abridgeds'
   get 'response_deeps/recover/:id', to: 'response_deeps#recover', as: 'recover_response_deeps'
+
+  get 'app_notifications/mark_as_read/:id', to: 'app_notifications#mark_as_read', as: 'mark_notification_as_read'
 
   get 'sample_sizes/usability_problems'
   get 'timer/index'

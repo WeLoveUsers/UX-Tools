@@ -2,23 +2,8 @@
     <a href="<%= root_path %>" class="item"><img alt="We Love Users" src="<%= image_path('we-love-users-logo(small).png')%>"></a>
     <% if user_signed_in? %>
     <div class="right menu">
-      <a href="https://feedback.userreport.com/6aff57ca-4a63-4ab0-a39f-7cf2ac5e4750/" class="item" target="_blank">Une idée ou un bug ?</a>
-<!--
-      <a href="#" class="item" onclick="_urq.push(['Feedback_Open'])">Une idée ou un bug ?</a>
--->
-      <div class="ui simple dropdown item">
-        <i class="user icon"></i> <%= current_user.email %> <i class="dropdown icon"></i>
-        <div class="menu">
-          <% if Devise.mappings[:user].registerable? %>
-            <%= link_to 'Mon compte', edit_user_registration_path, :class => 'item' %>
-          <% end %>
-            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, :class => 'item' %>
-          <% if current_user.admin? %>
-            <div class="divider"></div>
-            <%= link_to 'Admin', admin_path, :class => 'item' %>
-          <% end %>
-        </div>
-      </div>
+      <%= render "layouts/notifications_center" %>
+      <%= render "layouts/user_account" %>
     </div>
     <% else %>
     <div class="right menu">

@@ -2,6 +2,15 @@
   <div class="ui segment">
     <h2><%= t('.title') + ' "' + @project.product_name + '"' %></h2>
     <%= form_for(response, :html => {:class => "ui huge-radio form sus"}) do |f| %>
+    <%
+      #
+      # Quick fix to avoid unexpected changes for already running studies
+      #
+      sus_product_type = @project.sus_product_type[I18n.locale]
+      if @project.created_at < @app_updates[:sus_dynamic_instructions_installed_at]
+        sus_product_type = @project.sus_default_product_type[I18n.locale]
+      end
+    %>
   		<table class="ui selectable very basic large table">
   		  <tbody>
           <tr class="header">
@@ -13,7 +22,7 @@
             <td><%= t('.likert_agree') %></td>
           </tr>
   		    <tr class="field">
-  		      <td><%= ResponseSu::Q1_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q1_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="0"><label></label></div>
             </td>
@@ -31,7 +40,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q2_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q2_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="4"><label></label></div>
             </td>
@@ -49,7 +58,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q3_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q3_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="0"><label></label></div>
             </td>
@@ -67,7 +76,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q4_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q4_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="4"><label></label></div>
             </td>
@@ -85,7 +94,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q5_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q5_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="0"><label></label></div>
             </td>
@@ -103,7 +112,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q6_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q6_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="4"><label></label></div>
             </td>
@@ -121,7 +130,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q7_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q7_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="0"><label></label></div>
             </td>
@@ -139,7 +148,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q8_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q8_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="4"><label></label></div>
             </td>
@@ -157,7 +166,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q9_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q9_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="0"><label></label></div>
             </td>
@@ -175,7 +184,7 @@
             </td>
   		    </tr>
           <tr class="field">
-  		      <td><%= ResponseSu::Q10_label[I18n.locale].sub('@product_type', @project.sus_product_type[I18n.locale]) %></td>
+  		      <td><%= ResponseSu::Q10_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
             <td nowrap class="middle aligned right aligned">
               <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="4"><label></label></div>
             </td>

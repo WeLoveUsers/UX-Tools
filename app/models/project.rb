@@ -118,9 +118,13 @@ class Project < ApplicationRecord
       {:fr => "ce logiciel",
       :en => "this software"}
     else
-      {:fr => "ce système",
-      :en => "this system"}
+      sus_default_product_type
     end
+  end
+
+  def sus_default_product_type
+    {:fr => "ce système",
+    :en => "this system"}
   end
 
   # Attrak Diff

@@ -1,10 +1,11 @@
 $(document).on('turbolinks:load', function() {
 
   $('.ui.calendar.date').calendar({
+    silent: false,
+    debug: true,
     type: 'date',
     firstDayOfWeek: 1,
-    monthFirst: false,
-    minDate: new Date(),
+    monthFirst: true,
     text: {
       days: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
       months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
@@ -22,6 +23,26 @@ $(document).on('turbolinks:load', function() {
       }
     }
   });
+
+  // Sets new settings for calendars with a minimum date :
+  // Structure :
+  //    <div class="ui calendar date with-min-date"
+  //         data-min-date="2018-12-25"
+  //         data-set-date=""   [OR]    data-set-date="2019-01-10"
+  //    </div>
+  $('.ui.calendar.date.with-min-date').each(function () {
+    var cal = $(this),
+        minDate = new Date(cal.data('min-date')),
+        setDate = false;
+    if (cal.data('set-date') != '') {
+      setDate = new Date(cal.data('set-date'));
+    }
+    cal.calendar('setting', 'minDate', minDate)
+       .calendar('changeDate', setDate);
+  });
+
+
+
 
   $('.ui.calendar.date .clear-date.button')
     .on('click', function() {
@@ -54,10 +75,77 @@ $(document).on('turbolinks:load', function() {
       ;
     });
 
-  $('form input.field-popup')
-    .popup({
-      on: 'focus'
+    $('form input.field-popup')
+      .popup({
+        on: 'focus'
+      });
+
+    /*
+     * Bouton pour le dropdown de l'utilisateur connecté
+     */
+    var user_popup = $('.ui.item.user_account').popup({
+        inline: true,
+        position: 'bottom right',
+        on: 'click',
+        variation: "wide"
     });
+
+  /*
+   * Bouton pour le dropdown des notifications
+   */
+  var shoud_close_notifications_popup = true;
+  var notifications_popup = $('.ui.item.notifications').popup({
+      inline: true,
+      position: 'bottom right',
+      on: 'click',
+      variation: "wide",
+      onHide: function(a, b, c) {
+        if (!shoud_close_notifications_popup) {
+          return false;
+        }
+      }
+  });
+  /*
+   * Modal pour le détail des notifications
+   */
+  var app_notifications_count = $('#app_notifications_count');
+  $('.app_notifications .ui.notification.preview').each(function(){
+    var e = $(this);
+    var notification_details = e.find('.ui.modal').modal({
+      approve  : '.approve',
+      cancel   : '.cancel',
+      inverted: true,
+      onApprove: function(){
+      },
+      onHidden: function($element) {
+        shoud_close_notifications_popup = true;
+      }
+    });
+    var mark_notification_as_read_url = e.data('read-url');
+    e.on('click', function(event) {
+      //Force popup to remain visible
+      shoud_close_notifications_popup = false;
+
+      //Marks as read
+      if (!e.hasClass('read')) {
+//@TODO ---------------------------------------------- Afficher un spinner ?
+        $.get(mark_notification_as_read_url, function(data) {
+          //console.log(data);
+          e.addClass('read');
+          new_count = app_notifications_count.text() - 1;
+          app_notifications_count.text(new_count);
+          if (new_count == 0) {
+            app_notifications_count.addClass('read');
+          }
+        }).fail(function() {
+          //alert( "Hummm... il y a un petit problème avec notre application. Pourriez-vous nous en informer " );
+        });
+      }
+
+      //Displays the details
+      notification_details.modal('show');
+    });
+  });
 
   /*
    * Recherche "data-modalconfirm" pour afficher une fenêtre modal de confirmation

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514122121) do
+ActiveRecord::Schema.define(version: 20180202113701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "app_notifications", force: :cascade do |t|
+    t.datetime "date"
+    t.string   "notification_type"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "questionnaire_id"
@@ -33,6 +42,16 @@ ActiveRecord::Schema.define(version: 20170514122121) do
     t.index ["deleted_at"], name: "index_projects_on_deleted_at", using: :btree
     t.index ["uri_token"], name: "index_projects_on_uri_token", unique: true, using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
+  end
+
+  create_table "read_app_notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "app_notification_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["app_notification_id"], name: "index_read_app_notifications_on_app_notification_id", using: :btree
+    t.index ["user_id", "app_notification_id"], name: "index_read_app_notifications_on_user_id_and_app_notification_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_read_app_notifications_on_user_id", using: :btree
   end
 
   create_table "response_attrak_diff_abridgeds", force: :cascade do |t|
@@ -161,6 +180,8 @@ ActiveRecord::Schema.define(version: 20170514122121) do
   end
 
   add_foreign_key "projects", "users"
+  add_foreign_key "read_app_notifications", "app_notifications"
+  add_foreign_key "read_app_notifications", "users"
   add_foreign_key "response_attrak_diff_abridgeds", "projects"
   add_foreign_key "response_attrak_diffs", "projects"
   add_foreign_key "response_deeps", "projects"

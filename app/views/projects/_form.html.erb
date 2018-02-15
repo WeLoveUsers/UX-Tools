@@ -56,7 +56,18 @@
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :end_date, "Date de fin de l'évaluation :" %></div>
       <div class="eleven wide column">
-        <div class="ui date calendar">
+
+        <%
+        min_date = Date.today
+        set_date = ''
+        if params[:action] === 'edit'
+          if !project.end_date.nil? && project.end_date != ''
+            min_date = project.end_date.to_date
+            set_date = min_date
+          end
+        end %>
+
+        <div class="ui date calendar with-min-date" data-min-date="<%= min_date %>" data-set-date="<%= set_date %>">
           <div class="ui left icon action input">
             <i class="calendar icon"></i>
             <input type="text" placeholder="Date" value="<%= project.end_date %>">
