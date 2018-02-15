@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def setup_app_updates
     @app_updates = Hash.new()
-    @app_updates[:sus_dynamic_instructions_installed_at] = Date.new(2018,2,14)
+    @app_updates[:sus_dynamic_instructions_installed_at] = Date.new(2018,2,16)
   end
 
   def save_project_response_tracking(project)
