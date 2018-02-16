@@ -7,7 +7,7 @@ Projet d'évaluation
 - Créer (plusieurs choix)
 - Modifier (type / date / desc)
 - Consulter (sans réponse / avec réponses)
-- Répondre
+- Répondre (consignes dynamiques)
 - Exporter
 - Supprimer (avec réponses / sans réponses)
 - Fermer / ouvrir
@@ -20,6 +20,13 @@ Timer :
 - Expirer
 - Changer la valeur
 - Plein écran (entrer / sortir)
+
+Notifications :
+- Créer
+- Modifier
+- Supprimer
+- Afficher
+- Marquer comme lu
 
 Cookies :
 - Intervalle de confiance

@@ -85,7 +85,16 @@ $(document).on('turbolinks:load', function() {
               that.timerContainer.transition('tada', 800);
               that.progressBarText.transition('flash', 800);
               that.soundNotification[0].loop = true;
-              that.soundNotification[0].play();
+              var promise = that.soundNotification[0].play();
+              if (promise !== undefined) {
+                  promise.catch(error => {
+                      // Auto-play was prevented
+                      // Show a UI element to let the user manually start playback
+                      //@TODO : alert("Auto-play disabled");
+                  }).then(() => {
+                      // Auto-play started
+                  });
+              }
               var animation = setInterval(function(){
                 that.timerContainer.transition('tada', 800);
                 that.progressBarText.transition('flash', 800);
