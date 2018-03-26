@@ -11,7 +11,7 @@ gem 'rails-i18n'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
@@ -55,7 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Semantic UI assets
 gem 'less-rails', '~> 2.7.0' #A mettre à jour pour les PB de less-rails
 gem 'therubyracer'
-gem 'less-rails-semantic_ui', '~> 2.2.13' #A mettre à jour pour les PB de less-rails
+gem 'less-rails-semantic_ui', '~> 2.3.0' #A mettre à jour pour les PB de less-rails
 gem 'autoprefixer-rails', '~> 6.7.7.1'
 
 # Chart

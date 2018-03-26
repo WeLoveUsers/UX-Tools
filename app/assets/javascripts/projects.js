@@ -215,4 +215,117 @@ $(document).on('turbolinks:load', function() {
       questionnaire_references_modal.modal({inverted: true}).modal('show');
     });
 
+    /*
+     * Navigable Tabs for form respondents
+     *
+     */
+    $('.navigable-tabs').each(function () {
+      var that = $(this),
+          tabs = {
+            count                     : that.find('.tab').length,
+            main_form                 : that.find('.tab[data-tab|="main-form"]'),
+            open_ended_questions      : that.find('.tab[data-tab|="open-ended-questions"]'),
+            respondent_qualification  : that.find('.tab[data-tab|="respondent-qualification"]')
+          },
+          step_counter = {
+            current_step  : that.find('.step-counter .current-step'),
+            total_steps   : that.find('.step-counter .total-steps')
+          },
+          form = that.find('.ui.form'),
+          active_tab = that.find('.active.tab');
+
+      // Initialize steps counter
+      step_counter.current_step.text("1");
+      step_counter.total_steps.text(tabs.count);
+
+      // Add a fake wait for loading
+      that.tab({
+        onVisible: function(tab) {
+          var tab = $(this);
+          active_tab = tab;
+          setTimeout( function() {
+            tab.removeClass('loading').addClass('transition fade in');
+          }, 700);
+        }
+      });
+
+      that.find('.button.to-open-ended-questions')
+          .on('click', function() {
+            active_tab.removeClass('transition fade in').addClass('loading ');
+            $('html, body').animate({ scrollTop: 0 }, 500);
+            setTimeout( function() {
+              active_tab.removeClass('loading');
+              if (active_tab.data('tab') == 'main-form') {
+                form.form('validate form');
+                if (form.form('is valid')) {
+                  tabs.open_ended_questions.removeClass('transition fade in').addClass('loading');
+                  that.tab('change tab', 'open-ended-questions').transition('fly left in');
+                  step_counter.current_step.text("2");
+                }
+              } else {
+                tabs.open_ended_questions.removeClass('transition fade in').addClass('loading');
+                that.tab('change tab', 'open-ended-questions').transition('fly right in');
+                step_counter.current_step.text("2");
+              }
+            }, 700);
+          });
+
+      that.find('.button.to-respondent-qualification')
+          .on('click', function() {
+            active_tab.removeClass('transition fade in').addClass('loading ');
+            $('html, body').animate({ scrollTop: 0 }, 500);
+            setTimeout( function() {
+              active_tab.removeClass('loading');
+              if (active_tab.data('tab') == 'main-form') {
+                form.form('validate form');
+                if (form.form('is valid')) {
+                  tabs.respondent_qualification.removeClass('transition fade in').addClass('loading');
+                  that.tab('change tab', 'respondent-qualification').transition('fly left in');
+                  step_counter.current_step.text("2");
+
+                  // ADD RESPONDENT QUALIFICATION RULES
+                  form.form('add rule', 'response_su[age]', 'integer[1..99]');
+
+                }
+              } else {
+                tabs.respondent_qualification.removeClass('transition fade in').addClass('loading');
+                that.tab('change tab', 'respondent-qualification').transition('fly left in');
+                step_counter.current_step.text("3");
+
+                // ADD RESPONDENT QUALIFICATION RULES
+                //////////////////
+                // Afficher les messages
+                //////////////////
+                form.form('add rule', 'response_su[age]', 'integer[1..99]');
+                form.form('add rule', 'response_su[gender]', 'checked');
+                form.form('add rule', 'response_su[occupation]', 'empty');
+                form.form('add rule', 'response_su[first_use_on]', 'empty');
+                form.form('add rule', 'response_su[usage_frequency_per_month]', 'integer[1..99]');
+                form.form('add rule', 'response_su[group]', 'integer[1..99]');
+              }
+            }, 700);
+          });
+
+      that.find('.button.to-main-form')
+          .on('click', function() {
+            active_tab.removeClass('transition fade in').addClass('loading ');
+            $('html, body').animate({ scrollTop: 0 }, 500);
+            setTimeout( function() {
+              active_tab.removeClass('loading');
+              tabs.main_form.removeClass('transition fade in').addClass('loading');
+              that.tab('change tab', 'main-form').transition('fly right in');
+              step_counter.current_step.text("1");
+
+              // REMOVE RESPONDENT QUALIFICATION RULES
+              form.form('remove field', 'response_su[age]');
+              form.form('remove field', 'response_su[gender]');
+              form.form('remove field', 'response_su[occupation]');
+              form.form('remove field', 'response_su[first_use_on]');
+              form.form('remove field', 'response_su[usage_frequency_per_month]');
+              form.form('remove field', 'response_su[group]');
+
+            }, 700);
+          });
+    });
+
 });

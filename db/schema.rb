@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202113701) do
+ActiveRecord::Schema.define(version: 20180221130430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20180202113701) do
     t.boolean  "is_closed",                default: false
     t.datetime "deleted_at"
     t.boolean  "forbid_multiple_reponses", default: false
+    t.boolean  "ask_user_ideas",           default: false
+    t.boolean  "ask_user_summary",         default: false
+    t.boolean  "ask_user_age",             default: false
+    t.boolean  "ask_user_gender",          default: false
+    t.boolean  "ask_user_occupation",      default: false
+    t.boolean  "ask_user_first_use_date",  default: false
+    t.boolean  "ask_user_usage_frequency", default: false
+    t.boolean  "ask_user_group",           default: false
     t.index ["deleted_at"], name: "index_projects_on_deleted_at", using: :btree
     t.index ["uri_token"], name: "index_projects_on_uri_token", unique: true, using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
@@ -67,9 +75,17 @@ ActiveRecord::Schema.define(version: 20180202113701) do
     t.integer  "QHI4"
     t.string   "respondent_id"
     t.integer  "project_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.datetime "deleted_at"
+    t.text     "ideas"
+    t.text     "summary"
+    t.integer  "age",                       default: 0
+    t.integer  "gender",                    default: 0
+    t.string   "occupation"
+    t.datetime "first_use_on"
+    t.integer  "usage_frequency_per_month", default: 0
+    t.integer  "group",                     default: 0
     t.index ["deleted_at"], name: "index_response_attrak_diff_abridgeds_on_deleted_at", using: :btree
     t.index ["project_id"], name: "index_response_attrak_diff_abridgeds_on_project_id", using: :btree
   end
@@ -105,9 +121,17 @@ ActiveRecord::Schema.define(version: 20180202113701) do
     t.integer  "QHI7"
     t.string   "respondent_id"
     t.integer  "project_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.datetime "deleted_at"
+    t.text     "ideas"
+    t.text     "summary"
+    t.integer  "age",                       default: 0
+    t.integer  "gender",                    default: 0
+    t.string   "occupation"
+    t.datetime "first_use_on"
+    t.integer  "usage_frequency_per_month", default: 0
+    t.integer  "group",                     default: 0
     t.index ["deleted_at"], name: "index_response_attrak_diffs_on_deleted_at", using: :btree
     t.index ["project_id"], name: "index_response_attrak_diffs_on_project_id", using: :btree
   end
@@ -134,9 +158,17 @@ ActiveRecord::Schema.define(version: 20180202113701) do
     t.integer  "Q19"
     t.string   "respondent_id"
     t.integer  "project_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.datetime "deleted_at"
+    t.text     "ideas"
+    t.text     "summary"
+    t.integer  "age",                       default: 0
+    t.integer  "gender",                    default: 0
+    t.string   "occupation"
+    t.datetime "first_use_on"
+    t.integer  "usage_frequency_per_month", default: 0
+    t.integer  "group",                     default: 0
     t.index ["deleted_at"], name: "index_response_deeps_on_deleted_at", using: :btree
     t.index ["project_id"], name: "index_response_deeps_on_project_id", using: :btree
   end
@@ -154,9 +186,17 @@ ActiveRecord::Schema.define(version: 20180202113701) do
     t.integer  "Q10"
     t.string   "respondent_id"
     t.integer  "project_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.datetime "deleted_at"
+    t.text     "ideas"
+    t.text     "summary"
+    t.integer  "age",                       default: 0
+    t.integer  "gender",                    default: 0
+    t.string   "occupation"
+    t.datetime "first_use_on"
+    t.integer  "usage_frequency_per_month", default: 0
+    t.integer  "group",                     default: 0
     t.index ["deleted_at"], name: "index_response_sus_on_deleted_at", using: :btree
     t.index ["project_id"], name: "index_response_sus_on_project_id", using: :btree
   end

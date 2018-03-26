@@ -1,8 +1,8 @@
 <div class="ui container">
   <div class="ui segment">
     <h2><%= t('.title') + ' "' + @project.product_name + '"' %></h2>
-    <%= form_for(response, :html => {:class => "ui huge-radio form attrakdiff"}) do |f| %>
-  		<table class="ui selectable very basic large table">
+    <%= form_for(response, :html => {:class => "ui form attrakdiff"}) do |f| %>
+  		<table class="ui selectable very basic large huge-radio table">
         <tbody>
   		    <tr class="field">
   		      <td class="right aligned" width="50%"><%= ResponseAttrakDiff::QP1_label[I18n.locale][:good] %></td>

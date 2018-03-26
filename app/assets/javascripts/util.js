@@ -41,6 +41,10 @@ $(document).on('turbolinks:load', function() {
        .calendar('changeDate', setDate);
   });
 
+  $('.ui.calendar.date.month').each(function () {
+    $(this).calendar('setting','type', 'month');
+  });
+
 
 
 

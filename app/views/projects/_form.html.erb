@@ -8,14 +8,17 @@
     <div class="row no-padding field"></div>
     <% end %>
 
+    <%
+    disabled_when_has_responses = false
+    if project.has_responses?
+      disabled_when_has_responses = true
+    end
+    %>
+
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :questionnaire_id, 'Questionnaire :' %></div>
       <div class="eleven wide column">
-        <% if project.has_responses? %>
-        <%= f.select :questionnaire_id, Project.questionnaireTypes, {}, :disabled => true %>
-        <% else %>
-        <%= f.select :questionnaire_id, Project.questionnaireTypes %>
-        <% end %>
+        <%= f.select :questionnaire_id, Project.questionnaireTypes, {}, :disabled => disabled_when_has_responses %>
          - <a href="#" class="show_questionnaire_help_modal">Quelles différences ?</a>
          - <a href="#" class="show_questionnaire_references_modal">Références</a>
       </div>
@@ -24,17 +27,13 @@
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :questionnaire_language, 'Langue du questionnaire :' %></div>
       <div class="eleven wide column">
-        <% if project.has_responses? %>
-        <%= f.select :questionnaire_language, Project.questionnaireLanguages, {}, :disabled => true %>
-        <% else %>
-        <%= f.select :questionnaire_language, Project.questionnaireLanguages %>
-        <% end %>
+        <%= f.select :questionnaire_language, Project.questionnaireLanguages, {}, :disabled => disabled_when_has_responses %>
       </div>
     </div>
 
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :product_type, 'Type de produit :' %></div>
-      <div class="eleven wide column"><%= f.select :product_type, Project.productTypes %></div>
+      <div class="eleven wide column"><%= f.select :product_type, Project.productTypes, {}, :disabled => disabled_when_has_responses %></div>
     </div>
 
     <div class="row no-padding field">
@@ -46,6 +45,86 @@
       <div class="five wide column"><%= f.label :project_code, 'Code du projet :' %></div>
       <div class="eleven wide column"><%= f.text_field :project_code, :placeholder => "Ex. 'Etude n°14'" %></div>
     </div>
+
+    <div class="row no-padding field">
+      <div class="sixteen wide column">
+        <div class="ui dividing header">Questions complémentaires</div>
+      </div>
+    </div>
+
+    <div class="row no-padding field">
+      <div class="five wide column">Questions ouvertes :</div>
+      <div class="eleven wide column">
+        <div>
+          <div class="ui checkbox">
+            <%= f.check_box :ask_user_summary, :disabled => disabled_when_has_responses %>
+            <label for="project_ask_user_summary">Demander <em><span data-tooltip='Q : De manière générale, que pensez-vous de "<%= project.product_name.nil? ? "[nom du produit]" : project.product_name %>" ?'>l'avis général<sup>*</sup></span></em> sur le produit</label>
+          </div>
+        </div>
+        <div>
+          <div class="ui checkbox">
+            <%= f.check_box :ask_user_ideas, :disabled => disabled_when_has_responses %>
+            <label for="project_ask_user_ideas">Demander des <em><span data-tooltip='Q : Avez-vous des idées à suggérer ?'>suggestions d'idées<sup>*</sup></span></em></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row no-padding field">
+      <div class="five wide column">Qualification des répondants :</div>
+      <div class="eleven wide column">
+        <div>
+          <div class="ui checkbox">
+            <%= f.check_box :ask_user_age, :disabled => disabled_when_has_responses %>
+            <label for="project_ask_user_age">Âge</label>
+          </div>
+        </div>
+        <div>
+          <div class="ui checkbox">
+            <%= f.check_box :ask_user_gender, :disabled => disabled_when_has_responses %>
+            <label for="project_ask_user_gender">Sexe</label>
+          </div>
+        </div>
+        <div>
+          <div class="ui checkbox">
+            <%= f.check_box :ask_user_occupation, :disabled => disabled_when_has_responses %>
+            <label for="project_ask_user_occupation">Métier (ou occupation)</label>
+          </div>
+        </div>
+        <%
+        # <div>
+        #   <div class="ui checkbox">
+        #     <%= f.check_box :ask_user_first_use_date, :disabled => disabled_when_has_responses
+        # % >
+        #     <label for="project_ask_user_first_use_date">Date de première utilisation du produit ou service</label>
+        #   </div>
+        # </div>
+        # <div>
+        #   <div class="ui checkbox">
+        #     <%= f.check_box :ask_user_usage_frequency, :disabled => disabled_when_has_responses
+        # % >
+        #     <label for="project_ask_user_first_use_date">Fréquence d'utilisation mensuelle du produit ou service</label>
+        #   </div>
+        # </div>
+        %>
+
+      </div>
+    </div>
+
+    <%
+    # <div class="row no-padding field">
+    #   <div class="five wide column">Groupes d'utilisateurs :</div>
+    #   <div class="eleven wide column">
+    #     <div>
+    #       <div class="ui checkbox">
+    #         <%= f.check_box :ask_user_group, :disabled => disabled_when_has_responses
+    # % >
+    #         <label for="project_ask_user_group">Demander aux répondants de choisir leur groupe</label>
+    #       </div>
+    #     </div>
+    #   </div>
+    # </div>
+    %>
 
     <div class="row no-padding field">
       <div class="sixteen wide column">
@@ -84,7 +163,7 @@
       <div class="five wide column">Réponses multiples :</div>
       <div class="eleven wide column">
         <div class="ui checkbox">
-          <%= f.check_box :forbid_multiple_reponses %>
+          <%= f.check_box :forbid_multiple_reponses, :disabled => disabled_when_has_responses %>
           <label for="project_forbid_multiple_reponses">Interdire à un <em><span data-tooltip="Fonctionne avec un cookie enregistré dans le navigateur des répondants.">même participant<sup>*</sup></span></em> de répondre plusieurs fois</label>
         </div>
       </div>

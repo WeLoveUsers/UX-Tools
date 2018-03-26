@@ -39,16 +39,51 @@
           <td><%= status_full_for(@project) %></td>
         </tr>
         <tr>
+          <td nowrap>Lien public pour répondre :</td>
+          <td><%= link_to project_public_respond_url(@project.uri_token), project_public_respond_path(@project.uri_token) %>
+        </tr>
+        <% if @project.ask_user_summary || @project.ask_user_ideas %>
+        <tr>
+          <td nowrap>Questions ouvertes :</td>
+          <td>
+            <div class="ui list">
+              <% if @project.ask_user_summary %><div class="item"><i class="check green circle icon"></i>Demander l'avis général sur le produit</div><% end %>
+              <% if @project.ask_user_ideas %><div class="item"><i class="check green circle icon"></i>Demander des suggestions d'idées</div><% end %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+        <% if @project.ask_user_age || @project.ask_user_gender || @project.ask_user_occupation || @project.ask_user_first_use_date || @project.ask_user_usage_frequency %>
+        <tr>
+          <td nowrap>Qualification des répondants :</td>
+          <td>
+            <div class="ui list">
+              <% if @project.ask_user_age %><div class="item"><i class="check green circle icon"></i>Âge</div><% end %>
+              <% if @project.ask_user_gender %><div class="item"><i class="check green circle icon"></i>Sexe</div><% end %>
+              <% if @project.ask_user_occupation %><div class="item"><i class="check green circle icon"></i>Métier (ou occupation)</div><% end %>
+              <% if @project.ask_user_first_use_date %><div class="item"><i class="check green circle icon"></i>Date de première utilisation du produit ou service</div><% end %>
+              <% if @project.ask_user_usage_frequency %><div class="item"><i class="check green circle icon"></i>Fréquence d'utilisation mensuelle du produit ou service</div><% end %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+        <% if @project.ask_user_group %>
+        <tr>
+          <td nowrap>Groupes d'utilisateurs :</td>
+          <td>
+            <div class="ui list">
+              <div class="item"><i class="check green circle icon"></i>Demander aux répondants de choisir leur groupe</div>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+        <tr>
           <td nowrap>Date de fin de l'évaluation :</td>
           <td><%= end_date_full_for(@project) %></td>
         </tr>
         <tr>
           <td nowrap>Réponses multiples :</td>
           <td><%= are_multiple_responses_allowed_for(@project) %></td>
-        </tr>
-        <tr>
-          <td nowrap>Lien public pour répondre :</td>
-          <td><%= link_to project_public_respond_url(@project.uri_token), project_public_respond_path(@project.uri_token) %>
         </tr>
       </tbody>
     </table>

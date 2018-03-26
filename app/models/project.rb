@@ -91,6 +91,22 @@ class Project < ApplicationRecord
     return should_get_closed
   end
 
+  def ask_open_ended_questions
+    ask_open_ended_questions = false
+    if self.ask_user_ideas || self.ask_user_summary
+      ask_open_ended_questions = true
+    end
+    return ask_open_ended_questions
+  end
+
+  def ask_respondent_qualification
+    ask_respondent_qualification = false
+    if self.ask_user_age || self.ask_user_gender || self.ask_user_occupation || self.ask_user_first_use_date || self.ask_user_usage_frequency || self.ask_user_group
+      ask_respondent_qualification = true
+    end
+    return ask_respondent_qualification
+  end
+
   # System Usability Scale
   def sus_score
     return Stats::SUS::score(self.response_sus)

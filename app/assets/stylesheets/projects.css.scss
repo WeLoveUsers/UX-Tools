@@ -91,6 +91,9 @@ ul.ui.list li {
   background-color: #f0ebcd !important;
   border-color: #f0ebcd !important;
 }
+i.green.icon {
+  color: #36f8b0 !important;
+}
 
 /* BREADCRUMB */
 nav.bc {
@@ -148,6 +151,9 @@ nav.search {
 /* PROJECTS FORM */
 .ui.date.calendar {
   width:14em;
+}
+.ui.date.month.calendar {
+  width:11em;
 }
 .ui.dividing.header {
   display: block;
@@ -236,16 +242,16 @@ body .ui.message a:hover:not(.button),
 }
 
 /* FORM RADIOS */
-.ui.huge-radio.form .ui.radio.checkbox .box:before,
-.ui.huge-radio.form .ui.radio.checkbox label:before,
-.ui.huge-radio.form .ui.radio.checkbox .box:after,
-.ui.huge-radio.form .ui.radio.checkbox label:after,
-.ui.huge-radio.form .ui.checkbox input[type="checkbox"],
-.ui.huge-radio.form .ui.checkbox input[type="radio"] {
+.ui.form .huge-radio .ui.radio.checkbox .box:before,
+.ui.form .huge-radio .ui.radio.checkbox label:before,
+.ui.form .huge-radio .ui.radio.checkbox .box:after,
+.ui.form .huge-radio .ui.radio.checkbox label:after,
+.ui.form .huge-radio .ui.checkbox input[type="checkbox"],
+.ui.form .huge-radio .ui.checkbox input[type="radio"] {
   width: 30px;
   height: 30px;
 }
-.ui.huge-radio.form .ui.radio.checkbox {
+.ui.form .huge-radio .ui.radio.checkbox {
   line-height: 30px;
   min-height: 30px;
   min-width: 30px;
@@ -272,6 +278,13 @@ body .ui.message a:hover:not(.button),
   padding-right:1em;
   font-weight: 300;
   margin-top:1.24em;
+}
+
+/* FORM RESPONSE STEPS */
+.ui.tab.open-ended-questions .ui.container .ui.stacked.grid,
+.ui.tab.respondent-qualification .ui.container .ui.stacked.grid {
+    margin-top:2rem;
+    margin-bottom:2rem;
 }
 
 /* TERMS MODAL */
