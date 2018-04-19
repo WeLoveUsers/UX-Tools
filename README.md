@@ -31,34 +31,32 @@
 - Ajouter :
   - SUS "positif"
   - WAMMI
+  - UEQ
+  - KANO
+  - TAM
+  - AttrakDiff paginé
 
 - Routes ou pages pour erreurs 404 et 500
 
 - Ajouter des questions sur le participant :
-  - Groupe d'utilisateurs, version du produit testée,
-  - Education, utilise le produit depuis [moins d'un an]
+  - Finaliser : groupe d'utilisateurs, fréquence d'utilisation, première utilisation
   - Permettre d'anoter des réponses en BO ?
   - Afficher le métier (++) dans le tableau plutôt que uniquement dans l'Excel
   - Faire un export uniquement des commentaires / idées
   - Réponse > Etape 3 > Afficher les messages d'erreur suite au contrôle JS
-  - Localisation : KO
-  - UEQ
-  - AttrakDiff paginé
+  - Traduction ?
   - Liste des répondants paginée
   - Faire un export uniquement des commentaires / idées
 
 @RELEASES
-XXXX @TODO :
-- TEST DE TOUT
-
-XXXX @DONE :
+V1.2.6 :
 - Correction : problème d'ordre dans les réponses exportées (XLS) VS réponses affichées (WEB)
 - MAJ Semantic (nouvelles icônes)
 - Âge, sexe, profession/occupation, avis général, suggestions/idées :
 - 40 résultats maxi dans le tableau
 - Performance affichage projet avec beaucoup de réponses
 
-XXXX @DONE :
+V1.2.5 :
 - Suppression Smartlook
 - Montrer un petit message "Nouveautés" et le descriptif
 
