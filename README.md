@@ -4,7 +4,7 @@
 - Timer :
   - Permettre la desactivation du son
   - Alléger le code JS timer pour supprimer les ms (performance)
-  - Bugs sous Firefox (popup & fullscreen)
+  - Bugs sous Firefox (popup & fullscreen) / Safari
 
 - Crédits, remerciements, droits
   - CGU : QUID des questionnaires ? et crédit ?
@@ -35,13 +35,33 @@
 - Routes ou pages pour erreurs 404 et 500
 
 - Ajouter des questions sur le participant :
-  - Âge, sexe, profession/occupation,
   - Groupe d'utilisateurs, version du produit testée,
   - Education, utilise le produit depuis [moins d'un an]
-
-- Montrer un petit message "Nouveautés" et le descriptif
+  - Permettre d'anoter des réponses en BO ?
+  - Afficher le métier (++) dans le tableau plutôt que uniquement dans l'Excel
+  - Faire un export uniquement des commentaires / idées
+  - Réponse > Etape 3 > Afficher les messages d'erreur suite au contrôle JS
+  - Localisation : KO
+  - UEQ
+  - AttrakDiff paginé
+  - Liste des répondants paginée
+  - Faire un export uniquement des commentaires / idées
 
 @RELEASES
+XXXX @TODO :
+- TEST DE TOUT
+
+XXXX @DONE :
+- Correction : problème d'ordre dans les réponses exportées (XLS) VS réponses affichées (WEB)
+- MAJ Semantic (nouvelles icônes)
+- Âge, sexe, profession/occupation, avis général, suggestions/idées :
+- 40 résultats maxi dans le tableau
+- Performance affichage projet avec beaucoup de réponses
+
+XXXX @DONE :
+- Suppression Smartlook
+- Montrer un petit message "Nouveautés" et le descriptif
+
 V1.2.4 :
 - Possibilité d'interdire les réponses multiples (bdd + cookies)
 - Suppression d'un "n" dans une regex

@@ -51,6 +51,6 @@ class ResponseAttrakDiffAbridgedsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_attrak_diff_abridged_params
-      params.require(:response_attrak_diff_abridged).permit(:ATT2, :ATT5, :QP2, :QP3, :QP5, :QP6, :QHS2, :QHS5, :QHI3, :QHI4, :respondent_id, :project_id)
+      params.require(:response_attrak_diff_abridged).permit(:ATT2, :ATT5, :QP2, :QP3, :QP5, :QP6, :QHS2, :QHS5, :QHI3, :QHI4, :ideas, :summary, :age, :gender, :occupation, :first_use_on, :usage_frequency_per_month, :group, :respondent_id, :project_id)
     end
 end

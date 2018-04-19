@@ -1,5 +1,7 @@
 class AdminController < ApplicationController
   before_action :authenticate_admin_user
+  before_action :set_project, only: [:project]
+  before_action :load_project_data, only: [:project]
 
   # GET /admin
   def index

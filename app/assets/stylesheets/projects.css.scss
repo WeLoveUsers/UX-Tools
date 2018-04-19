@@ -95,6 +95,29 @@ i.green.icon {
   color: #36f8b0 !important;
 }
 
+.gender {
+
+}
+.gender .data,
+.gender .label {
+  width: 7em;
+  line-height: 1.1em;
+}
+.gender .data .bar {
+  height:0.8em;
+  display: inline-block;
+}
+.gender .data .male.bar {   background: #2185d0; }
+.gender .data .split.bar {  background: #ffffff; }
+.gender .data .female.bar { background: #e03997; }
+.gender .label {
+
+}
+.gender .label .female,
+.gender .label .male { display: inline-block; width:50%; text-align: left; font-size : 0.7em; padding:0;}
+.gender .label .male { text-align: right;}
+.gender .label .percent {  }
+
 /* BREADCRUMB */
 nav.bc {
   height:8rem;
@@ -158,6 +181,9 @@ nav.search {
 .ui.dividing.header {
   display: block;
 }
+.ui.form textarea {
+  font-family: 'PT Serif', serif;
+}
 
 /* TABS & INSIDE CONTENT */
 .ui.tab a,
@@ -220,6 +246,11 @@ body .ui.message a:hover:not(.button),
   text-decoration: line-through;
   color:#ccc;
   font-style: italic;
+}
+.ui.table tr.sub-header th {
+  font-size:0.7em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
 }
 
 /* CONFIG BUTTON & POPUP */

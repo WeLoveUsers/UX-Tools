@@ -38,7 +38,7 @@
 
     <div class="row no-padding field">
       <div class="five wide column"><%= f.label :product_name, 'Nom du produit ou service :' %></div>
-      <div class="eleven wide column"><%= f.text_field :product_name, :placeholder => "Ex. 'Mon super produit'" %></div>
+      <div class="eleven wide column"><%= f.text_field :product_name, :placeholder => "Ex. 'Mon super produit'", :disabled => disabled_when_has_responses %></div>
     </div>
 
     <div class="row no-padding field">
@@ -57,13 +57,13 @@
       <div class="eleven wide column">
         <div>
           <div class="ui checkbox">
-            <%= f.check_box :ask_user_summary, :disabled => disabled_when_has_responses %>
+            <%= f.check_box :ask_user_summary %>
             <label for="project_ask_user_summary">Demander <em><span data-tooltip='Q : De manière générale, que pensez-vous de "<%= project.product_name.nil? ? "[nom du produit]" : project.product_name %>" ?'>l'avis général<sup>*</sup></span></em> sur le produit</label>
           </div>
         </div>
         <div>
           <div class="ui checkbox">
-            <%= f.check_box :ask_user_ideas, :disabled => disabled_when_has_responses %>
+            <%= f.check_box :ask_user_ideas %>
             <label for="project_ask_user_ideas">Demander des <em><span data-tooltip='Q : Avez-vous des idées à suggérer ?'>suggestions d'idées<sup>*</sup></span></em></label>
           </div>
         </div>
@@ -75,19 +75,19 @@
       <div class="eleven wide column">
         <div>
           <div class="ui checkbox">
-            <%= f.check_box :ask_user_age, :disabled => disabled_when_has_responses %>
+            <%= f.check_box :ask_user_age %>
             <label for="project_ask_user_age">Âge</label>
           </div>
         </div>
         <div>
           <div class="ui checkbox">
-            <%= f.check_box :ask_user_gender, :disabled => disabled_when_has_responses %>
+            <%= f.check_box :ask_user_gender %>
             <label for="project_ask_user_gender">Sexe</label>
           </div>
         </div>
         <div>
           <div class="ui checkbox">
-            <%= f.check_box :ask_user_occupation, :disabled => disabled_when_has_responses %>
+            <%= f.check_box :ask_user_occupation %>
             <label for="project_ask_user_occupation">Métier (ou occupation)</label>
           </div>
         </div>
@@ -163,7 +163,7 @@
       <div class="five wide column">Réponses multiples :</div>
       <div class="eleven wide column">
         <div class="ui checkbox">
-          <%= f.check_box :forbid_multiple_reponses, :disabled => disabled_when_has_responses %>
+          <%= f.check_box :forbid_multiple_reponses %>
           <label for="project_forbid_multiple_reponses">Interdire à un <em><span data-tooltip="Fonctionne avec un cookie enregistré dans le navigateur des répondants.">même participant<sup>*</sup></span></em> de répondre plusieurs fois</label>
         </div>
       </div>

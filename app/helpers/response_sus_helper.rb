@@ -1,9 +1,7 @@
 module ResponseSusHelper
 
-  def sus_chart_for(project)
-    score = project.sus_score[:mean]
-    grade = project.sus_grade
-    css_grade_class = "grade-" + project.sus_grade[0].downcase
+  def sus_chart_for(score, grade)
+    css_grade_class = "grade-" + grade[0].downcase
 
     html = <<-HTML
     <div class="sus-chart">
@@ -34,4 +32,13 @@ module ResponseSusHelper
     HTML
     html.html_safe
   end
+
+  def sus_grade_label_for(sus_grade)
+    css_grade_class = "grade-" + sus_grade[0].downcase
+    html = <<-HTML
+    <span class="ui label circular #{css_grade_class}">#{sus_grade}</span>
+    HTML
+    html.html_safe
+  end
+
 end

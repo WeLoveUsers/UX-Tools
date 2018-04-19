@@ -1,9 +1,12 @@
 class ResponseAttrakDiffAbridged < ApplicationRecord
   acts_as_paranoid
-  
+
   belongs_to :project
 
   validates_numericality_of :ATT2, :ATT5, :QP2, :QP3, :QP5, :QP6, :QHS2, :QHS5, :QHI3, :QHI4, :only_integer => true, :greater_than_or_equal_to => -3, :less_than_or_equal_to => 3
+  validates_numericality_of :gender, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 2
+  validates_numericality_of :age, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 99
+  validates_numericality_of :usage_frequency_per_month, :group, :only_integer => true, :greater_than_or_equal_to => 0
 
   Infos = {
     :id => "attrakdiff_abridged",
@@ -16,7 +19,7 @@ class ResponseAttrakDiffAbridged < ApplicationRecord
                       'Lallemand, C., Koenig, V., Gronier, G., & Martin, R. (2015). <a href="http://dx.doi.org/10.1016/j.erap.2015.08.002" target="_blank">Création et validation d’une version française du questionnaire AttrakDiff pour l’évaluation de l’expérience utilisateur des systèmes interactifs. <em>Revue Européenne de Psychologie Appliquée/European Review of Applied Psychology, 65</em></a>(5), 239-252. Chicago']
   }
 
-  Export_entete = ["Répondant", "ATT2", "ATT5", "QP2", "QP3", "QP5", "QP6", "QHS2", "QHS5", "QHI3", "QHI4", "Date et heure (Paris)"]
+  Export_entete = ["Répondant", "Sexe", "Âge", "ATT2", "ATT5", "QP2", "QP3", "QP5", "QP6", "QHS2", "QHS5", "QHI3", "QHI4", "Métier", "Avis général", "Suggestions", "Date et heure (Paris)"]
 
   QP2_label = ResponseAttrakDiff::QP2_label
   QP3_label = ResponseAttrakDiff::QP3_label

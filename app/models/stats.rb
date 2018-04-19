@@ -1,4 +1,40 @@
 module Stats
+
+  module Users
+    def self.average_data(responses)
+      responses = Helper::make_enumerable(responses)
+      values = {
+        age:  [],
+        gender: []
+      }
+      data = {
+        age:  {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]},
+        gender: {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]}
+      }
+      count = {
+        age: 0,
+        gender: 0
+      }
+      responses.each do |response|
+        if !response.age.nil? && response.age > 0
+          count[:age] += 1
+          values[:age].push(response.age)
+        end
+        if response.gender > 0
+          count[:gender] += 1
+          values[:gender].push(response.gender)
+        end
+      end
+      if count[:age] > 0
+        data[:age]  = Helper::compute_stats_summary_for_data(values[:age], count[:age])
+      end
+      if count[:gender] > 0
+        data[:gender] = Helper::compute_stats_summary_for_data(values[:gender], count[:gender])
+      end
+      return data
+    end
+  end
+
   module AttrakDiff
     def self.average_scores(responses, abridged = false)
       responses = Helper::make_enumerable(responses)

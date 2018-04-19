@@ -61,3 +61,7 @@ fr:
         likert_agree: "Tout à fait d'accord"
         likert_not_applicable: "Non applicable"
         submit: "Envoyer"
+      user_ideas:
+        submit: "Envoyer"
+      user_qualification:
+        submit: "Envoyer"

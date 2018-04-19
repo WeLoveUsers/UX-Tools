@@ -42,4 +42,21 @@ module ApplicationHelper
     end
     html.html_safe
   end
+
+  def human_age_for(age)
+    if !age.nil? && age > 0
+      age.to_s
+    end
+  end
+
+  def gender_name_for(gender)
+    html = ''
+    if gender == 1
+      html = 'Femme'
+    elsif gender == 2
+      html = 'Homme'
+    end
+    html.html_safe
+  end
+
 end

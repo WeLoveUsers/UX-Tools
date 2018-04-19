@@ -1,5 +1,47 @@
 module ProjectsHelper
 
+  def gender_icon_for(gender)
+    html = ''
+    if gender == 1
+      html = '<i class="icon venus"></i>'
+    elsif gender == 2
+      html = '<i class="icon mars"></i>'
+    end
+    html.html_safe
+  end
+
+  def gender_graph_stats_for(users_gender_mean)
+    html = '-'
+    if users_gender_mean > 0
+      female_width = ((2 - users_gender_mean)*100).round
+      female_percent = ((2 - users_gender_mean)*100).round(2)
+      male_width = ((users_gender_mean - 1)*100).round
+      male_percent = ((users_gender_mean - 1)*100).round(2)
+      split_width = 2
+      if female_width < 2
+        female_width = 2
+        male_width = 96
+      elsif male_width < 2
+        male_width = 2
+        female_width = 96
+      else
+        female_width = female_width - 1
+        male_width = male_width - 1
+      end
+      html = <<-HTML
+        <div class="gender">
+          <div class="data">
+            <div class="female bar" style="width:#{female_width}%"></div><div class="split bar" style="width:#{split_width}%"></div><div class="male bar" style="width:#{male_width}%"></div>
+          </div>
+          <div class="label">
+            <div class="female"><i class="icon venus"></i><span class="percent">#{female_percent}%</span></div><div class="male"><i class="icon mars"></i><span class="percent">#{male_percent}%</span></div>
+          </div>
+        </div>
+      HTML
+    end
+    html.html_safe
+  end
+
   def human_date_for(date)
     l date, format: :long
   end
@@ -15,7 +57,7 @@ module ProjectsHelper
   def end_date_full_for(project)
     html = end_date_for(project)
     if !project.end_date.nil?
-      html = '<i class="icon popup calendar"></i> ' + html
+      html = '<i class="icon popup calendar alternate"></i> ' + html
     end
     html.html_safe
   end

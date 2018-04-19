@@ -51,13 +51,19 @@
 
   sheet.add_row ResponseAttrakDiff::Export_entete, :style => @black_cell
   i = 1
-  @project.responses.each do |response|
-    sheet.add_row [i, response.ATT1, response.ATT2, response.ATT3, response.ATT4, response.ATT5, response.ATT6, response.ATT7,
+  @project.responses.order("created_at asc").each do |response|
+    sheet.add_row [i, gender_name_for(response.gender), human_age_for(response.age),
+                      response.ATT1, response.ATT2, response.ATT3, response.ATT4, response.ATT5, response.ATT6, response.ATT7,
                       response.QP1, response.QP2, response.QP3, response.QP4, response.QP5, response.QP6, response.QP7,
                       response.QHS1, response.QHS2, response.QHS3, response.QHS4, response.QHS5, response.QHS6, response.QHS7,
                       response.QHI1, response.QHI2, response.QHI3, response.QHI4, response.QHI5, response.QHI6, response.QHI7,
-                      response.created_at],
-                      :style => [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil,nil, nil, nil, nil, nil, nil, nil, nil, nil, @date]
+                      response.occupation, response.summary, response.ideas, response.created_at],
+                      :style => [nil, nil, nil,
+                                 nil, nil, nil, nil, nil, nil, nil,
+                                 nil, nil, nil, nil, nil, nil, nil,
+                                 nil, nil, nil, nil, nil, nil, nil,
+                                 nil, nil, nil, nil, nil, nil, nil,
+                                 nil, nil, nil, @date]
     i = i + 1
   end
 
@@ -67,5 +73,5 @@
     sheet.add_row [strip_tags(s.html_safe).gsub(/&amp;/, "&")]
   end
 
-  sheet.column_widths 13, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, nil
+  sheet.column_widths 13, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, nil
 end

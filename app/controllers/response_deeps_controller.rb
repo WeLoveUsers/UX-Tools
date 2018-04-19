@@ -51,6 +51,6 @@ class ResponseDeepsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_deep_params
-      params.require(:response_deep).permit(:Q1, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :Q10, :Q11, :Q12, :Q13, :Q14, :Q15, :Q16, :Q17, :Q18, :Q19, :respondent_id, :project_id)
+      params.require(:response_deep).permit(:Q1, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :Q10, :Q11, :Q12, :Q13, :Q14, :Q15, :Q16, :Q17, :Q18, :Q19, :ideas, :summary, :age, :gender, :occupation, :first_use_on, :usage_frequency_per_month, :group, :respondent_id, :project_id)
     end
 end

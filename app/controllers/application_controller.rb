@@ -28,4 +28,29 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_project
+      @project = Project.find(params[:id])
+      if !current_user.admin? && current_user != @project.user
+        redirect_to root_path
+        return false
+      end
+    end
+
+    # Load data to avoid running those functions multiple times
+    def load_project_data
+      @users_stats = @project.users_stats
+      case @project.questionnaire_id_clean
+        when "attrakdiff", "attrakdiff_abrege"
+          @attrakdiff_average_scores          = @project.attrakdiff_average_scores
+          @attrakdiff_word_pair_average_score = @project.attrakdiff_word_pair_average_score
+        when "system_usability_scale"
+          @sus_score = @project.sus_score
+          @sus_grade = @project.sus_grade
+        when "deep"
+          @deep_scores = @project.deep_scores
+      end
+    end
+
 end

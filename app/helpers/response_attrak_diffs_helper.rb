@@ -1,6 +1,6 @@
 module ResponseAttrakDiffsHelper
 
-  def attrak_diff_average_chart_for(project)
+  def attrak_diff_average_chart_for(project, attrakdiff_average_scores)
     data = {
       labels: ["QP", "QHS", "QHI", "ATT"],
       datasets: [
@@ -13,10 +13,10 @@ module ResponseAttrakDiffsHelper
             pointHoverRadius: 10,
             pointBackgroundColor: "#333333",
             data: [
-              project.attrakdiff_average_scores[:QP][:mean],
-              project.attrakdiff_average_scores[:QHS][:mean],
-              project.attrakdiff_average_scores[:QHI][:mean],
-              project.attrakdiff_average_scores[:ATT][:mean]
+              attrakdiff_average_scores[:QP][:mean],
+              attrakdiff_average_scores[:QHS][:mean],
+              attrakdiff_average_scores[:QHI][:mean],
+              attrakdiff_average_scores[:ATT][:mean]
             ]
         }
       ]
@@ -52,8 +52,8 @@ module ResponseAttrakDiffsHelper
     line_chart data, options
   end
 
-  def attrak_diff_word_pair_chart_for(project)
-    s = project.attrakdiff_word_pair_average_score
+  def attrak_diff_word_pair_chart_for(project, attrakdiff_word_pair_average_score)
+    s = attrakdiff_word_pair_average_score
     data = {
       labels: [
         'Technique - Humain',
@@ -133,8 +133,8 @@ module ResponseAttrakDiffsHelper
     horizontal_bar_chart data, options
   end
 
-  def attrak_diff_abridged_word_pair_chart_for(project)
-    s = project.attrakdiff_word_pair_average_score
+  def attrak_diff_abridged_word_pair_chart_for(project, attrakdiff_word_pair_average_score)
+    s = attrakdiff_word_pair_average_score
     data = {
       labels: [
         'Compliqué - Simple',
@@ -197,8 +197,8 @@ module ResponseAttrakDiffsHelper
 
   end
 
-  def attrak_diff_portfolio_chart_for(project)
-    average_score = project.attrakdiff_average_scores
+  def attrak_diff_portfolio_chart_for(project, attrakdiff_average_scores)
+    average_score = attrakdiff_average_scores
     data = {
       datasets: [{
                 label: 'Moyenne pragmatique et hédonique',

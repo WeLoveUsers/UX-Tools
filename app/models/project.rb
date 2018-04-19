@@ -180,6 +180,11 @@ class Project < ApplicationRecord
     self.instructions = instructions
   end
 
+  #User Age & Gender
+  def users_stats
+    Stats::Users::average_data(self.responses)
+  end
+
   private
   def add_token
     begin

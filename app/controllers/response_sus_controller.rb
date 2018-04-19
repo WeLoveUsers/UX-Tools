@@ -51,6 +51,6 @@ class ResponseSusController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_su_params
-      params.require(:response_su).permit(:Q1, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :Q10, :respondent_id, :project_id)
+      params.require(:response_su).permit(:Q1, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :Q10, :ideas, :summary, :age, :gender, :occupation, :first_use_on, :usage_frequency_per_month, :group, :respondent_id, :project_id)
     end
 end

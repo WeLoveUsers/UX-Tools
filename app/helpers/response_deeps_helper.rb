@@ -1,7 +1,7 @@
 module ResponseDeepsHelper
 
-  def deep_average_chart_for(project)
-    s = project.deep_scores
+  def deep_average_chart_for(deep_scores)
+    s = deep_scores
     data = {
       labels: [
         ResponseDeep::G1_label[I18n.locale],
@@ -56,8 +56,8 @@ module ResponseDeepsHelper
     horizontal_bar_chart data, options
   end
 
-  def deep_radar_chart_for(project)
-    s = project.deep_scores
+  def deep_radar_chart_for(deep_scores)
+    s = deep_scores
     data = {
       labels: [
         ResponseDeep::G1_label[I18n.locale],

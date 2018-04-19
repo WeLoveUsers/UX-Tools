@@ -272,6 +272,7 @@ $(document).on('turbolinks:load', function() {
 
       that.find('.button.to-respondent-qualification')
           .on('click', function() {
+            var form_type = form.data('formtype');
             active_tab.removeClass('transition fade in').addClass('loading ');
             $('html, body').animate({ scrollTop: 0 }, 500);
             setTimeout( function() {
@@ -284,7 +285,12 @@ $(document).on('turbolinks:load', function() {
                   step_counter.current_step.text("2");
 
                   // ADD RESPONDENT QUALIFICATION RULES
-                  form.form('add rule', 'response_su[age]', 'integer[1..99]');
+                  form.form('add rule', form_type + '[age]', 'integer[1..99]');
+                  form.form('add rule', form_type + '[gender]', 'checked');
+                  form.form('add rule', form_type + '[occupation]', 'empty');
+                  form.form('add rule', form_type + '[first_use_on]', 'empty');
+                  form.form('add rule', form_type + '[usage_frequency_per_month]', 'integer[1..99]');
+                  form.form('add rule', form_type + '[group]', 'integer[1..99]');
 
                 }
               } else {
@@ -296,12 +302,12 @@ $(document).on('turbolinks:load', function() {
                 //////////////////
                 // Afficher les messages
                 //////////////////
-                form.form('add rule', 'response_su[age]', 'integer[1..99]');
-                form.form('add rule', 'response_su[gender]', 'checked');
-                form.form('add rule', 'response_su[occupation]', 'empty');
-                form.form('add rule', 'response_su[first_use_on]', 'empty');
-                form.form('add rule', 'response_su[usage_frequency_per_month]', 'integer[1..99]');
-                form.form('add rule', 'response_su[group]', 'integer[1..99]');
+                form.form('add rule', form_type + '[age]', 'integer[1..99]');
+                form.form('add rule', form_type + '[gender]', 'checked');
+                form.form('add rule', form_type + '[occupation]', 'empty');
+                form.form('add rule', form_type + '[first_use_on]', 'empty');
+                form.form('add rule', form_type + '[usage_frequency_per_month]', 'integer[1..99]');
+                form.form('add rule', form_type + '[group]', 'integer[1..99]');
               }
             }, 700);
           });

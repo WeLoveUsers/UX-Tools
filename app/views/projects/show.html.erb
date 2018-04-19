@@ -47,8 +47,8 @@
           <td nowrap>Questions ouvertes :</td>
           <td>
             <div class="ui list">
-              <% if @project.ask_user_summary %><div class="item"><i class="check green circle icon"></i>Demander l'avis général sur le produit</div><% end %>
-              <% if @project.ask_user_ideas %><div class="item"><i class="check green circle icon"></i>Demander des suggestions d'idées</div><% end %>
+              <% if @project.ask_user_summary %><div class="item"><i class="check green icon"></i>Demander l'avis général sur le produit</div><% end %>
+              <% if @project.ask_user_ideas %><div class="item"><i class="check green icon"></i>Demander des suggestions d'idées</div><% end %>
             </div>
           </td>
         </tr>
@@ -58,11 +58,11 @@
           <td nowrap>Qualification des répondants :</td>
           <td>
             <div class="ui list">
-              <% if @project.ask_user_age %><div class="item"><i class="check green circle icon"></i>Âge</div><% end %>
-              <% if @project.ask_user_gender %><div class="item"><i class="check green circle icon"></i>Sexe</div><% end %>
-              <% if @project.ask_user_occupation %><div class="item"><i class="check green circle icon"></i>Métier (ou occupation)</div><% end %>
-              <% if @project.ask_user_first_use_date %><div class="item"><i class="check green circle icon"></i>Date de première utilisation du produit ou service</div><% end %>
-              <% if @project.ask_user_usage_frequency %><div class="item"><i class="check green circle icon"></i>Fréquence d'utilisation mensuelle du produit ou service</div><% end %>
+              <% if @project.ask_user_age %><div class="item"><i class="check green icon"></i>Âge</div><% end %>
+              <% if @project.ask_user_gender %><div class="item"><i class="check green icon"></i>Sexe</div><% end %>
+              <% if @project.ask_user_occupation %><div class="item"><i class="check green icon"></i>Métier (ou occupation)</div><% end %>
+              <% if @project.ask_user_first_use_date %><div class="item"><i class="check green icon"></i>Date de première utilisation du produit ou service</div><% end %>
+              <% if @project.ask_user_usage_frequency %><div class="item"><i class="check green icon"></i>Fréquence d'utilisation mensuelle du produit ou service</div><% end %>
             </div>
           </td>
         </tr>
@@ -89,13 +89,13 @@
     </table>
   </div>
 
-  <div class="ui tab <%= "active" if @project.has_responses? && !@back_to_responses %>" data-tab="results">
-    <%= render 'projects' + File::SEPARATOR + 'results' + File::SEPARATOR + @project.questionnaire_id_clean, project: @project %>
-  </div>
+    <div class="ui tab <%= "active" if @project.has_responses? && !@back_to_responses %>" data-tab="results">
+      <%= render 'projects' + File::SEPARATOR + 'results' + File::SEPARATOR + @project.questionnaire_id_clean %>
+    </div>
 
-  <div class="ui tab <%= "active" if @back_to_responses %>" data-tab="responses" id="responsesTab">
-    <%= render 'projects' + File::SEPARATOR + 'responses' + File::SEPARATOR + @project.questionnaire_id_clean, project: @project %>
-  </div>
+    <div class="ui tab <%= "active" if @back_to_responses %>" data-tab="responses" id="responsesTab">
+      <%= render 'projects' + File::SEPARATOR + 'responses' + File::SEPARATOR + @project.questionnaire_id_clean %>
+    </div>
 
 </div>
 

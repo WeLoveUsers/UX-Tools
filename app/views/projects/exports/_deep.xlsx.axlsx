@@ -45,8 +45,19 @@
 
   sheet.add_row ResponseDeep::Export_entete, :style => @black_cell
   i = 1
-  @project.responses.each do |response|
-    sheet.add_row [i, response.Q1, response.Q2, response.Q3, response.Q4, response.Q5, response.Q6, response.Q7, response.Q8, response.Q9, response.Q10, response.Q11, response.Q12, response.Q13, response.Q14, response.Q15, response.Q16, response.Q17, response.Q18, response.Q19, response.created_at], :style => [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, @date]
+  @project.responses.order("created_at asc").each do |response|
+    sheet.add_row [i, gender_name_for(response.gender), human_age_for(response.age),
+                      response.Q1, response.Q2, response.Q3, response.Q4, response.Q5,
+                      response.Q6, response.Q7, response.Q8, response.Q9, response.Q10,
+                      response.Q11, response.Q12, response.Q13, response.Q14, response.Q15,
+                      response.Q16, response.Q17, response.Q18, response.Q19,
+                      response.occupation, response.summary, response.ideas, response.created_at],
+                      :style => [nil, nil, nil,
+                                 nil, nil, nil, nil, nil,
+                                 nil, nil, nil, nil, nil,
+                                 nil, nil, nil, nil, nil,
+                                 nil, nil, nil, nil,
+                                 nil, nil, nil, @date]
     i += 1
   end
 
@@ -56,5 +67,5 @@
     sheet.add_row [strip_tags(s.html_safe).gsub(/&amp;/, "&")]
   end
 
-  sheet.column_widths 13, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, nil
+  sheet.column_widths 13, 9, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, nil
 end

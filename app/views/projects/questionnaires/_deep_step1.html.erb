@@ -1,475 +1,493 @@
-<div class="ui container">
+<div class="ui container <%= "navigable-tabs" if @project.ask_open_ended_questions || @project.ask_respondent_qualification %>">
+
   <div class="ui segment">
+    <% if @project.ask_open_ended_questions || @project.ask_respondent_qualification %>
+        <div class="ui top right attached small step-counter label">Étape <span class="current-step"></span>/<span class="total-steps"></span></div>
+    <% end %>
     <h2><%= t('.title') + ' "' + @project.product_name + '"' %></h2>
-    <%= form_for(response, :html => {:class => "ui form deep"}) do |f| %>
-  		<table class="ui selectable very basic large huge-radio table">
-  		  <tbody>
-          <tr class="header">
-  		      <td class="ui black ribbon label"><%= ResponseDeep::G1_label[I18n.locale] %></td>
-  		      <td class="right aligned"><%= t('.likert_disagree') %></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><%= t('.likert_agree') %></td>
-            <td><%= t('.likert_not_applicable') %></td>
-          </tr>
+    <%= form_for(response, :html => {:class => "ui form deep", :data => { :formtype => "response_deep" }}) do |f| %>
+      <div class="ui active huge-radio tab" data-tab="main-form">
+    		<table class="ui selectable very basic large table">
+    		  <tbody>
+            <tr class="header">
+    		      <td class="ui black ribbon label"><%= ResponseDeep::G1_label[I18n.locale] %></td>
+    		      <td class="right aligned"><%= t('.likert_disagree') %></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td><%= t('.likert_agree') %></td>
+              <td><%= t('.likert_not_applicable') %></td>
+            </tr>
 
-  		    <tr class="field">
-  		      <td><%= ResponseDeep::Q1_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q2_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q3_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q4_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="header">
-  		      <td class="ui black ribbon label"><%= ResponseDeep::G2_label[I18n.locale] %></td>
-  		      <td class="right aligned"><%= t('.likert_disagree') %></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><%= t('.likert_agree') %></td>
-            <td><%= t('.likert_not_applicable') %></td>
-          </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q5_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q6_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q7_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="0"><label></label></div>
-            </td>
-  		    </tr>
+    		    <tr class="field">
+    		      <td><%= ResponseDeep::Q1_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q1]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q2_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q2]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q3_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q3]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q4_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q4]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="header">
+    		      <td class="ui black ribbon label"><%= ResponseDeep::G2_label[I18n.locale] %></td>
+    		      <td class="right aligned"><%= t('.likert_disagree') %></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td><%= t('.likert_agree') %></td>
+              <td><%= t('.likert_not_applicable') %></td>
+            </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q5_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q5]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q6_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q6]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q7_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q7]" value="0"><label></label></div>
+              </td>
+    		    </tr>
 
-          <tr class="header">
-            <td class="ui black ribbon label"><%= ResponseDeep::G3_label[I18n.locale] %></td>
-            <td class="right aligned"><%= t('.likert_disagree') %></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><%= t('.likert_agree') %></td>
-            <td><%= t('.likert_not_applicable') %></td>
-          </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q8_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q9_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q10_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="0"><label></label></div>
-            </td>
-  		    </tr>
+            <tr class="header">
+              <td class="ui black ribbon label"><%= ResponseDeep::G3_label[I18n.locale] %></td>
+              <td class="right aligned"><%= t('.likert_disagree') %></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td><%= t('.likert_agree') %></td>
+              <td><%= t('.likert_not_applicable') %></td>
+            </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q8_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q8]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q9_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q9]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q10_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q10]" value="0"><label></label></div>
+              </td>
+    		    </tr>
 
-          <tr class="header">
-            <td class="ui black ribbon label"><%= ResponseDeep::G4_label[I18n.locale] %></td>
-            <td class="right aligned"><%= t('.likert_disagree') %></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><%= t('.likert_agree') %></td>
-            <td><%= t('.likert_not_applicable') %></td>
-          </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q11_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q12_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q13_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="0"><label></label></div>
-            </td>
-  		    </tr>
+            <tr class="header">
+              <td class="ui black ribbon label"><%= ResponseDeep::G4_label[I18n.locale] %></td>
+              <td class="right aligned"><%= t('.likert_disagree') %></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td><%= t('.likert_agree') %></td>
+              <td><%= t('.likert_not_applicable') %></td>
+            </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q11_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q11]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q12_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q12]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q13_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q13]" value="0"><label></label></div>
+              </td>
+    		    </tr>
 
-          <tr class="header">
-            <td class="ui black ribbon label"><%= ResponseDeep::G5_label[I18n.locale] %></td>
-            <td class="right aligned"><%= t('.likert_disagree') %></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><%= t('.likert_agree') %></td>
-            <td><%= t('.likert_not_applicable') %></td>
-          </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q14_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q15_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q16_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="0"><label></label></div>
-            </td>
-  		    </tr>
+            <tr class="header">
+              <td class="ui black ribbon label"><%= ResponseDeep::G5_label[I18n.locale] %></td>
+              <td class="right aligned"><%= t('.likert_disagree') %></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td><%= t('.likert_agree') %></td>
+              <td><%= t('.likert_not_applicable') %></td>
+            </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q14_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q14]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q15_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q15]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q16_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q16]" value="0"><label></label></div>
+              </td>
+    		    </tr>
 
-          <tr class="header">
-            <td class="ui black ribbon label"><%= ResponseDeep::G6_label[I18n.locale] %></td>
-            <td class="right aligned"><%= t('.likert_disagree') %></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><%= t('.likert_agree') %></td>
-            <td><%= t('.likert_not_applicable') %></td>
-          </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q17_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q18_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseDeep::Q19_label[I18n.locale] %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="5"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-        </tbody>
-      </table>
+            <tr class="header">
+              <td class="ui black ribbon label"><%= ResponseDeep::G6_label[I18n.locale] %></td>
+              <td class="right aligned"><%= t('.likert_disagree') %></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td><%= t('.likert_agree') %></td>
+              <td><%= t('.likert_not_applicable') %></td>
+            </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q17_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q17]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q18_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q18]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+            <tr class="field">
+    		      <td><%= ResponseDeep::Q19_label[I18n.locale] %></td>
+              <td nowrap class="middle aligned right aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="1"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="2"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="3"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned center aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="4"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="5"><label></label></div>
+              </td>
+              <td nowrap class="middle aligned left aligned">
+                <div class="ui fitted radio checkbox"><input type="radio" name="response_deep[Q19]" value="0"><label></label></div>
+              </td>
+    		    </tr>
+          </tbody>
+        </table>
+
+        <div class="ui right aligned container">
+          <% if @project.ask_open_ended_questions %>
+          <div class="ui large button to-open-ended-questions">Suivant</div>
+          <% elsif @project.ask_respondent_qualification %>
+          <div class="ui large button to-respondent-qualification">Suivant</div>
+          <% else %>
+          <%= f.submit t(".submit"), :class => "ui large submit button" %>
+          <% end %>
+        </div>
+
+      </div>
+
+      <%= render 'projects' + File::SEPARATOR + 'questionnaires' + File::SEPARATOR + 'user_ideas', project: @project, f: f %>
+      <%= render 'projects' + File::SEPARATOR + 'questionnaires' + File::SEPARATOR + 'user_qualification', project: @project, f: f %>
+
       <input type="hidden" name="uri_token" value="<%= @project.uri_token %>">
       <input type="hidden" name="response_deep[f]" value="">
 
-      <div class="ui right aligned container">
-        <%= f.submit t(".submit"), :class => "ui large submit button" %>
-      </div>
     <% end %>
   </div>
 </div>

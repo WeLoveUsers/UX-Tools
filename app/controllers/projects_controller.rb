@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :close, :open, :destroy]
 
   before_action :authenticate_user!, except: [:respond, :response_saved]
+  before_action :set_project, only: [:show, :edit, :update, :close, :open, :destroy]
+  before_action :load_project_data, only: [:show]
 
   # GET /projects
   # GET /projects.json
@@ -205,15 +206,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-      if current_user != @project.user
-        redirect_to root_path
-        return false
-      end
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code, :instructions, :end_date, :uri_token, :forbid_multiple_reponses, :ask_user_ideas, :ask_user_summary, :ask_user_age, :ask_user_gender, :ask_user_occupation, :ask_user_first_use_date, :ask_user_group, :ask_user_usage_frequency)
