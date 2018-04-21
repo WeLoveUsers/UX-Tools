@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
-# Sending e-mails
-gem 'sendgrid-ruby'
+# HEROKU GEMS
+gem 'sendgrid-ruby' # Sending e-mails
+gem 'newrelic_rpm'  # New Relic
+
 # Use Devise for user authentication
 gem 'devise'
 gem 'devise-i18n'

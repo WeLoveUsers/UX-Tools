@@ -45,8 +45,9 @@
   - Faire un export uniquement des commentaires / idées
   - Réponse > Etape 3 > Afficher les messages d'erreur suite au contrôle JS
   - Traduction ?
-  - Liste des répondants paginée
+  - Permettre de charger 50 réponses passées en plus ou paginer, etc. Le problème étant de pouvoir supprimer une donnée...
   - Faire un export uniquement des commentaires / idées
+
 
 @RELEASES
 V1.2.6 :
