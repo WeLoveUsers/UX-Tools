@@ -50,6 +50,9 @@
 
 
 @RELEASES
+V1.2.7 :
+- MAJ admin pour voir combien de personnes ont lu les notifications
+
 V1.2.6 :
 - Correction : problème d'ordre dans les réponses exportées (XLS) VS réponses affichées (WEB)
 - MAJ Semantic (nouvelles icônes)
