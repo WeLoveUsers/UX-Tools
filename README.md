@@ -23,6 +23,7 @@
   - Version tablette + tél pour les répondants
   - Ajouter des filtres pour les dates / statuts des projets
   - Pouvoir créer des dossiers de projet (nous réalisons souvent des tests sur les memes projets, en cycle itératif / sprint de dév). retrouver tous les tests associés à un meme projet dans le meme dossier serait pratique.
+  - [X] Masquer les réponses supprimées
 
 - Stats :
   - Ajouter des barres d'erreur pour les IC
@@ -47,6 +48,12 @@
   - Traduction ?
   - Permettre de charger 50 réponses passées en plus ou paginer, etc. Le problème étant de pouvoir supprimer une donnée...
   - Faire un export uniquement des commentaires / idées
+
+  - auto-suppression comptes
+  - Contraste des checkboxes + messages d'erreur
+  - attrakDiff : schéma plus classe
+
+  - Version mobile (maquette faite)
 
 
 @RELEASES
