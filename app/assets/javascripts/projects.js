@@ -314,6 +314,7 @@ $(document).on('turbolinks:load', function() {
 
       that.find('.button.to-main-form')
           .on('click', function() {
+            var form_type = form.data('formtype');
             active_tab.removeClass('transition fade in').addClass('loading ');
             $('html, body').animate({ scrollTop: 0 }, 500);
             setTimeout( function() {
@@ -323,12 +324,12 @@ $(document).on('turbolinks:load', function() {
               step_counter.current_step.text("1");
 
               // REMOVE RESPONDENT QUALIFICATION RULES
-              form.form('remove field', 'response_su[age]');
-              form.form('remove field', 'response_su[gender]');
-              form.form('remove field', 'response_su[occupation]');
-              form.form('remove field', 'response_su[first_use_on]');
-              form.form('remove field', 'response_su[usage_frequency_per_month]');
-              form.form('remove field', 'response_su[group]');
+              form.form('remove field', form_type + '[age]');
+              form.form('remove field', form_type + '[gender]');
+              form.form('remove field', form_type + '[occupation]');
+              form.form('remove field', form_type + '[first_use_on]');
+              form.form('remove field', form_type + '[usage_frequency_per_month]');
+              form.form('remove field', form_type + '[group]');
 
             }, 700);
           });

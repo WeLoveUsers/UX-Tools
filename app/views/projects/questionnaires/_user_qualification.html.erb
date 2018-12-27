@@ -5,8 +5,8 @@
 
       <% if @project.ask_user_age %>
       <div class="row">
-        <div class="five wide column"></div>
-        <div class="three wide column">
+        <div class="five wide computer only column"></div>
+        <div class="three wide computer column ten wide column">
           <div class="field required">
             <label for="response_su_age">Âge</label>
             <div class="ui right labeled input">
@@ -22,8 +22,8 @@
 
       <% if @project.ask_user_gender %>
       <div class="row">
-        <div class="five wide column"></div>
-        <div class="three wide column">
+        <div class="five wide computer only column"></div>
+        <div class="three wide computer column sixteen wide column">
           <div class="grouped fields required">
             <label>Sexe</label>
             <div class="field">
@@ -45,8 +45,8 @@
 
       <% if @project.ask_user_occupation %>
       <div class="row">
-        <div class="five wide column"></div>
-        <div class="six wide column">
+        <div class="five wide computer only column"></div>
+        <div class="six wide computer column sixteen wide column">
           <div class="field required">
             <label>Métier (ou occupation)</label>
             <%= f.text_field :occupation %>

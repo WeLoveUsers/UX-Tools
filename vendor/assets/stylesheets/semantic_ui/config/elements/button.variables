@@ -1,6 +1,0 @@
-/*******************************
-    User Variable Overrides
-*******************************/
-
-@fontFamily        : 'Oswald', sans-serif;
-@fontWeight        : 400;

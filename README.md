@@ -20,10 +20,10 @@
   - Transparence technologique sur les formules utilisées (ex. comment sont calculés les IC ?)
 
 - UI :
-  - Version tablette + tél pour les répondants
   - Ajouter des filtres pour les dates / statuts des projets
   - Pouvoir créer des dossiers de projet (nous réalisons souvent des tests sur les memes projets, en cycle itératif / sprint de dév). retrouver tous les tests associés à un meme projet dans le meme dossier serait pratique.
   - [X] Masquer les réponses supprimées
+  - attrakDiff : schéma plus classe
 
 - Stats :
   - Ajouter des barres d'erreur pour les IC
@@ -33,6 +33,7 @@
   - SUS "positif"
   - WAMMI
   - UEQ
+  - UMUX
   - KANO
   - TAM
   - AttrakDiff paginé
@@ -40,23 +41,23 @@
 - Routes ou pages pour erreurs 404 et 500
 
 - Ajouter des questions sur le participant :
+  - Traduction manquante sur les boutons d'action
+  - Traduction ?
   - Finaliser : groupe d'utilisateurs, fréquence d'utilisation, première utilisation
   - Permettre d'anoter des réponses en BO ?
   - Afficher le métier (++) dans le tableau plutôt que uniquement dans l'Excel
   - Faire un export uniquement des commentaires / idées
   - Réponse > Etape 3 > Afficher les messages d'erreur suite au contrôle JS
-  - Traduction ?
   - Permettre de charger 50 réponses passées en plus ou paginer, etc. Le problème étant de pouvoir supprimer une donnée...
   - Faire un export uniquement des commentaires / idées
-
-  - auto-suppression comptes
+  - Auto-suppression comptes
   - Contraste des checkboxes + messages d'erreur
-  - attrakDiff : schéma plus classe
-
-  - Version mobile (maquette faite)
-
 
 @RELEASES
+V1.2.8 :
+- Version smartphone + tablette (+MAJ ordi) pour la partie publique (réponses)
+- Bug pour nouveau compte avec les notifications
+
 V1.2.7 :
 - MAJ admin pour voir combien de personnes ont lu les notifications
 

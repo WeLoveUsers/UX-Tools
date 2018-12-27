@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # Returns the amount (count)
   # of unread notification messages for the current user within the last 7 notifications
   def unread_notifications_count
-    last_notifications = AppNotification.order(:date).select("id").last(7).pluck(:id)
+    last_notifications = AppNotification.where("date > :account_created_at ", {account_created_at: created_at}).order(:date).select("id").last(7).pluck(:id)
     read_notifications = read_app_notifications.select("app_notification_id").pluck(:app_notification_id)
     return (last_notifications - read_notifications).size
   end

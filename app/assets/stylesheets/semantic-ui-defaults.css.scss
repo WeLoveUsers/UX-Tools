@@ -1,0 +1,141 @@
+$font-url: 'https://fonts.googleapis.com/css?family=Oswald:400,300|PT+Serif:400,400italic,700,700italic';
+$import-google-fonts: true !default;
+$font-name: 'PT Serif' !default;
+$font-family: $font-name, serif !default;
+
+@import "semantic-ui";
+
+h1, h2, h3, h4, h5,
+.ui.header,
+.ui.message .header,
+.ui.modal > .header,
+.ui.cards > .card > .content > .header, .ui.card > .content > .header {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+}
+
+.ui.message .header,
+.ui.modal > .header {
+  font-weight: bold;
+}
+
+.ui.button {
+    background: #e0e1e2 none;
+    color: rgba(0, 0, 0, 0.6);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+}
+.ui.button:hover {
+    background-color: #cacbcd;
+    box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+}
+.ui.button:active, .ui.active.button:active {
+    background-color: #babbbc;
+}
+
+.ui.active.button {
+    background-color: #c0c1c2;
+}
+
+.ui.active.button:hover {
+    background-color: #c0c1c2;
+}
+
+.ui.active.button:active {
+    background-color: #c0c1c2;
+}
+.ui.button {
+    background: #36f8b0 none;
+    color: #636363
+}
+
+.ui.button:hover {
+    background: #35e7a5 none
+}
+
+.ui.inverted.button {
+    color: #636363
+}
+.ui.breadcrumb a.ui.button.primary {
+    color: #636363
+}
+
+.ui.button.primary {
+    background: #ffffff none;
+    color: #636363;
+}
+
+.ui.breadcrumb a.ui.button.primary:hover, .ui.breadcrumb a.ui.button.primary:focus,
+.ui.button.primary:focus, .ui.button.primary:hover {
+    background: #ffffff none;
+    color: #000000;
+}
+.ui.form input:not([type]):focus, .ui.form input[type="date"]:focus,
+.ui.form input[type="datetime-local"]:focus, .ui.form input[type="email"]:focus,
+.ui.form input[type="number"]:focus, .ui.form input[type="password"]:focus,
+.ui.form input[type="search"]:focus, .ui.form input[type="tel"]:focus,
+.ui.form input[type="time"]:focus, .ui.form input[type="text"]:focus,
+.ui.form input[type="file"]:focus, .ui.form input[type="url"]:focus {
+    color: rgba(0, 0, 0, 0.95);
+    border-color: #36f8b0;
+    box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset
+}
+
+.ui.form textarea:focus {
+    color: rgba(0, 0, 0, 0.95);
+    border-color: #36f8b0;
+    box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+}
+
+.ui.selection.active.dropdown {
+    border-color: #36f8b0;
+    box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15)
+}
+
+.ui.selection.active.dropdown .menu {
+    border-color: #36f8b0;
+    box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15)
+}
+
+.ui.selection.dropdown:focus {
+    border-color: #36f8b0;
+    box-shadow: none
+}
+
+.ui.selection.dropdown:focus .menu {
+    border-color: #36f8b0;
+    box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15)
+}
+
+.ui.selection.visible.dropdown > .text:not(.default) {
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.8)
+}
+
+.ui.selection.active.dropdown:hover {
+    border-color: #36f8b0;
+    box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15)
+}
+
+.ui.selection.active.dropdown:hover .menu {
+    border-color: #36f8b0;
+    box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15)
+}
+.ui.breadcrumb {
+  display: block;
+}
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ .box:before,
+.ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:before,
+.ui.checkbox input:checked:focus ~ .box:before, .ui.checkbox input:checked:focus ~ label:before {
+    background: #ffffff;
+    border-color: #36f8b0
+}
+.ui.checkbox input:focus ~ .box:before, .ui.checkbox input:focus ~ label:before {
+    background: #ffffff;
+    border-color: #36f8b0
+}
+.ui.segment {
+  margin: 1rem 0em;
+  padding: 1em 1em;
+}

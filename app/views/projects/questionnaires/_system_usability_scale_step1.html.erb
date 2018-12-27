@@ -4,7 +4,7 @@
     <% if @project.ask_open_ended_questions || @project.ask_respondent_qualification %>
         <div class="ui top right attached small step-counter label">Étape <span class="current-step"></span>/<span class="total-steps"></span></div>
     <% end %>
-    <h2><%= t('.title') + ' "' + @project.product_name + '"' %></h2>
+    <h2 class="form-title"><%= t('.title') + ' "' + @project.product_name + '"' %></h2>
     <%= form_for(response, :html => {:class => "ui form sus", :data => { :formtype => "response_su" }}) do |f| %>
     <%
       #
@@ -16,198 +16,228 @@
       end
     %>
     <div class="ui active huge-radio tab" data-tab="main-form">
-  		<table class="ui selectable very basic large table">
-  		  <tbody>
-          <tr class="header">
-  		      <td>&nbsp;</td>
-  		      <td class="right aligned"><%= t('.likert_disagree') %></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><%= t('.likert_agree') %></td>
-          </tr>
-  		    <tr class="field">
-  		      <td><%= ResponseSu::Q1_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="0"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="4"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q2_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q3_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="0"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="4"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q4_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q5_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="0"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="4"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q6_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q7_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="0"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="4"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q8_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q9_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="0"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="4"><label></label></div>
-            </td>
-  		    </tr>
-          <tr class="field">
-  		      <td><%= ResponseSu::Q10_label[I18n.locale].sub('@product_type', sus_product_type) %></td>
-            <td nowrap class="middle aligned right aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="4"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="3"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="2"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned center aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="1"><label></label></div>
-            </td>
-            <td nowrap class="middle aligned left aligned">
-              <div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="0"><label></label></div>
-            </td>
-  		    </tr>
-        </tbody>
-      </table>
+      <div class="ui sus-grid middle aligned stackable grid likert-style-grid">
+        <div class="tablet computer only row">
+          <div class="nine wide column"></div>
+          <div class="seven wide column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q1_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="0"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q1]" value="4"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q2_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="4"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q2]" value="0"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q3_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="0"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q3]" value="4"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q4_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="4"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q4]" value="0"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q5_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="0"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q5]" value="4"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q6_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="4"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q6]" value="0"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q7_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="0"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q7]" value="4"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q8_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="4"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q8]" value="0"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q9_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="0"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q9]" value="4"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+        <div class="field row">
+          <div class="nine wide column"><%= ResponseSu::Q10_label[I18n.locale].sub('@product_type', sus_product_type) %></div>
+          <div class="one wide tablet computer only column"></div>
+          <div class="mobile only column">
+            <div class="ui two column grid">
+              <div class="left aligned column"><%= t('.likert_disagree') %></div>
+              <div class="right aligned column"><%= t('.likert_agree') %></div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui five column grid">
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="4"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="3"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="2"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="1"><label></label></div></div>
+                <div class="column"><div class="ui fitted radio checkbox"><input type="radio" name="response_su[Q10]" value="0"><label></label></div></div>
+            </div>
+          </div>
+          <div class="one wide tablet computer only column"></div>
+        </div>
+
+      </div>
 
       <div class="ui right aligned container">
         <% if @project.ask_open_ended_questions %>

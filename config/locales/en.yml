@@ -45,3 +45,7 @@ en:
         likert_agree: "Strongly Agree"
         likert_not_applicable: "Not applicable"
         submit: "Submit"
+      user_ideas:
+        submit: "Submit"
+      user_qualification:
+        submit: "Submit"

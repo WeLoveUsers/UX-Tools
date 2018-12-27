@@ -5,8 +5,8 @@
 
       <% if @project.ask_user_summary %>
       <div class="row">
-        <div class="four wide column"></div>
-        <div class="eight wide column">
+        <div class="four wide computer only column"></div>
+        <div class="eight wide computer column sixteen wide column">
           <div class="field">
             <label>De manière générale, que pensez-vous de "<%= @project.product_name %>" ?</label>
             <%= f.text_area :summary %>
@@ -17,8 +17,8 @@
 
       <% if @project.ask_user_ideas %>
       <div class="row">
-        <div class="four wide column"></div>
-        <div class="eight wide column">
+        <div class="four wide computer only column"></div>
+        <div class="eight wide computer column sixteen wide column">
           <div class="field">
             <label>Avez-vous des idées à suggérer ?</label>
             <%= f.text_area :ideas %>
