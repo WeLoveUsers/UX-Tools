@@ -1,6 +1,10 @@
 module ApplicationHelper
   def wlu_tools_name
-    "Tools"
+    "We Love Tools"
+  end
+
+  def root_path_name
+    "Accueil"
   end
 
   def flash_messages

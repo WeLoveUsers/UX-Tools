@@ -14,8 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require semantic-ui
-//= require semantic_ui_calendar/calendar
-//= require chart_js/Chart.bundle.2.4.0.min
+//= require chart_js/Chart.bundle.2.9.3.min
 //= require trix/trix
 //= require timer_js/timer.min
 //= require progressbar_js/progressbar.min

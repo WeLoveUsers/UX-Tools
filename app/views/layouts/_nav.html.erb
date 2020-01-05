@@ -1,5 +1,6 @@
 <div class="ui fixed main menu">
-    <a href="<%= root_path %>" class="item"><img alt="We Love Users" src="<%= image_path('we-love-users-logo(small).png')%>"></a>
+  <div class="ui container">
+    <a href="<%= root_path %>" class="logo"><img src="<%= image_path('we-love-tools-logo.png')%>" srcset="<%= image_path('we-love-tools-logo.png')%>, <%= image_path('we-love-tools-logo@2x.png')%> 2x" alt="We Love Tools"></a>
     <% if user_signed_in? %>
     <div class="right menu">
       <%= render "layouts/notifications_center" %>
@@ -19,4 +20,5 @@
       <% end %>
     </div>
     <% end %>
+  </div>
 </div>

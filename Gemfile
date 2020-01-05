@@ -55,7 +55,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Semantic UI assets
-gem 'semantic-ui-sass'
+gem 'fomantic-ui-sass'
 
 # Chart
 gem 'chartjs-ror'
@@ -64,11 +64,13 @@ gem 'chartjs-ror'
 gem 'statsample'
 
 # XLS Export
-gem 'axlsx_rails'
+gem 'caxlsx_rails'
 
 # Soft Delete
 gem 'acts_as_paranoid'
 
 gem 'mechanize'
+
+gem "lograge"
 
 ruby "2.5.3"

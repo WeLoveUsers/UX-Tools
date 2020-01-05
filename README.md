@@ -1,6 +1,8 @@
 # README
 
 @TODO :
+- HTTPS
+
 - Timer :
   - Permettre la desactivation du son
   - Alléger le code JS timer pour supprimer les ms (performance)
@@ -54,6 +56,11 @@
   - Contraste des checkboxes + messages d'erreur
 
 @RELEASES
+V1.2.9 :
+- Logs plus concis et par de "debug / info" en production
+- Changement charte graphique
+- MAJ modules (Fomantic, CXLS, ChartJS)
+
 V1.2.8 :
 - Version smartphone + tablette (+MAJ ordi) pour la partie publique (réponses)
 - Bug pour nouveau compte avec les notifications

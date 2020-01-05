@@ -1,10 +1,12 @@
-$font-url: 'https://fonts.googleapis.com/css?family=Oswald:400,300|PT+Serif:400,400italic,700,700italic';
-$import-google-fonts: true !default;
+$import-google-fonts: false !default;
 $font-name: 'PT Serif' !default;
 $font-family: $font-name, serif !default;
 
-@import "semantic-ui";
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,300|PT+Serif:400,400italic,700,700italic");
+@import 'semantic-ui';
 
+
+/* Semantic UI overrides */
 h1, h2, h3, h4, h5,
 .ui.header,
 .ui.message .header,
@@ -18,52 +20,68 @@ h1, h2, h3, h4, h5,
 .ui.modal > .header {
   font-weight: bold;
 }
-
+.ui.button,
+.ui.tab a.ui.button {
+  background: #70d4af none;
+  color: #ffffff;
+  border: 2px transparent solid;
+}
+.ui.button:hover,
+.ui.tab a.ui.button:hover {
+  background: #ffffff;
+  color: #70d4af;
+  border: 2px #70d4af solid;
+}
 .ui.button {
-    background: #e0e1e2 none;
-    color: rgba(0, 0, 0, 0.6);
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
     box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+    border-radius: 0;
 }
 .ui.button:hover {
-    background-color: #cacbcd;
     box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
-.ui.button:active, .ui.active.button:active {
+
+.ui.button:active,
+.ui.active.button:active {
     background-color: #babbbc;
 }
-
-.ui.active.button {
-    background-color: #c0c1c2;
-}
-
-.ui.active.button:hover {
-    background-color: #c0c1c2;
-}
-
+.ui.active.button,
+.ui.active.button:hover,
 .ui.active.button:active {
     background-color: #c0c1c2;
 }
-.ui.button {
-    background: #36f8b0 none;
-    color: #636363
-}
 
-.ui.button:hover {
-    background: #35e7a5 none
+.ui.red.button:hover {
+  border-color: #d01919;
+}
+.ui.action.input > .button {
+      border: 0;
 }
 
 .ui.inverted.button {
-    color: #636363
-}
-.ui.breadcrumb a.ui.button.primary {
-    color: #636363
+    color: #ffffff;
 }
 
+.ui.breadcrumb a.ui.button.primary,
 .ui.button.primary {
-    background: #ffffff none;
-    color: #636363;
+  color: #636363;
+}
+.ui.button.primary {
+  background: #ffffff none;
+  font-weight: 400;
+}
+.ui.breadcrumb a.ui.button.primary:hover,
+.ui.breadcrumb a.ui.button.primary:focus,
+.ui.button.primary:focus,
+.ui.button.primary:hover {
+  background: #ffffff none;
+  color: #000000;
+}
+
+.ui.inverted.button,
+.ui.primary.button {
+  border: none;
 }
 
 .ui.breadcrumb a.ui.button.primary:hover, .ui.breadcrumb a.ui.button.primary:focus,
@@ -138,4 +156,54 @@ h1, h2, h3, h4, h5,
 .ui.segment {
   margin: 1rem 0em;
   padding: 1em 1em;
+}
+.buttons.toolbar {
+  margin-bottom:20px;
+}
+ul.ui.list li {
+  line-height: 23px;
+}
+.ui.red.label {
+  background-color: #fa3a6d !important;
+  border-color: #fa3a6d !important;
+}
+/*.ui.blue.label {
+  background-color: #00e8f5 !important;
+  border-color: #00e8f5 !important;
+}*/
+.ui.green.label {
+  background-color: #70d4af !important;
+  border-color: #70d4af !important;
+  color:#636363 !important;
+}
+.ui.cream.label {
+  background-color: #f0ebcd !important;
+  border-color: #f0ebcd !important;
+}
+i.green.icon {
+  color: #70d4af !important;
+}
+.ui.calendar:not(.disabled) .calendar:focus .ui.table tbody tr td.focus,
+.ui.calendar:not(.disabled) .calendar.active .ui.table tbody tr td.focus,
+.ui.calendar:not(.disabled) .calendar:focus .ui.table.inverted tbody tr td.focus,
+.ui.calendar:not(.disabled) .calendar.active .ui.table.inverted tbody tr td.focus {
+  box-shadow: inset 0 0 0 1px #70d4af;
+}
+
+
+.ui.cards > .card, .ui.card,
+.ui[class*="top attached"].segment,
+.ui[class*="bottom attached"].segment,
+.ui.segment,
+.ui.bottom.attached.message,
+.ui[class*="left labeled"].button > .label,
+.ui.label,
+.ui.table thead tr:first-child > th:first-child,
+.ui.table thead tr:first-child > th:last-child,
+.ui.table tfoot tr:first-child > th:first-child,
+.ui.table tfoot tr:first-child > th:last-child,
+.ui.table,
+.ui.grid.segment,
+.ui.message {
+  border-radius: 0;
 }

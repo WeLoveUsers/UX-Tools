@@ -12,7 +12,10 @@ body.response.public {
 }
 body .page-content {
   margin-top: 6em;
-  text-color: #505050;
+  color: #505050;
+}
+a.logo {
+  padding-top: 0.42em;
 }
 body .ui.message a:not(.button),
 body .footer a {
@@ -26,7 +29,7 @@ body .footer a:hover  {
 }
 .turbolinks-progress-bar {
   height: 5px;
-  background-color: #36f8b0;
+  background-color: #70d4af;
 }
 .login.column {
   max-width: 24em;
@@ -42,67 +45,25 @@ body .footer a:hover  {
   width: auto;
 }
 
-/* Semantic UI overrides */
-.ui.breadcrumb a.ui.button.primary {
-  color: #636363;
+.wlu-message {
+  margin-bottom: 2em;
+  background: #f3f3f3;
 }
-.ui.button.primary {
-  background: #ffffff none;
-  color: #636363;
-  font-weight: 400;
+.wlu-message .ui.grid {
+  margin:0;
 }
-.ui.breadcrumb a.ui.button.primary:hover,
-.ui.breadcrumb a.ui.button.primary:focus,
-.ui.button.primary:focus,
-.ui.button.primary:hover {
-  background: #ffffff none;
-  color: #000000;
+.wlu-message .wlu-logo {
+  margin-bottom: 1em;
 }
-.ui.button {
-  background: #36f8b0 none;
-  color: #636363;
+.wlu-message .ui.grid > .column:not(.row).cover-fit {
+  padding: 0;
 }
-.ui.button:hover {
-  background: #35e7a5 none;
+.wlu-message .column.cover-fit img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.ui.inverted.button {
-  color:#636363;
-}
-.buttons.toolbar {
-  margin-bottom:20px;
-}
-ul.ui.list li {
-  line-height: 23px;
-}
-.ui.red.label {
-  background-color: #fa3a6d !important;
-  border-color: #fa3a6d !important;
-}
-/*.ui.blue.label {
-  background-color: #00e8f5 !important;
-  border-color: #00e8f5 !important;
-}*/
-.ui.green.label {
-  background-color: #36f8b0 !important;
-  border-color: #36f8b0 !important;
-  color:#636363 !important;
-}
-.ui.cream.label {
-  background-color: #f0ebcd !important;
-  border-color: #f0ebcd !important;
-}
-i.green.icon {
-  color: #36f8b0 !important;
-}
-.ui.calendar .calendar:focus .ui.table tbody tr td.focus,
-.ui.calendar .calendar.active .ui.table tbody tr td.focus {
-  box-shadow: inset 0 0 0 1px #36f8b0;
-}
-.ui.calendar .calendar:focus .ui.table.inverted tbody tr td.focus,
-.ui.calendar .calendar.active .ui.table.inverted tbody tr td.focus {
-  box-shadow: inset 0 0 0 1px #36f8b0;
-}
-
 .gender {
 
 }
@@ -128,33 +89,41 @@ i.green.icon {
 
 /* BREADCRUMB */
 nav.bc {
-  height:8rem;
-  margin-top: -3em;
-  background: #eee;
+  height:5rem;
+  margin-top: -3.2em;
+  background: #636363;
   margin-bottom: 2em;
 }
 nav.bc .ui.breadcrumb {
-  line-height: 8rem;
+  line-height: 5rem;
   font-family: 'Oswald', sans-serif;
   font-weight: 300;
 }
 nav.bc .ui.breadcrumb,
 nav.bc .ui.breadcrumb a,
 .ui.main.menu .menu .item a {
-  color: #636363;
+  color: #ffffff;
 }
-nav.bc .ui.breadcrumb a:hover {
-  color: #333333;
+.ui.main.menu .menu .item a {
+  margin:-1.13em;
+}
+nav.bc .ui.breadcrumb a:hover,
+.ui.main.menu .menu .item a:hover {
+  color: #70d4af;
 }
 nav.bc .ui.breadcrumb .active {
-  color: #333333;
-  font-weight: 400;
+  color: #70d4af;
+  font-weight: 300;
+}
+.ui.breadcrumb .icon.divider {
+  color: #ffffff;
+  opacity: 1;
 }
 nav.bc .ui.breadcrumb h1 {
   font-size: inherit;
 }
 nav.bc .button {
-  margin-top:2.7rem;
+  margin-top:1.2rem;
 }
 
 /* SEARCH MENU */
@@ -173,7 +142,7 @@ nav.search {
 }
 .ui.vertically.divided.grid a:hover {
   color: #333333;
-  border-left: 3px #36f8b0 solid;
+  border-left: 3px #70d4af solid;
 }
 .ui.grid .sub.header {
   font-size: 0.5em;
@@ -210,7 +179,7 @@ body .ui.message a:not(.button),
 body .ui.message a:hover:not(.button),
 .ui.message a:hover:not(.button) {
   color: #333333;
-  border-bottom: 3px #36f8b0 solid;
+  border-bottom: 3px #70d4af solid;
   text-decoration: none;
 }
 .terms.field .ui.checkbox label a {
@@ -232,10 +201,10 @@ body .ui.message a:hover:not(.button),
 }
 .ui.secondary.pointing.menu .item:hover,
 .ui.secondary.pointing.menu .active.item:hover {
-  border-color: #36f8b0;
+  border-color: #70d4af;
 }
 .ui.secondary.pointing.menu .active.item {
-  border-color: #36f8b0;
+  border-color: #70d4af;
   font-weight: 400;
 }
 .ui.statistics .statistic {

@@ -11,8 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require semantic-ui-defaults
- *= require semantic_ui_calendar/calendar.min
  *= require trix/trix
+ *= require chart_js/Chart.2.9.3.min
  *= require_tree .
  *= require_self
  */
