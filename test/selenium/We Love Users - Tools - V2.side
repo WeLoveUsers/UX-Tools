@@ -1,0 +1,1621 @@
+{
+  "id": "d1ad5df2-4afb-464d-b231-be78baeaa1af",
+  "version": "2.0",
+  "name": "We Love Users - Tools",
+  "url": "http://127.0.0.1:3000",
+  "tests": [{
+    "id": "99d133c2-30e0-45b7-a65a-ac79cb289687",
+    "name": "Créer compte",
+    "commands": [{
+      "id": "92961ff0-7ad1-4beb-aee4-c4e911b3ee6a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e5d8305f-0ae9-4e22-908b-d6df685f5e05",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1662x1333",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1871b3d7-231b-45e9-ad45-9dbe9bc9e0fd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Inscription",
+      "targets": [
+        ["linkText=Inscription", "linkText"],
+        ["css=.item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscription')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/users/sign_up')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f3d539f-a3ca-4aca-a441-daac7cd93a4f",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_email",
+      "targets": [
+        ["id=user_email", "id"],
+        ["name=user[email]", "name"],
+        ["css=#user_email", "css"],
+        ["css=#user_email", "css:finder"],
+        ["xpath=//input[@id='user_email']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "flornet@gmail.com"
+    }, {
+      "id": "9a3d1c70-14f9-47da-acfa-4a239d8fae7d",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_password",
+      "targets": [
+        ["id=user_password", "id"],
+        ["name=user[password]", "name"],
+        ["css=#user_password", "css"],
+        ["css=#user_password", "css:finder"],
+        ["xpath=//input[@id='user_password']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "floper"
+    }, {
+      "id": "4c1c04e9-73ca-4b56-b206-b4710b4539dc",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_password_confirmation",
+      "targets": [
+        ["id=user_password_confirmation", "id"],
+        ["name=user[password_confirmation]", "name"],
+        ["css=#user_password_confirmation", "css"],
+        ["css=#user_password_confirmation", "css:finder"],
+        ["xpath=//input[@id='user_password_confirmation']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "floper"
+    }, {
+      "id": "66bfc4a8-6317-40b8-8ef9-3be90109f878",
+      "comment": "",
+      "command": "click",
+      "target": "css=label",
+      "targets": [
+        ["css=label", "css"],
+        ["css=label", "css:finder"],
+        ["xpath=//form[@id='new_user']/div/div[5]/div/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5e0b2ad-36f1-47e3-954c-9f045132ea3d",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=input[name=\"commit\"]", "css"],
+        ["css=.fluid", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bd34e3e5-6c63-4e8c-9658-5eb4b027683e",
+    "name": "Créer questionnaires",
+    "commands": [{
+      "id": "e234968d-6828-49f6-ad24-525673617327",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f83afc2d-533c-4e65-afd0-d564b5822f6c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1356x1097",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac19074b-104d-436f-b843-6827786116fb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ui:nth-child(1) > .content > .meta",
+      "targets": [
+        ["css=.ui:nth-child(1) > .content > .meta", "css:finder"],
+        ["xpath=//a/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46d50201-086c-49ee-b785-502b4d25503d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nouvelle évaluation",
+      "targets": [
+        ["linkText=Nouvelle évaluation", "linkText"],
+        ["css=.floated", "css:finder"],
+        ["xpath=//a[contains(text(),'Nouvelle évaluation')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/new')]", "xpath:href"],
+        ["xpath=//nav/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nouvelle évaluation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a94ff052-382a-4471-b6d3-004a7823d204",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05f83079-1208-4310-96be-ac2803f603cb",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_DOWN}"
+    }, {
+      "id": "839004fe-80e3-4870-b65c-e93538e1af02",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_TAB}"
+    }, {
+      "id": "ff153b4f-7d98-4d1f-b280-eb7e867834bb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "99561548-ec47-42c8-9b0c-f45df1bd6871",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7173897a-aaa8-486f-86f2-f3325d4a925b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Âge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "211a33a8-6c1c-441a-a52c-c11722c951d6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Sexe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5cbceecf-4e00-423a-82eb-3672a6192fe5",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .ui > label",
+      "targets": [
+        ["css=div:nth-child(3) > .ui > label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[3]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Métier (ou occupation)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6fb78ab7-016c-4a43-ad42-c453d8582d54",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[12]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[12]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34561c13-d8cf-415e-80d9-1f33715ca68f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Questionnaires UX",
+      "targets": [
+        ["linkText=Questionnaires UX", "linkText"],
+        ["css=.section:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Questionnaires UX')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/projects')])[3]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Questionnaires UX')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "19890206-65f5-4bf2-b89f-c192d748b2b6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nouvelle évaluation",
+      "targets": [
+        ["linkText=Nouvelle évaluation", "linkText"],
+        ["css=.floated", "css:finder"],
+        ["xpath=//a[contains(text(),'Nouvelle évaluation')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/new')]", "xpath:href"],
+        ["xpath=//nav/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nouvelle évaluation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f260364a-8504-49f3-b818-c51b16b33399",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) .text",
+      "targets": [
+        ["css=.row:nth-child(1) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e56a879f-b0bc-411e-9cc5-5ba9ff7a750f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.transition > .item:nth-child(2)",
+      "targets": [
+        ["css=.transition > .item:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cdd99945-7532-4730-809d-03131a5ab815",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_id",
+      "targets": [],
+      "value": "label=AttrakDiff (abrégé)"
+    }, {
+      "id": "bbe32684-a9cb-4ee7-8570-9b1fbb9365ce",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a2d49d0-614a-459b-afbf-caf4f3640bb4",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_DOWN}"
+    }, {
+      "id": "1c238c72-e486-43a0-ae77-9dbfa7004b69",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_TAB}"
+    }, {
+      "id": "2700b09e-5dc5-4f45-8b84-4816003fea9f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "74b1deb5-fe66-4050-9b18-ca9a37c883e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8003bef7-aeef-4deb-843e-156ead520e1f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Âge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da1b9c9e-acb3-42d4-afd8-284bb33a25e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Sexe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e21ac245-f10f-4c77-bc04-eb9ca94222ff",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .ui > label",
+      "targets": [
+        ["css=div:nth-child(3) > .ui > label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[3]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Métier (ou occupation)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "32c09d8c-396e-484e-a623-8fec8a6431e6",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[12]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[12]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b405e8cc-6515-4dba-96b2-4bcd3bee28d9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Questionnaires UX",
+      "targets": [
+        ["linkText=Questionnaires UX", "linkText"],
+        ["css=.section:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Questionnaires UX')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/projects')])[3]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Questionnaires UX')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ee3b250-22a8-4a1c-a3e0-62ab2d0dfd07",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nouvelle évaluation",
+      "targets": [
+        ["linkText=Nouvelle évaluation", "linkText"],
+        ["css=.floated", "css:finder"],
+        ["xpath=//a[contains(text(),'Nouvelle évaluation')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/new')]", "xpath:href"],
+        ["xpath=//nav/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nouvelle évaluation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b8fdf5a-1c28-4623-9c18-eb633b032eb8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) .text",
+      "targets": [
+        ["css=.row:nth-child(1) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ec255b3-adc2-426d-89e5-a0cc0d446eea",
+      "comment": "",
+      "command": "click",
+      "target": "css=.transition > .item:nth-child(3)",
+      "targets": [
+        ["css=.transition > .item:nth-child(3)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c727b7ef-1d9e-441f-a224-70642859f84e",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_id",
+      "targets": [],
+      "value": "label=System Usability Scale"
+    }, {
+      "id": "aa931cf5-9d48-47fc-aba1-43d985e9e5d9",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05a3fa59-664a-4b7b-9996-e129a8048911",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "SUS_FR"
+    }, {
+      "id": "1facc362-bcb4-40a5-be49-424a00dc8495",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_project_code",
+      "targets": [
+        ["id=project_project_code", "id"],
+        ["name=project[project_code]", "name"],
+        ["css=#project_project_code", "css:finder"],
+        ["xpath=//input[@id='project_project_code']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[5]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "dd2ba4a9-ad7c-41e1-ae80-5e2011642ada",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b190cec2-abd7-4daf-91c9-d99c556da5c8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d7f44cb-116d-4a79-b30b-a3634c2bf929",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Âge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5541aade-ccb2-4c6f-b61f-c106938dbae0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Sexe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "93dc56f7-1fa7-480b-8923-a2076797aa7c",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .ui > label",
+      "targets": [
+        ["css=div:nth-child(3) > .ui > label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[3]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Métier (ou occupation)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "37282bf9-9908-4c07-9654-31098f353f5b",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[12]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[12]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "883aba93-66bb-4aee-929d-a347ae508334",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Questionnaires UX",
+      "targets": [
+        ["linkText=Questionnaires UX", "linkText"],
+        ["css=.section:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Questionnaires UX')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/projects')])[3]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Questionnaires UX')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7d1bff5-48e9-43f4-83d3-7f0d6efbeae8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nouvelle évaluation",
+      "targets": [
+        ["linkText=Nouvelle évaluation", "linkText"],
+        ["css=.floated", "css:finder"],
+        ["xpath=//a[contains(text(),'Nouvelle évaluation')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/new')]", "xpath:href"],
+        ["xpath=//nav/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nouvelle évaluation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f7b0178-81de-4939-a3f8-2a064b84366c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) .text",
+      "targets": [
+        ["css=.row:nth-child(1) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f53d7f7a-98ce-46d5-9321-e507ab8b7051",
+      "comment": "",
+      "command": "click",
+      "target": "css=.transition > .item:nth-child(4)",
+      "targets": [
+        ["css=.transition > .item:nth-child(4)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div[2]/div[4]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05e73f87-6e0f-4ce7-9682-16d2c4a60d7b",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_id",
+      "targets": [],
+      "value": "label=DEEP"
+    }, {
+      "id": "718532de-4a79-4b3e-9b60-e813a44b4b6a",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27a13439-6a82-4e03-ab76-8d613a4e5ecb",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "DEEP_FR"
+    }, {
+      "id": "2251d006-e1ee-41ec-81ba-28ff16277ceb",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_project_code",
+      "targets": [
+        ["id=project_project_code", "id"],
+        ["name=project[project_code]", "name"],
+        ["css=#project_project_code", "css:finder"],
+        ["xpath=//input[@id='project_project_code']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[5]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": "4"
+    }, {
+      "id": "cbdfcfdf-50da-4d1c-863a-14fd37d978e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ff80aa4-9702-4eb2-9e55-6394de230abc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a09fb51-7fa4-424a-bc69-2da8f4e32b45",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Âge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d1d98a9-0fce-47fa-b7bc-a9df4760fbdc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Sexe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7b884b7-7dbd-4c43-afb2-cb0bf97da7a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .ui > label",
+      "targets": [
+        ["css=div:nth-child(3) > .ui > label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[3]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Métier (ou occupation)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2ec3f91-1229-4e0b-917b-3306920e040c",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[12]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[12]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79d37337-9f28-4fc7-8991-c6b01ce8cacb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Questionnaires UX",
+      "targets": [
+        ["linkText=Questionnaires UX", "linkText"],
+        ["css=.section:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Questionnaires UX')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/projects')])[3]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Questionnaires UX')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b520818c-48ee-476a-a611-9ed427cb4c74",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nouvelle évaluation",
+      "targets": [
+        ["linkText=Nouvelle évaluation", "linkText"],
+        ["css=.floated", "css:finder"],
+        ["xpath=//a[contains(text(),'Nouvelle évaluation')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/new')]", "xpath:href"],
+        ["xpath=//nav/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nouvelle évaluation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3218004e-a3ad-4745-82e6-b8a3371d7e7f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) .text",
+      "targets": [
+        ["css=.row:nth-child(2) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[2]/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "737e31bd-e732-4577-b1b9-41818b000110",
+      "comment": "",
+      "command": "click",
+      "target": "css=.transition > .item:nth-child(2)",
+      "targets": [
+        ["css=.transition > .item:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[2]/div[2]/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc2ebe05-b7b6-46c0-ac0a-f3ad29cb804b",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_language",
+      "targets": [],
+      "value": "label=Anglais"
+    }, {
+      "id": "b3bf7f9f-9aae-43c6-8ad8-005068f0e80f",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f48d4b8-1dab-4b1f-b50c-597db7216321",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a45dda6-73f5-4232-bd80-d6de017b55d4",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "ATT_FULL_EN"
+    }, {
+      "id": "d055a892-b4ff-449f-a429-8d68f70bc09f",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_project_code",
+      "targets": [
+        ["id=project_project_code", "id"],
+        ["name=project[project_code]", "name"],
+        ["css=#project_project_code", "css:finder"],
+        ["xpath=//input[@id='project_project_code']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[5]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": "5"
+    }, {
+      "id": "0cb0302d-5a53-4b21-9ec2-ada798acfa96",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a39a21f-97d3-425b-9cf0-267a2b033660",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6f7d2bc-17bc-4711-95de-fe8ae5c68294",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Âge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac91dbc5-ab12-4006-8402-536a7d1426b4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Sexe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f53523f-9c89-48cc-ac4c-df090501bfd9",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .ui > label",
+      "targets": [
+        ["css=div:nth-child(3) > .ui > label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[3]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Métier (ou occupation)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e322b0ee-683e-4df5-9298-3e1e8b3150fe",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[12]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[12]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c99f28f-00cf-47d0-982c-c1feba1b832e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Questionnaires UX",
+      "targets": [
+        ["linkText=Questionnaires UX", "linkText"],
+        ["css=.section:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Questionnaires UX')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/projects')])[3]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Questionnaires UX')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c15ee0fb-309a-4dab-beee-d6322342e8d5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nouvelle évaluation",
+      "targets": [
+        ["linkText=Nouvelle évaluation", "linkText"],
+        ["css=.floated", "css:finder"],
+        ["xpath=//a[contains(text(),'Nouvelle évaluation')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/new')]", "xpath:href"],
+        ["xpath=//nav/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nouvelle évaluation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "45a8b027-bca0-4d77-8dbd-c3571b62da0d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) .text",
+      "targets": [
+        ["css=.row:nth-child(1) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d5093e5-4cb2-498a-b677-a70e1927579b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.transition > .item:nth-child(2)",
+      "targets": [
+        ["css=.transition > .item:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "481de29d-4e6c-45be-8007-d16190f1a161",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_id",
+      "targets": [],
+      "value": "label=AttrakDiff (abrégé)"
+    }, {
+      "id": "35457671-a8f2-49f1-8c02-5e3d62c719c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) .text",
+      "targets": [
+        ["css=.row:nth-child(2) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[2]/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "141d4a7f-7eaf-4b06-8842-a43319ce2781",
+      "comment": "",
+      "command": "click",
+      "target": "css=.visible > .item:nth-child(2)",
+      "targets": [
+        ["css=.visible > .item:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[2]/div[2]/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c39c3b4-5717-47e5-ab3e-9d439f0c5ebe",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_language",
+      "targets": [],
+      "value": "label=Anglais"
+    }, {
+      "id": "9efa926b-b75b-442c-9667-99e925ae9baf",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd4bf706-2f40-46f0-9eef-7d623af644b5",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac769a2e-f27a-4a1a-8a24-64ca3f3dedb7",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "ATT_LIGHT_EN"
+    }, {
+      "id": "f9c17ef7-a58e-4c8d-8499-679fac86309b",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_project_code",
+      "targets": [
+        ["id=project_project_code", "id"],
+        ["name=project[project_code]", "name"],
+        ["css=#project_project_code", "css:finder"],
+        ["xpath=//input[@id='project_project_code']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[5]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "03ed5a52-6d41-417c-aac7-9ef6f49422cd",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_project_code",
+      "targets": [
+        ["id=project_project_code", "id"],
+        ["name=project[project_code]", "name"],
+        ["css=#project_project_code", "css:finder"],
+        ["xpath=//input[@id='project_project_code']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[5]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": "6"
+    }, {
+      "id": "2e36d6c4-80b2-4484-846e-e914de89a9d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "074e4ade-55fb-4062-aa1c-4c5093892b26",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "778920f4-e9e3-4231-8e62-382f67ecc9c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Âge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cab9f38e-17e7-40cb-a0e9-5eec6ce74077",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Sexe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c71da102-7bdf-4541-a9c8-56ea2fb18282",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .ui > label",
+      "targets": [
+        ["css=div:nth-child(3) > .ui > label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[3]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Métier (ou occupation)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4cc75e0b-bfd6-4edf-95e1-945f36bf52b7",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[12]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[12]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d39ca736-f3ee-495f-955a-caf37846ac76",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Questionnaires UX",
+      "targets": [
+        ["linkText=Questionnaires UX", "linkText"],
+        ["css=.section:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Questionnaires UX')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/projects')])[3]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Questionnaires UX')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b75a8ad-0015-4eb5-83e7-cc098cb12a2b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nouvelle évaluation",
+      "targets": [
+        ["linkText=Nouvelle évaluation", "linkText"],
+        ["css=.floated", "css:finder"],
+        ["xpath=//a[contains(text(),'Nouvelle évaluation')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/new')]", "xpath:href"],
+        ["xpath=//nav/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nouvelle évaluation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbceacb1-9cc8-4703-9484-fc275a8776aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) .text",
+      "targets": [
+        ["css=.row:nth-child(1) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c37d7f5-54af-417f-af4c-06b15239e654",
+      "comment": "",
+      "command": "click",
+      "target": "css=.transition > .item:nth-child(3)",
+      "targets": [
+        ["css=.transition > .item:nth-child(3)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff59988a-52f2-4259-886b-f402f2b1d95b",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_id",
+      "targets": [],
+      "value": "label=System Usability Scale"
+    }, {
+      "id": "3eed92b3-a935-4d13-8336-3336702400d9",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e0e7276-a310-47ae-8558-38b8e65386b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) .text",
+      "targets": [
+        ["css=.row:nth-child(2) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[2]/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6762e8c-ab60-4dfe-8c32-7dfab8d68394",
+      "comment": "",
+      "command": "click",
+      "target": "css=.visible > .item:nth-child(2)",
+      "targets": [
+        ["css=.visible > .item:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[2]/div[2]/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9ac0750-6502-452f-b637-a53f3581f294",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_language",
+      "targets": [],
+      "value": "label=Anglais"
+    }, {
+      "id": "f59021ef-31ec-479c-a826-18f711676149",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14927917-316c-4f54-90f7-94383ed8ac28",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "SUS_EN"
+    }, {
+      "id": "26b92472-c809-4a29-be36-1af861e1049f",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_project_code",
+      "targets": [
+        ["id=project_project_code", "id"],
+        ["name=project[project_code]", "name"],
+        ["css=#project_project_code", "css:finder"],
+        ["xpath=//input[@id='project_project_code']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[5]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": "7"
+    }, {
+      "id": "c5722603-ae0f-48df-b8eb-b43044182adc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fe44841-9e18-4510-9550-d27d302259a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "59250445-2fd9-48ed-b8d0-e570f50c0a5b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Âge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cfec88d7-9d40-4038-9e03-48f766c3308d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Sexe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5778171f-3928-4e66-b2f8-0b08d9d14ba6",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .ui > label",
+      "targets": [
+        ["css=div:nth-child(3) > .ui > label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[3]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Métier (ou occupation)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "78fea646-6554-4fb2-a2ad-d748b99fb3ab",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[12]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[12]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "31d63235-e96d-4c86-bd67-80f3cbaa422f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Questionnaires UX",
+      "targets": [
+        ["linkText=Questionnaires UX", "linkText"],
+        ["css=.section:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Questionnaires UX')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/projects')])[3]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Questionnaires UX')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "786c5950-e742-4d52-9bc6-1228d6b8262a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Nouvelle évaluation",
+      "targets": [
+        ["linkText=Nouvelle évaluation", "linkText"],
+        ["css=.floated", "css:finder"],
+        ["xpath=//a[contains(text(),'Nouvelle évaluation')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/new')]", "xpath:href"],
+        ["xpath=//nav/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Nouvelle évaluation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb82d445-35ae-4038-b081-cdc952ded0a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) .text",
+      "targets": [
+        ["css=.row:nth-child(1) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2730bb4c-c0bf-4db4-9c24-a7340d8c417b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.transition > .item:nth-child(4)",
+      "targets": [
+        ["css=.transition > .item:nth-child(4)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div/div[2]/div/div[2]/div[4]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8a0f57b-a96a-47d9-8698-49c55f3ec372",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_id",
+      "targets": [],
+      "value": "label=DEEP"
+    }, {
+      "id": "0317e70b-93d5-4ace-92da-4e082521191e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) .text",
+      "targets": [
+        ["css=.row:nth-child(2) .text", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[2]/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "106bbaa9-9b32-4ec6-90ae-2008ce468dc0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.visible > .item:nth-child(2)",
+      "targets": [
+        ["css=.visible > .item:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[2]/div[2]/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e58a8ed-9ae5-431d-a56c-4dc0af5d94c2",
+      "comment": "",
+      "command": "select",
+      "target": "id=project_questionnaire_language",
+      "targets": [],
+      "value": "label=Anglais"
+    }, {
+      "id": "7b236fcb-49c6-4986-a272-040b7d6012da",
+      "comment": "",
+      "command": "click",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1335fcf9-2009-4296-b7f8-5bc059242556",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_product_name",
+      "targets": [
+        ["id=project_product_name", "id"],
+        ["name=project[product_name]", "name"],
+        ["css=#project_product_name", "css:finder"],
+        ["xpath=//input[@id='project_product_name']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "DEEP_EN"
+    }, {
+      "id": "0f2e0ed5-45fb-431c-b207-3173eb60f6f9",
+      "comment": "",
+      "command": "type",
+      "target": "id=project_project_code",
+      "targets": [
+        ["id=project_project_code", "id"],
+        ["name=project[project_code]", "name"],
+        ["css=#project_project_code", "css:finder"],
+        ["xpath=//input[@id='project_project_code']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[5]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": "8"
+    }, {
+      "id": "4e2eef28-7ad7-4822-af95-f1752845cb69",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "097ef0fc-0f96-49ef-aae2-d5db5398dcbb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(7) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(7) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[7]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5d28836-721a-4daa-a00d-76c4647bdeaf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(1) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(1) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Âge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a5e7e3a-763d-4271-8524-b44af6d9ee76",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(8) > .eleven > div:nth-child(2) label",
+      "targets": [
+        ["css=.row:nth-child(8) > .eleven > div:nth-child(2) label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[2]/div/label", "xpath:idRelative"],
+        ["xpath=//div[8]/div[2]/div[2]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Sexe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "643ad579-fca8-4008-82c7-b975471d53da",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .ui > label",
+      "targets": [
+        ["css=div:nth-child(3) > .ui > label", "css:finder"],
+        ["xpath=//form[@id='new_project']/div/div[8]/div[2]/div[3]/div/label", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Métier (ou occupation)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a98e86c-40b4-4383-98da-a827bbacc3d0",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submit", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_project']/div/div[12]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[12]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "242b1af5-6eee-4613-b493-78d3c544db5e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Questionnaires UX",
+      "targets": [
+        ["linkText=Questionnaires UX", "linkText"],
+        ["css=.section:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Questionnaires UX')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/projects')])[3]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Questionnaires UX')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "fee0729d-b92a-4f0f-a61f-c2f59041164f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["99d133c2-30e0-45b7-a65a-ac79cb289687"]
+  }],
+  "urls": ["http://127.0.0.1:3000/"],
+  "plugins": []
+}

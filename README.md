@@ -56,6 +56,10 @@
   - Contraste des checkboxes + messages d'erreur
 
 @RELEASES
+V1.2.10 :
+- Traductions anglais
+- Corrections CSS
+
 V1.2.9 :
 - Logs plus concis et par de "debug / info" en production
 - Changement charte graphique

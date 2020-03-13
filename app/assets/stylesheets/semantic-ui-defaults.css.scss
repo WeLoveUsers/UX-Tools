@@ -41,15 +41,11 @@ h1, h2, h3, h4, h5,
 .ui.button:hover {
     box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
-
 .ui.button:active,
 .ui.active.button:active {
-    background-color: #babbbc;
-}
-.ui.active.button,
-.ui.active.button:hover,
-.ui.active.button:active {
-    background-color: #c0c1c2;
+  background-color: #4e4e4e;
+  color: #70d4af;
+  border: 2px #4e4e4e solid;
 }
 
 .ui.red.button:hover {
@@ -61,6 +57,19 @@ h1, h2, h3, h4, h5,
 
 .ui.inverted.button {
     color: #ffffff;
+}
+.response .ui.inverted.button {
+  color: #636363;
+}
+.response .ui.inverted.button:hover {
+  color: #4e4e4e;
+}
+.ui.modal .actions > .ui.inverted.button {
+  background: #ffffff;
+  color: #636363;
+}
+.ui.modal .actions > .ui.inverted.button:hover {
+  color: #4e4e4e;
 }
 
 .ui.breadcrumb a.ui.button.primary,

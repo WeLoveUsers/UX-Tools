@@ -9,7 +9,7 @@ class ResponseAttrakDiffsController < ApplicationController
     respond_to do |format|
       if @response_attrak_diff.save
         save_project_response_tracking(@response_attrak_diff.project)
-        format.html { redirect_to project_public_response_saved_path }
+        format.html { redirect_to project_public_response_saved_path(locale: @response_attrak_diff.project.questionnaire_language_code) }
       else
         format.html { redirect_to project_public_respond_path(uri_token: @response_attrak_diff.project.uri_token, step: 1), alert: 'Des erreurs ont été détectées.' }
       end

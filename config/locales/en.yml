@@ -24,6 +24,9 @@ en:
     respond:
       closed: "Closed!"
       closed_details: "This evaluation is now closed."
+    response_saved:
+      thanks: "Thank you!"
+      thanks_details: "Your answer has been submitted."
     questionnaires:
       introduction:
         title: "Please read the following instructions carefully"
@@ -33,19 +36,37 @@ en:
         likert_disagree: "Strongly Disagree"
         likert_agree: "Strongly Agree"
         submit: "Submit"
+        step: "Step"
+        next: "Next"
       attrakdiff_step1:
         title: "Evaluate"
         submit: "Submit"
+        step: "Step"
+        next: "Next"
       attrakdiff_abrege_step1:
         title: "Evaluate"
         submit: "Submit"
+        step: "Step"
+        next: "Next"
       deep_step1:
         title: "Evaluate"
         likert_disagree: "Strongly Disagree"
         likert_agree: "Strongly Agree"
         likert_not_applicable: "Not applicable"
         submit: "Submit"
+        step: "Step"
+        next: "Next"
       user_ideas:
         submit: "Submit"
+        next: "Next"
+        previous: "Previous"
+        user_summary: 'Overall, what do you think of "%{product_name}"?'
+        user_ideas: "Do you have any recommendations you would like to share?"
       user_qualification:
         submit: "Submit"
+        user_age: "Age"
+        user_years: "years"
+        user_gender: "Gender"
+        user_female: "Female"
+        user_male: "Male"
+        user_occupation: "Job title"

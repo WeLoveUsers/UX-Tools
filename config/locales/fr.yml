@@ -40,6 +40,9 @@ fr:
       closed_details: "Cette évaluation est à présent terminée."
       responded: "Déjà répondu !"
       responded_details: "Il semble que vous ayez déjà répondu à cette évaluation."
+    response_saved:
+      thanks: "Merci !"
+      thanks_details: "Votre réponse a bien été enregistrée."
     questionnaires:
       introduction:
         title: "Veuillez lire attentivement la consigne"
@@ -49,19 +52,38 @@ fr:
         likert_disagree: "Pas du tout d'accord"
         likert_agree: "Tout à fait d'accord"
         submit: "Envoyer"
+        step: "Étape"
+        next: "Suivant"
       attrakdiff_step1:
         title: "Evaluez"
         submit: "Envoyer"
+        step: "Étape"
+        next: "Suivant"
       attrakdiff_abrege_step1:
         title: "Evaluez"
         submit: "Envoyer"
+        step: "Étape"
+        next: "Suivant"
       deep_step1:
         title: "Evaluez"
         likert_disagree: "Pas du tout d'accord"
         likert_agree: "Tout à fait d'accord"
         likert_not_applicable: "Non applicable"
         submit: "Envoyer"
+        step: "Étape"
+        next: "Suivant"
       user_ideas:
         submit: "Envoyer"
+        next: "Suivant"
+        previous: "Précédent"
+        user_summary: 'De manière générale, que pensez-vous de "%{product_name}" ?'
+        user_ideas: "Avez-vous des idées à suggérer ?"
       user_qualification:
         submit: "Envoyer"
+        previous: "Précédent"
+        user_age: "Âge"
+        user_years: "ans"
+        user_gender: "Sexe"
+        user_female: "Femme"
+        user_male: "Homme"
+        user_occupation: "Métier (ou occupation)"

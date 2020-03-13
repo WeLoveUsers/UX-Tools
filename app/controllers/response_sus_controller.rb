@@ -9,7 +9,7 @@ class ResponseSusController < ApplicationController
     respond_to do |format|
       if @response_su.save
         save_project_response_tracking(@response_su.project)
-        format.html { redirect_to project_public_response_saved_path }
+        format.html { redirect_to project_public_response_saved_path(locale: @response_su.project.questionnaire_language_code) }
       else
         format.html { redirect_to project_public_respond_path(uri_token: @response_su.project.uri_token, step: 1), alert: 'Des erreurs ont été détectées.' }
       end

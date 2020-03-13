@@ -8,7 +8,7 @@
         <div class="four wide computer only column"></div>
         <div class="eight wide computer column sixteen wide column">
           <div class="field">
-            <label>De manière générale, que pensez-vous de "<%= @project.product_name %>" ?</label>
+            <label><%= t('.user_summary', product_name: @project.product_name) %></label>
             <%= f.text_area :summary %>
           </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="four wide computer only column"></div>
         <div class="eight wide computer column sixteen wide column">
           <div class="field">
-            <label>Avez-vous des idées à suggérer ?</label>
+            <label><%= t('.user_ideas') %></label>
             <%= f.text_area :ideas %>
           </div>
         </div>
@@ -31,9 +31,9 @@
   </div>
 
   <div class="ui right aligned container">
-    <div class="ui inverted button to-main-form">Précédent</div>
+    <div class="ui inverted button to-main-form"><%= t('.previous') %></div>
     <% if @project.ask_respondent_qualification %>
-    <div class="ui large button to-respondent-qualification">Suivant</div>
+    <div class="ui large button to-respondent-qualification"><%= t('.next') %></div>
     <% else %>
     <%= f.submit t(".submit"), :class => "ui large submit button" %>
     <% end %>

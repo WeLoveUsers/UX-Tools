@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'sample_sizes/usability_problems'
   get 'timer/index'
 
-  get 'r/success', to: 'projects#response_saved', as: 'project_public_response_saved'
+  get 'r/success/:locale', to: 'projects#response_saved', as: 'project_public_response_saved'
   get 'r/:uri_token', to: 'projects#respond', as: 'project_public_respond'
 
   root 'welcome#index'

@@ -2,7 +2,7 @@
 
   <div class="ui segment">
     <% if @project.ask_open_ended_questions || @project.ask_respondent_qualification %>
-        <div class="ui top right attached small step-counter label">Étape <span class="current-step"></span>/<span class="total-steps"></span></div>
+        <div class="ui top right attached small step-counter label"><%= t('.step') %> <span class="current-step"></span>/<span class="total-steps"></span></div>
     <% end %>
     <h2 class="form-title"><%= t('.title') + ' "' + @project.product_name + '"' %></h2>
     <%= form_for(response, :html => {:class => "ui form attrakdiff", :data => { :formtype => "response_attrak_diff" }}) do |f| %>
@@ -404,9 +404,9 @@
 
       <div class="ui right aligned container">
         <% if @project.ask_open_ended_questions %>
-        <div class="ui large button to-open-ended-questions">Suivant</div>
+        <div class="ui large button to-open-ended-questions"><%= t('.next') %></div>
         <% elsif @project.ask_respondent_qualification %>
-        <div class="ui large button to-respondent-qualification">Suivant</div>
+        <div class="ui large button to-respondent-qualification"><%= t('.next') %></div>
         <% else %>
         <%= f.submit t(".submit"), :class => "ui large submit button" %>
         <% end %>

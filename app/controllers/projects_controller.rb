@@ -147,9 +147,11 @@ class ProjectsController < ApplicationController
     render layout: "public_response"
   end
 
-  # GET /r/success
-  # GET /r/success.json
+  # GET /r/success/fr
+  # GET /r/success.json/fr
   def response_saved
+    @locale = params[:locale]
+    @locale = I18n.default_locale unless I18n.locale_available? @locale
     render layout: "public_response"
   end
 
