@@ -35,27 +35,27 @@
   - SUS "positif"
   - WAMMI
   - UEQ
-  - UMUX
   - KANO
-  - TAM
+  - UTAUT > TAM
   - AttrakDiff paginé
 
 - Routes ou pages pour erreurs 404 et 500
 
 - Ajouter des questions sur le participant :
-  - Traduction manquante sur les boutons d'action
-  - Traduction ?
   - Finaliser : groupe d'utilisateurs, fréquence d'utilisation, première utilisation
-  - Permettre d'anoter des réponses en BO ?
+  - Permettre d'annoter des réponses en BO ?
   - Afficher le métier (++) dans le tableau plutôt que uniquement dans l'Excel
   - Faire un export uniquement des commentaires / idées
   - Réponse > Etape 3 > Afficher les messages d'erreur suite au contrôle JS
   - Permettre de charger 50 réponses passées en plus ou paginer, etc. Le problème étant de pouvoir supprimer une donnée...
-  - Faire un export uniquement des commentaires / idées
   - Auto-suppression comptes
   - Contraste des checkboxes + messages d'erreur
 
 @RELEASES
+V1.2.11 :
+- Ajout des validateurs pour gender, age, group
+- Ajout de UMUX et UMUX-Lite
+
 V1.2.10 :
 - Traductions anglais
 - Corrections CSS

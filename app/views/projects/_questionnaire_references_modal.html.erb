@@ -22,6 +22,18 @@
       <li><%= s.html_safe %></li>
       <% end %>
     </ul>
+    <p><strong><%= ResponseUmux::Infos[:display_name] %></strong> (<%= ResponseUmux::Infos[:display_name_short] %>)</p>
+    <ul class="ui list">
+      <% ResponseUmux::Infos[:bibliography].each do |s| %>
+      <li><%= s.html_safe %></li>
+      <% end %>
+    </ul>
+    <p><strong><%= ResponseUmuxLite::Infos[:display_name] %></strong> (<%= ResponseUmuxLite::Infos[:display_name_short] %>)</p>
+    <ul class="ui list">
+      <% ResponseUmuxLite::Infos[:bibliography].each do |s| %>
+      <li><%= s.html_safe %></li>
+      <% end %>
+    </ul>
   </div>
   <div class="actions">
     <div class="ui cancel button">Fermer</div>

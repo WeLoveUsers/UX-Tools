@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Q1: 1
+  Q3: 1
+  respondent_id: MyString
+  project: one
+  deleted_at: 2020-06-02 14:33:28
+
+two:
+  Q1: 1
+  Q3: 1
+  respondent_id: MyString
+  project: two
+  deleted_at: 2020-06-02 14:33:28

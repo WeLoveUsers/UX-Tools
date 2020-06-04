@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Q1: 1
+  Q2: 
+  Q3: 1
+  Q4: 1
+  respondent_id: MyString
+  project: one
+
+two:
+  Q1: 1
+  Q2: 
+  Q3: 1
+  Q4: 1
+  respondent_id: MyString
+  project: two

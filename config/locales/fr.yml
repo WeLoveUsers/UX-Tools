@@ -72,6 +72,20 @@ fr:
         submit: "Envoyer"
         step: "Étape"
         next: "Suivant"
+      umux_step1:
+        title: "Evaluez"
+        likert_disagree: "Pas du tout d'accord"
+        likert_agree: "Tout à fait d'accord"
+        submit: "Envoyer"
+        step: "Étape"
+        next: "Suivant"
+      umux_lite_step1:
+        title: "Evaluez"
+        likert_disagree: "Pas du tout d'accord"
+        likert_agree: "Tout à fait d'accord"
+        submit: "Envoyer"
+        step: "Étape"
+        next: "Suivant"
       user_ideas:
         submit: "Envoyer"
         next: "Suivant"

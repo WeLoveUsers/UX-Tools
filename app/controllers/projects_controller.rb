@@ -142,6 +142,22 @@ class ProjectsController < ApplicationController
           @response = ResponseDeep.new
         else
         end
+      when "umux"
+        case params[:step]
+        when "1"
+          @showForm = true
+          @form = @project.questionnaire_template + "_" + "step" + params[:step]
+          @response = ResponseUmux.new
+        else
+        end
+      when "umux_lite"
+        case params[:step]
+        when "1"
+          @showForm = true
+          @form = @project.questionnaire_template + "_" + "step" + params[:step]
+          @response = ResponseUmuxLite.new
+        else
+        end
       end
     end
     render layout: "public_response"

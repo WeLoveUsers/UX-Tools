@@ -256,6 +256,57 @@ module Stats
     end
   end
 
+  module UMUX
+    #
+    # Calcule le score UMUX pour un ensemble de réponses
+    #
+    def self.score(responses, lite = false)
+      responses = Helper::make_enumerable(responses)
+      score = {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]}
+      count = 0
+      values = []
+      responses.each do |response|
+        count += 1
+        if !lite
+          values.push(100 * (response.Q1 + response.Q2 + response.Q3 + response.Q4)/24)
+        else
+          values.push(100 * (response.Q1 + response.Q3)/12)
+        end
+      end
+
+      if count > 0
+        score = Helper::compute_stats_summary_for_data(values, count)
+      end
+      return score
+    end
+
+    #
+    # Calcule le score UMUX Usability (Q3) et Usefullness (Q1) pour un ensemble de réponses
+    # UMUX Lite seulement
+    #
+    def self.lite_scores(responses)
+      responses = Helper::make_enumerable(responses)
+      values = {Usability: [], Usefullness: []}
+      score = {
+        Usability: {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]},
+        Usefullness: {mean: 0.00, sd: 0.00, ci_90: [0.00, 0.00], ci_95: [0.00, 0.00], ci_99: [0.00, 0.00]}
+      }
+      count = 0
+      responses.each do |response|
+        count += 1
+        values[:Usability].push(100/6 * response.Q3)
+        values[:Usefullness].push(100/6 * response.Q1)
+      end
+
+      if count > 0
+        score[:Usability] = Helper::compute_stats_summary_for_data(values[:Usability], count)
+        score[:Usefullness] = Helper::compute_stats_summary_for_data(values[:Usefullness], count)
+      end
+      return score
+    end
+
+  end
+
   module Helper
     #
     # Calcule : moyenne, écart-type et intervalles de confiances (90%, 95%, 99%) pour un ensemble de données

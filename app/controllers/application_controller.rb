@@ -50,6 +50,11 @@ class ApplicationController < ActionController::Base
           @sus_grade = @project.sus_grade
         when "deep"
           @deep_scores = @project.deep_scores
+        when "umux"
+          @umux_score = @project.umux_score
+        when "umux_lite"
+          @umux_score = @project.umux_score
+          @umux_lite_scores = @project.umux_lite_scores
       end
     end
 

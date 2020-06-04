@@ -183,6 +183,26 @@ $(document).on('turbolinks:load', function() {
     })
   ;
 
+  $('.ui.form.umux')
+    .form({
+      fields: {
+        'response_umux[Q1]' : 'checked',
+        'response_umux[Q2]' : 'checked',
+        'response_umux[Q3]' : 'checked',
+        'response_umux[Q4]' : 'checked'
+      }
+    })
+  ;
+
+  $('.ui.form.umuxlite')
+    .form({
+      fields: {
+        'response_umux_lite[Q1]' : 'checked',
+        'response_umux_lite[Q3]' : 'checked'
+      }
+    })
+  ;
+
   // Show rich text editor (modal) and define actions
   var instructions_modal = $('#instructions_editor_modal').modal();
 

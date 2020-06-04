@@ -32,6 +32,16 @@
           <td><%= ResponseDeep::Infos[:description].html_safe %></td>
           <td class="center aligned"><%= ResponseDeep::Infos[:number_of_questions] %></td>
         </tr>
+        <tr>
+          <td><%= ResponseUmux::Infos[:display_name] %> (<%= ResponseUmux::Infos[:display_name_short] %>)</td>
+          <td><%= ResponseUmux::Infos[:description].html_safe %></td>
+          <td class="center aligned"><%= ResponseUmux::Infos[:number_of_questions] %></td>
+        </tr>
+        <tr>
+          <td><%= ResponseUmuxLite::Infos[:display_name] %> (<%= ResponseUmuxLite::Infos[:display_name_short] %>)</td>
+          <td><%= ResponseUmuxLite::Infos[:description].html_safe %></td>
+          <td class="center aligned"><%= ResponseUmuxLite::Infos[:number_of_questions] %></td>
+        </tr>
       </tbody>
     </table>
   </div>

@@ -4,6 +4,9 @@ class ResponseSu < ApplicationRecord
   belongs_to :project
 
   validates_numericality_of :Q1, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7, :Q8, :Q9, :Q10, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 4
+  validates_numericality_of :gender, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 2
+  validates_numericality_of :age, :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 99
+  validates_numericality_of :usage_frequency_per_month, :group, :only_integer => true, :greater_than_or_equal_to => 0
   attr_accessor :product_type
 
   Infos = {
@@ -12,7 +15,7 @@ class ResponseSu < ApplicationRecord
     :display_name_short => "SUS",
     :available_languages => ['fr', 'en'],
     :number_of_questions => 10,
-    :description => "<p>Mesure de <strong>l’utilisabilité</strong> d'un <strong>système</strong>.</p><p>Le questionnaire peut également fournir une mesure de l'apprentissage (<em>learnability</em>).<p>",
+    :description => "<p>Mesure de <strong>l’utilisabilité</strong> d'un <strong>système</strong>.</p><p>Le questionnaire peut également fournir une mesure de l'apprentissage (<em>learnability</em>).</p>",
     :bibliography => ['Bangor, A., Kortum, P., & Miller, J. (2009). <a href="http://dl.acm.org/citation.cfm?id=2835589" target="_blank">Determining what individual SUS scores mean: Adding an adjective rating scale. <em>Journal of usability studies, 4</em></a>(3), 114-123.',
                       'Brooke, J. (1996). <a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.232.5526" traget="_blank">SUS: A "quick and dirty" usability scale.</a> In P. W. Jordan, B. Thomas, B. A. Weerdmeester, & A. L. McClelland (Eds.), Usability Evaluation in Industry. London: Taylor and Francis.',
                       "Lallemand, C., & Gronier, G. (2015). <a href='http://www.eyrolles.com/Informatique/Livre/methodes-de-design-ux-9782212141436' target='_blank'><em>Méthodes de design UX: 30 méthodes fondamentales pour concevoir et évaluer les systèmes interactifs.</em></a> Editions Eyrolles.",

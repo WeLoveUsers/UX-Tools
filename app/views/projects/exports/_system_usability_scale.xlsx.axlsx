@@ -29,7 +29,8 @@
   sheet.add_row ResponseSu::Export_entete, :style => @black_cell
   i = 1
   @project.responses.order("created_at asc").each do |response|
-    score = 2.5 * (response.Q1 + response.Q2 + response.Q3 + response.Q4 + response.Q5 + response.Q6 + response.Q7 + response.Q8 + response.Q9 + response.Q10)
+    score = Stats::SUS::score(response)[:mean]
+
     #vector = [response.Q1, response.Q2, response.Q3, response.Q4, response.Q5, response.Q6, response.Q7, response.Q8, response.Q9, response.Q10].to_vector(:scale)
     #ds = {'notes' => vector}.to_dataset
     cronbach = ''

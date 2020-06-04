@@ -7,13 +7,15 @@ class Project < ApplicationRecord
   has_many :response_attrak_diff_abridgeds, dependent: :destroy
   has_many :response_sus, dependent: :destroy
   has_many :response_deeps, dependent: :destroy
+  has_many :response_umuxes, dependent: :destroy
+  has_many :response_umux_lites, dependent: :destroy
 
   validates_presence_of :questionnaire_id, :questionnaire_language, :product_type, :product_name, :project_code
 
   before_create :add_token, :generate_instructions
 
   def self.questionnaireTypes
-    [ResponseAttrakDiff::Infos[:display_name], ResponseAttrakDiffAbridged::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
+    [ResponseAttrakDiff::Infos[:display_name], ResponseAttrakDiffAbridged::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short], ResponseUmux::Infos[:display_name_short], ResponseUmuxLite::Infos[:display_name_short]]
     #[ResponseAttrakDiff::Infos[:display_name], ResponseSu::Infos[:display_name], ResponseDeep::Infos[:display_name_short]]
   end
 
@@ -75,6 +77,10 @@ class Project < ApplicationRecord
       return self.response_sus
     elsif self.questionnaire_id_clean == "deep"
       return self.response_deeps
+    elsif self.questionnaire_id_clean == "umux"
+      return self.response_umuxes
+    elsif self.questionnaire_id_clean == "umux_lite"
+      return self.response_umux_lites
     else
       return nil
     end
@@ -165,6 +171,23 @@ class Project < ApplicationRecord
     return Stats::Deep::average_scores(self.responses)
   end
 
+  # UMUX
+  def umux_product_type
+    return sus_product_type
+  end
+
+  def umux_score
+    lite = false
+    if self.questionnaire_id_clean == "umux_lite"
+      lite = true
+    end
+    return Stats::UMUX::score(self.responses, lite)
+  end
+
+  def umux_lite_scores
+    return Stats::UMUX::lite_scores(self.responses)
+  end
+
   def generate_instructions
     instructions = ""
     product_name = self.product_name
@@ -176,6 +199,10 @@ class Project < ApplicationRecord
       instructions = ResponseSu::generate_instructions(self)
     elsif self.questionnaire_id_clean == "deep"
       instructions = ResponseDeep::generate_instructions(self)
+    elsif self.questionnaire_id_clean == "umux"
+      instructions = ResponseUmux::generate_instructions(self)
+    elsif self.questionnaire_id_clean == "umux_lite"
+      instructions = ResponseUmuxLite::generate_instructions(self)
     end
     self.instructions = instructions
   end

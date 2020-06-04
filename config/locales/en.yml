@@ -56,6 +56,20 @@ en:
         submit: "Submit"
         step: "Step"
         next: "Next"
+      umux_step1:
+        title: "Evaluate"
+        likert_disagree: "Strongly Disagree"
+        likert_agree: "Strongly Agree"
+        submit: "Submit"
+        step: "Step"
+        next: "Next"
+      umux_lite_step1:
+        title: "Evaluate"
+        likert_disagree: "Strongly Disagree"
+        likert_agree: "Strongly Agree"
+        submit: "Submit"
+        step: "Step"
+        next: "Next"
       user_ideas:
         submit: "Submit"
         next: "Next"

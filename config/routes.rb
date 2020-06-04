@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :response_umux_lites
+  resources :response_umuxes
   resources :app_notifications
   resources :response_sus
   resources :response_attrak_diffs
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
   get 'response_attrak_diffs/recover/:id', to: 'response_attrak_diffs#recover', as: 'recover_response_attrak_diffs'
   get 'response_attrak_diff_abridgeds/recover/:id', to: 'response_attrak_diff_abridgeds#recover', as: 'recover_response_attrak_diff_abridgeds'
   get 'response_deeps/recover/:id', to: 'response_deeps#recover', as: 'recover_response_deeps'
+  get 'response_umuxes/recover/:id', to: 'response_umuxes#recover', as: 'recover_response_umuxes'
+  get 'response_umux_lites/recover/:id', to: 'response_umux_lites#recover', as: 'recover_response_umux_lites'
 
   get 'app_notifications/mark_as_read/:id', to: 'app_notifications#mark_as_read', as: 'mark_notification_as_read'
 

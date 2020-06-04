@@ -22,13 +22,22 @@ class AdminController < ApplicationController
     @projects[:new] = Project.order(created_at: :desc).limit(5)
     @projects[:top_active] = {}
     ResponseAttrakDiff.group(:project).count.each do |project, count|
-      @projects[:top_active][project] = count if !project.is_closed
+      @projects[:top_active][project] = count if !project.is_closed && project.responses.last.created_at > DateTime.now - 1.month
+    end
+    ResponseAttrakDiffAbridged.group(:project).count.each do |project, count|
+      @projects[:top_active][project] = count if !project.is_closed && project.responses.last.created_at > DateTime.now - 1.month
     end
     ResponseSu.group(:project).count.each do |project, count|
-      @projects[:top_active][project] = count if !project.is_closed
+      @projects[:top_active][project] = count if !project.is_closed && project.responses.last.created_at > DateTime.now - 1.month
     end
     ResponseDeep.group(:project).count.each do |project, count|
-      @projects[:top_active][project] = count if !project.is_closed
+      @projects[:top_active][project] = count if !project.is_closed && project.responses.last.created_at > DateTime.now - 1.month
+    end
+    ResponseUmuxLite.group(:project).count.each do |project, count|
+      @projects[:top_active][project] = count if !project.is_closed && project.responses.last.created_at > DateTime.now - 1.month
+    end
+    ResponseUmux.group(:project).count.each do |project, count|
+      @projects[:top_active][project] = count if !project.is_closed && project.responses.last.created_at > DateTime.now - 1.month
     end
     @projects[:top_active] = @projects[:top_active].to_a.sort_by{ |k, v| v }.reverse.take(5)
   end
