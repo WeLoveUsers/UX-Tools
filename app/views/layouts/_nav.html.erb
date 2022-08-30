@@ -15,8 +15,6 @@
       </div>
       <% if Devise.mappings[:user].registerable? %>
         <%= link_to "Inscription", new_user_registration_path, :class => 'item' %>
-      <% else %>
-        <a class="item" href="mailto:f.jaouali@weloveusers.com?subject=Tester la beta de We Love Tools">Demander à tester la beta</a>
       <% end %>
     </div>
     <% end %>
