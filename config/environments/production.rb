@@ -63,8 +63,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "tools.weloveusers.com" }
 
   config.action_mailer.smtp_settings = {
-    :user_name => 'app58630359@heroku.com',
-    :password => '9ozrql4q0985',
+    :user_name => 'a saisir',
+    :password => 'a saisir',
     :domain => 'tools.weloveusers.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
