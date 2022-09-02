@@ -1,18 +1,10 @@
 # README
 
 @TODO :
-- HTTPS
-
 - Timer :
   - Permettre la desactivation du son
   - Alléger le code JS timer pour supprimer les ms (performance)
   - Bugs sous Firefox (popup & fullscreen) / Safari
-
-- Crédits, remerciements, droits
-  - CGU : QUID des questionnaires ? et crédit ?
-  - Ajouter des descriptions des questionnaires ?
-  - "Précautions à prendre"
-  - (Carine Lallemand) A-t-on le droit de mettre ces questionnaires en ligne ?
 
 - Aide :
   - Contrôler la validité des réponses et exclures ?
