@@ -1,6 +1,4 @@
-#######
 # Exemple pour UMUX
-#######
 
 ## 1. Créer le modèle, la migration et le contrôleur
     rails generate resource ResponseUMUX Q1:integer Q2:integer Q3:integer Q4:integer respondent_id:string ideas:text summary:text age:integer gender:integer occupation:string first_use_on:datetime usage_frequency_per_month:integer group:integer project:references deleted_at:datetime:index
