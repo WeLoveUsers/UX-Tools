@@ -8,7 +8,7 @@ gem 'newrelic_rpm'  # New Relic
 gem 'devise'
 gem 'devise-i18n'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', "~> 5.2"
 gem 'rails-i18n'
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -72,5 +72,7 @@ gem 'acts_as_paranoid'
 gem 'mechanize'
 
 gem "lograge"
+
+gem "mimemagic"
 
 ruby "2.5.3"
